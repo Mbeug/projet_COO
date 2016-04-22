@@ -11,5 +11,10 @@
     <string name="genreM">Men</string>
     <string name="titresearch">I search :</string>
     <string name="labelAge">Old :</string>
-    <string name="titreCal">Calendar</string>
+    <string name="calendrier">Calendar</string>
+    <string name="listeamis">Friend List</string>
+    <string name="souvenir"> Remember me</string>
+    <string name="btnco"> Connection </string>
+    <string name="hintmdp"> Password</string>
+    <string name="hintlogger"> E-mail</string>
 </resources>
