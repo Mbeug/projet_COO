@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">UCLove</string>
-    <string name="hint_mdp">Password</string>
-    <string name="hint_logger">Mail</string>
-    <string name="btn_co">Connection</string>
-    <string name="btn_insc">Register</string>
-    <string name="hint_date">Your birthday</string>
-    <string name="hint_nom">Name</string>
-    <string name="hint_pseudo">Pseudo</string>
+    <string name="appname">UCLove</string>
+    <string name="btninsc">Register</string>
+    <string name="hintdate">Your birthday</string>
+    <string name="hintnom">Name</string>
+    <string name="hintpseudo">Pseudo</string>
     <string name="genreM">Men</string>
-    <string name="titresearch">I search :</string>
+    <string name="titresearch">I'm loocking for :</string>
     <string name="labelAge">Old :</string>
     <string name="calendrier">Calendar</string>
     <string name="listeamis">Friend List</string>

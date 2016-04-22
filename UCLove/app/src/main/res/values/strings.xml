@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">UCLove</string>
-    <string name="hint_date">Votre date d\'anniversaire</string>
-    <string name="hint_nom">Nom</string>
-    <string name="hint_pseudo">Pseudo</string>
+    <string name="appname">UCLove</string>
+    <string name="hintdate">Votre date d\'anniversaire</string>
+    <string name="hintnom">Nom</string>
+    <string name="hintpseudo">Pseudo</string>
 
     <string name="settings">Settings</string>
     <string name="decouverte">Decouverte</string>
