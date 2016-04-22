@@ -6,10 +6,9 @@ import android.os.Bundle;
 /**
  * Created by damien on 22/04/16.
  */
-public class Login_view extends Activity
-{
+public class Friendlists_view extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_vieuw);
+        setContentView(R.layout.friendlist_view);
     }
 }
