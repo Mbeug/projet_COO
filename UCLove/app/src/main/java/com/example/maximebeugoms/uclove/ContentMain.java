@@ -11,5 +11,5 @@ public class ContentMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
 
-        //retour
+    }
 }

@@ -11,5 +11,5 @@ public class FriendList extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friendlist);
 
-        //retour
+    }
 }

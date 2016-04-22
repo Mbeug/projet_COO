@@ -11,6 +11,5 @@ public class Profil extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profil_vieuw);
 
-        //retour
     }
 }

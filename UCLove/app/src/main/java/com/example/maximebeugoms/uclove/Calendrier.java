@@ -11,5 +11,5 @@ public class Calendrier extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
 
-        //retour
+    }
 }

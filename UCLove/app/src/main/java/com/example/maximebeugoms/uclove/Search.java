@@ -12,6 +12,5 @@ public class Search extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
 
-        // retour
     }
 }
