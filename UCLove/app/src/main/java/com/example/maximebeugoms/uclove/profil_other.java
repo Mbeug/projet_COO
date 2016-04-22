@@ -11,5 +11,7 @@ public class profil_other extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profil_other_vieuw);
+
+        // retour
     }
 }
