@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UCLove</string>
+    <string name="hint_mdp">Mot de passe</string>
+    <string name="hint_logger">E-mail</string>
+    <string name="btn_co">Connexion</string>
+    <string name="btn_insc">Inscription</string>
+    <string name="hint_date">Votre date d\'anniversaire</string>
+    <string name="hint_nom">Nom</string>
+    <string name="hint_pseudo">Pseudo</string>
+</resources>

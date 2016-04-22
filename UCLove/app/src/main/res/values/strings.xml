@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">UCLove</string>
+    <string name="hint_mdp">mot de passe</string>
+    <string name="hint_logger">e-mail</string>
+    <string name="btn_co">Connexion</string>
+    <string name="btn_insc">Inscription</string>
+    <string name="hint_date">Votre date d\'anniversaire</string>
+    <string name="hint_nom">Nom</string>
+    <string name="hint_pseudo">Pseudo</string>
+</resources>

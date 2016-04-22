@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/hint_logger"
+        android:ems="10"
+        android:id="@+id/textLogger"
+        android:layout_marginTop="177dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textMdp"
+        android:layout_alignStart="@+id/textMdp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/hint_mdp"
+        android:ems="10"
+        android:id="@+id/textMdp"
+        android:layout_below="@+id/textLogger"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_co"
+        android:id="@+id/btn_co"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/checkBox"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_insc"
+        android:id="@+id/btn_insc"
+        android:layout_alignTop="@+id/btn_co"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/checkBox"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:id="@+id/checkBox"
+        android:checked="true"
+        android:layout_below="@+id/textMdp"
+        android:layout_alignLeft="@+id/textMdp"
+        android:layout_alignStart="@+id/textMdp"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:src="@drawable/logo_uclove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textLogger"
+        android:layout_alignEnd="@+id/textLogger"
+        android:layout_alignBottom="@+id/textLogger"
+        android:layout_alignLeft="@+id/textLogger"
+        android:layout_alignStart="@+id/textLogger"
+        android:layout_marginBottom="30dp"/>
+
+</RelativeLayout>
