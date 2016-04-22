@@ -7,6 +7,7 @@
     <string name="hint_date">Votre date d\'anniversaire</string>
     <string name="hint_nom">Nom</string>
     <string name="hint_pseudo">Pseudo</string>
+<<<<<<< Updated upstream
 
 
     <!-- Menu -->
@@ -22,4 +23,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
+=======
+    <string name="genreM">Homme</string>
+    <string name="genreF">Femme</string>
+    <string name="titresearch">Je recherche :</string>
+    <string name="labelAge">Age :</string>
+    <string name="titreCal">Calendrier</string>
+>>>>>>> Stashed changes
 </resources>

@@ -8,4 +8,8 @@
     <string name="hint_date">Your birthday</string>
     <string name="hint_nom">Name</string>
     <string name="hint_pseudo">Pseudo</string>
+    <string name="genreM">Men</string>
+    <string name="titresearch">I search :</string>
+    <string name="labelAge">Old :</string>
+    <string name="titreCal">Calendar</string>
 </resources>
