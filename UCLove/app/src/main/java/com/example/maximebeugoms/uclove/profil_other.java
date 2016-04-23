@@ -10,11 +10,8 @@ import android.os.Bundle;
 public class profil_other extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-        setContentView(R.layout.profil_other_view);
-=======
-        setContentView(R.layout.profil_other_vieuw);
 
->>>>>>> origin/master
+        setContentView(R.layout.profil_other_view);
+
     }
 }

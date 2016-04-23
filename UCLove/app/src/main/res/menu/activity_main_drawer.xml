@@ -26,6 +26,10 @@
             android:id="@+id/nav_rencontre"
 
             android:title="@string/rencontre" />
+        <item
+            android:id="@+id/nav_settings"
+
+            android:title="@string/settings" />
     </group>
 
 </menu>
