@@ -6,14 +6,10 @@ import android.os.Bundle;
 /**
  * Created by damien on 22/04/16.
  */
-public class Profil extends Activity {
+public class Calendrier extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-        setContentView(R.layout.profil_view);
-=======
-        setContentView(R.layout.profil_vieuw);
+        setContentView(R.layout.calendar);
 
->>>>>>> origin/master
     }
 }
