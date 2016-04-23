@@ -15,10 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-/**
- * Ceci est la classe de base, qui definit le menu deroulant.
- * Toutes les activity doivent etendre cette classe
- */
+
 
 
 import android.media.audiofx.BassBoost;
@@ -36,7 +33,10 @@ import android.os.Bundle;
         import android.view.MenuItem;
 import android.content.Intent;
 
-
+/**
+ * Ceci est la classe de base, qui definit le menu deroulant.
+ * Toutes les activity doivent etendre cette classe
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
