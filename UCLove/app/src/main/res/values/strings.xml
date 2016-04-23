@@ -27,7 +27,7 @@
     <string name="btninsc"> Inscription </string>
     <string name="hintmdp"> Mot de passe </string>
     <string name="hintlogger">Adresse mail </string>
-    <string name="title_activity_drawer">Drawer</string>
+    <string name="title_activity_login">LoginActivity</string>
 
     <string name="action_settings">Settings</string>
 

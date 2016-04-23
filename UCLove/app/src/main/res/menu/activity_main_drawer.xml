@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profil"
+
+            android:title="@string/profil" />
+        <item
+            android:id="@+id/nav_decouverte"
+
+            android:title="@string/decouverte" />
+        <item
+            android:id="@+id/nav_settings_recherche"
+
+            android:title="@string/settings_recherche" />
+        <item
+            android:id="@+id/nav_calendrier"
+
+            android:title="@string/calendrier" />
+        <item
+            android:id="@+id/nav_amis"
+
+            android:title="@string/amis" />
+        <item
+            android:id="@+id/nav_rencontre"
+
+            android:title="@string/rencontre" />
+    </group>
+
+</menu>
