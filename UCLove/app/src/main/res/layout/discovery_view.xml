@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -20,10 +21,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButtonLike"
         android:foregroundGravity="left"
-        android:layout_alignTop="@+id/textView9"
-        android:layout_toStartOf="@+id/imageView3"
-        android:layout_alignRight="@+id/textView10"
-        android:layout_alignEnd="@+id/textView10" />
+        android:layout_alignTop="@+id/imageButtonDislike"
+        android:layout_marginRight="300dp"
+        android:layout_marginLeft="20dp" />
     <ImageButton
         android:src="@drawable/dislike_button"
         android:background="@color/btn_disco"
@@ -35,7 +35,8 @@
         android:layout_below="@+id/textView10"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="200dp"/>
+        android:layout_marginLeft="300dp"
+        android:layout_marginRight="20dp" />
 
     <ImageView
         android:src="@drawable/anonyme_perso"
