@@ -12,4 +12,6 @@
     <string name="titresearch">Je recherche :</string>
     <string name="labelAge">Age :</string>
     <string name="titreCal">Calendrier</string>
+    <string name="decouverte">Découverte</string>
+    <string name="listeamis">Liste d'amis</string>
 </resources>

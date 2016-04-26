@@ -3,21 +3,15 @@
     <string name="hintdate">Votre date d\'anniversaire</string>
     <string name="hintnom">Nom</string>
     <string name="hintpseudo">Pseudo</string>
-
-
-    <string name="settings">Settings</string>
-    <string name="decouverte">Decouverte</string>
+    <string name="decouverte">Découverte</string>
     <string name="settings_recherche">Options de filtre</string>
     <string name="amis">Amis</string>
     <string name="calendrier">Calendrier</string>
     <string name="rencontre">Rencontre</string>
     <string name="profil">Profil</string>
     <string name="title_activity_main">MainActivity</string>
-
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="genreM">Homme</string>
     <string name="genreF">Femme</string>
     <string name="titresearch">Je recherche :</string>
@@ -28,8 +22,8 @@
     <string name="hintmdp"> Mot de passe </string>
     <string name="hintlogger">Adresse mail </string>
     <string name="title_activity_login">LoginActivity</string>
-
     <string name="action_settings">Settings</string>
+    <string name="listeamis">Liste d'amis</string>
 
 
 </resources>
