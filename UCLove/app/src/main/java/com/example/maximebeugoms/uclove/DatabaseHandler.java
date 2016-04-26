@@ -152,11 +152,22 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
     public static final String PROFIL_TABLE_DROP = "DROP TABLE IF EXISTS " + PROFIL_TABLE_NAME + ";";
-    public static final String 
+    public static final String UTILISATEUR_TABLE_DROP = "DROP TABLE IF EXISTS " + UTILISATEUR_TABLE_NAME + ";";
+    public static final String EVENEMENT_TABLE_DROP = "DROP TABLE IF EXISTS " + EVENEMENT_TABLE_NAME +";";
+    public static final String PREFERENCE_TABLE_DROP = "DROP TABLE IF EXISTS" + PREFERENCE_TABLE_NAME+";";
+    public static final String RELATION_TABLE_DROP = "DROP TABLE IF EXISTS" + RELATION_TABLE_NAME+";";
+    public static final String HISTORIQUE_TABLE_DROP = "DROP TABLE IF EXISTS" + HISTORIQUE_TABLE_NAME+";";
+    public static final String MESSAGE_TABLE_DROP = "DROP TABLE If EXISTS" + MESSAGE_TABLE_NAME + ";";
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(PROFIL_TABLE_DROP); //requete sql dont on ignore la réponse
+        db.execSQL(UTILISATEUR_TABLE_DROP);
+        db.execSQL(EVENEMENT_TABLE_DROP);
+        db.execSQL(PREFERENCE_TABLE_DROP);
+        db.execSQL(RELATION_TABLE_DROP);
+        db.execSQL(HISTORIQUE_TABLE_DROP);
+        db.execSQL(MESSAGE_TABLE_DROP);
         onCreate(db);
     }
 
