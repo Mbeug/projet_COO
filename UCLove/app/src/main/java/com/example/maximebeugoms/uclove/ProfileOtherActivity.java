@@ -6,10 +6,12 @@ import android.os.Bundle;
 /**
  * Created by damien on 22/04/16.
  */
-/*public class FriendList extends Activity {
+
+public class ProfileOtherActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.friendlist);
+
+        setContentView(R.layout.profil_other_view);
 
     }
-}*/
+}

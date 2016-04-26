@@ -22,6 +22,7 @@
     <string name="hintmdp"> Mot de passe </string>
     <string name="hintlogger">Adresse mail </string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_calendar">Calendrier</string>
     <string name="action_settings">Paramètre</string>
     <string name="listeamis">Liste d\'amis</string>
 

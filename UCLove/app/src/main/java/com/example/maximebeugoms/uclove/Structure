@@ -1,5 +1,4 @@
 Pour expliciter d'avantage ce que j'ai fait :
 La classe MainActivity définit le menu coulissant et les options, toutes les autres Activity doivent l'étendre.
 Le contenu des activity doit être géré par un fragment. L'activity n'est là que pour contenir les fragments (voir l'exemple de Login)
-C'est le fragment qui affichera la view (et qui s'occupera des évènements). Dans le fichier XML du layout de l'activity correspondante,
-il suffit alors d'ajouter le fragment.
+C'est le fragment qui affichera la view (et qui s'occupera des évènements).
