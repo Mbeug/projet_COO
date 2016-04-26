@@ -15,4 +15,5 @@
     <string name="hintmdp"> Password</string>
     <string name="hintlogger"> E-mail</string>
     <string name="decouverte">Discovery</string>
+    <string name="action_settings">Settings</string>
 </resources>
