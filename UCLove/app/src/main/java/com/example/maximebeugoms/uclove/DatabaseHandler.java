@@ -152,6 +152,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
     public static final String PROFIL_TABLE_DROP = "DROP TABLE IF EXISTS " + PROFIL_TABLE_NAME + ";";
+    public static final String 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
