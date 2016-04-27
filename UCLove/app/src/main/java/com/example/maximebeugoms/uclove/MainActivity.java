@@ -2,6 +2,7 @@ package com.example.maximebeugoms.uclove;
 
 import android.content.Intent;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * Ceci est la classe de base, qui definit le menu deroulant.
@@ -18,6 +28,11 @@ import android.view.MenuItem;
  */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ArrayAdapter<String> mAdapter;
+    private List<String> options;
+    private ListView mDrawerList;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +51,33 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // creer le tableau d'item du menu glissant
+        options = new ArrayList<String>();
+        Resources res = getResources();
+        options.add(res.getString(R.string.profil));
+        options.add(res.getString(R.string.decouverte));
+        options.add(res.getString(R.string.settings_recherche));
+        options.add(res.getString(R.string.calendrier));
+        options.add(res.getString(R.string.amis));
+        options.add(res.getString(R.string.rencontre));
+        options.add(res.getString(R.string.action_settings));
+
+        // instancer l'adapter
+        mAdapter = new ArrayAdapter<String>(this, R.layout.view_menu, R.id.list_item_menu, options);
+        // peupler la listview grace a l'adapter
+        mDrawerList = (ListView) findViewById(R.id.listview_menu);
+        mDrawerList.setAdapter(mAdapter);
+
+        // action en cas de click
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                startActivity(new Intent(view.getContext(), Calendar.class));
+            }
+        });
+
 
 
     }
@@ -76,7 +118,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        /*// Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_profil) {
@@ -118,7 +160,7 @@ public class MainActivity extends AppCompatActivity
             //startActivity(intent);
             return true;
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
