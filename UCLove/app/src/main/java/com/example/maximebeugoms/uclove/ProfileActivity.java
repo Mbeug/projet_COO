@@ -9,8 +9,6 @@ import android.os.Bundle;
 public class ProfileActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.profil_view);
-
     }
 }

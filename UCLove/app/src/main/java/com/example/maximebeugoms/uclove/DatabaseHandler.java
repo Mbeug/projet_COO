@@ -105,7 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String HISTORIQUE_TABLE_CREATE =
             "CREATE TABLE" + HISTORIQUE_TABLE_NAME + "(" +
                     HISTORIQUE_ID_HISTORIQUE + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    HISTORIQUE_ID_EVENT + "INTEGER FOREIGN KEY);";
+                    HISTORIQUE_ID_EVENT + "INTEGER FOREIGN KEY REFERENCES ID_EVENT);";
 
     public static final String EVENEMENT_TABLE_CREATE =
             "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
@@ -134,8 +134,6 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     PREFERENCE_LANGUE + "TEXT, " +
                     PREFERENCE_NIVEAU_CONFIDENTIALITE + "TEXT); ";
 
-
-
     public DatabaseHandler(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -161,7 +159,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(PROFIL_TABLE_DROP); //requete sql dont on ignore la réponse
+        db.execSQL(PROFIL_TABLE_DROP); //requete sql dont on ignore la réponse (execSQL())
         db.execSQL(UTILISATEUR_TABLE_DROP);
         db.execSQL(EVENEMENT_TABLE_DROP);
         db.execSQL(PREFERENCE_TABLE_DROP);
