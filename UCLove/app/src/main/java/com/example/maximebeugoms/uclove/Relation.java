@@ -7,15 +7,15 @@ public class Relation {
 
     private long id_relation;
     private int etat_acceptation;
-    private long id_user1;
-    private long id_user2;
+    private long other_user;
+    private long id_message;
 
-    public Relation(long id_relation, long id_user1, long id_user2, int etat_acceptation){
+    public Relation(long id_relation, long other_user, int etat_acceptation, long id_message){
         super();
         this.id_relation = id_relation;
-        this.id_user1 = id_user1;
-        this.id_user2 = id_user2;
+        this.other_user = other_user;
         this.etat_acceptation = etat_acceptation;
+        this.id_message = id_message;
     }
 
     public long getId_relation() {
@@ -34,19 +34,20 @@ public class Relation {
         this.etat_acceptation = etat_acceptation;
     }
 
-    public long getId_user1() {
-        return id_user1;
+    public long getOther_user() {
+        return other_user;
     }
 
-    public void setId_user1(long id_user1) {
-        this.id_user1 = id_user1;
+    public void setOther_user(long other_user) {
+        this.other_user = other_user;
     }
 
-    public long getId_user2() {
-        return id_user2;
+    public long getId_message() {
+        return id_message;
     }
 
-    public void setId_user2(long id_user2) {
-        this.id_user2 = id_user2;
+    public void setId_message(long id_message) {
+        this.id_message = id_message;
     }
 }
+

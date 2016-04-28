@@ -1,5 +1,7 @@
 package com.example.maximebeugoms.uclove;
 
+import android.content.ContentValues;
+
 /**
  * Created by damien on 28/04/16.
  */
@@ -23,28 +25,31 @@ public class UserDao {
          * @param u l'utilisateur à ajouter à la base
          */
         public void add(User u) {
-            // CODE
+            // long insert(String table, String nullColumnHack, ContentValues value)
+
+            // créer contentvalue
+
         }
 
         /**
          * @param id l'identifiant de l'utilisateur à supprimer
          */
         public void delete(long id) {
-            // CODE
+            // int delete (String table, String whereClause, String [] whereArgs)
         }
 
         /**
          * @param u l'utilisateur modifié
          */
         public void update(User u) {
-            // CODE
+            // int update (String table, String whereClause, String [] whereArgs)
         }
 
         /**
          * @param id l'identifiant de l'utilisateur à récupérer
          */
         public User select(long id) {
-            // CODE
+            // utiliser des cursor !!
             return null; // a changer
         }
     }
