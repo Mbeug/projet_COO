@@ -6,7 +6,7 @@
     <string name="btn_co">Connexion</string>
     <string name="btn_insc">Inscription</string>
     <string name="hint_date">Votre date d\'anniversaire</string>
-    <string name="hint_nom">Nom</string>
+    <string name="hintnom">Nom</string>
     <string name="hint_pseudo">Pseudo</string>
     <string name="genreM">Homme</string>
     <string name="titresearch">Je recherche :</string>
@@ -15,4 +15,8 @@
     <string name="decouverte">Découverte</string>
     <string name="listeamis">Liste d\'amis</string>
     <string name="action_settings">Paramètre</string>
+    <string name="submit">Soumettre</string>
+    <string name="inscription">Inscription</string>
+    <string name="email">Adresse e-mail</string>
+    <string name="datenaissance">Date de naissance</string>
 </resources>

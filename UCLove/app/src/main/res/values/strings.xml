@@ -25,6 +25,10 @@
     <string name="title_activity_calendar">Calendrier</string>
     <string name="action_settings">Paramètre</string>
     <string name="listeamis">Liste d\'amis</string>
+    <string name="submit">Soumettre</string>
+    <string name="inscription">Inscription</string>
+    <string name="email">Adresse e-mail</string>
+    <string name="datenaissance">Date de naissance</string>
 
 
 </resources>
