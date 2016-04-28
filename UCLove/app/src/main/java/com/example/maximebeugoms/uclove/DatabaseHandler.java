@@ -1,4 +1,4 @@
-package com.example.maximebeugoms.uclove;
+/*package com.example.maximebeugoms.uclove;
 
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
@@ -50,7 +50,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     /*
     * Pour avoir les noms des différentes tables
     */
-
+/*
     public static final String PROFIL_TABLE_NAME = "Profil";
     public static final String UTILISATEUR_TABLE_NAME = "Utilisateur";
     public static final String EVENEMENT_TABLE_NAME = "Evenement";
@@ -61,7 +61,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     /*
      *  Creation des différentes tables dans des strings
      */
-    public static final String PROFIL_TABLE_CREATE =
+ /*   public static final String PROFIL_TABLE_CREATE =
             "CREATE TABLE " + PROFIL_TABLE_NAME + " (" +
 
                     PROFIL_NOM + " TEXT, " +
@@ -81,7 +81,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
             "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
                     EVENEMENT_DATE + "DATE, " +
                     EVENEMENT_TYPE + "STRING);";
-
+/*
     public static final String RELATION_TABLE_CREATE =
             "CREATE TABLE" + RELATION_TABLE_NAME +"(" +
                     RELATION_ID_RELATION + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -140,4 +140,4 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
 }
-
+*/

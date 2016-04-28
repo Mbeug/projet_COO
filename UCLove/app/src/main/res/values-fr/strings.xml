@@ -19,4 +19,5 @@
     <string name="inscription">Inscription</string>
     <string name="email">Adresse e-mail</string>
     <string name="datenaissance">Date de naissance</string>
+    <string name="sexe">Sexe</string>
 </resources>

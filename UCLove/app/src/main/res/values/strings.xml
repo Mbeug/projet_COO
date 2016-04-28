@@ -29,6 +29,16 @@
     <string name="inscription">Inscription</string>
     <string name="email">Adresse e-mail</string>
     <string name="datenaissance">Date de naissance</string>
+    <string name="sexe">Sexe</string>
+    <string name="homme">Homme</string>
+    <string name="femme">Femme</string>
+    <string name="couleurCheveux">Couleur de cheveux</string>
+    <string name="brun">Brun</string>
+    <string name="blond">Blond</string>
+    <string name="blanc">Blanc</string>
+    <string name="roux">Roux</string>
+    <string name="chatain">Châtain</string>
+    <string name="noir">Noir</string>
 
 
 </resources>

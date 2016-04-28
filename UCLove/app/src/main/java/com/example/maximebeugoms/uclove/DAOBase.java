@@ -1,11 +1,11 @@
-package com.example.maximebeugoms.uclove;
+/*package com.example.maximebeugoms.uclove;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
  * Created by damien on 28/04/16.
- */
+ *//*
 public abstract class DAOBase
 {
     // Nous sommes à la première version de la base
@@ -38,3 +38,4 @@ public abstract class DAOBase
         return mDb;
     }
 }
+*/
