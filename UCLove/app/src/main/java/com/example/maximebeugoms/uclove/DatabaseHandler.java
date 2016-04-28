@@ -17,12 +17,12 @@ public class DatabaseHandler extends SQLiteOpenHelper
 {
     // Pour la table Profil
     public static final String PROFIL_ID = "id_profil";
-    public static final String PROFIL_NOM = "Nom";
-    public static final String PROFIL_SEXE = "Sexe";
-    public static final String PROFIL_AGE = "Sexe";
-    public static final String PROFIL_COULEUR_CHEVEUX = "Sexe";
-    public static final String PROFIL_ORIENTATION = "Sexe";
-    public static final String PROFIL_ID_USER = "Sexe";
+    public static final String PROFIL_NOM = "nom";
+    public static final String PROFIL_SEXE = "sexe";
+    public static final String PROFIL_AGE = "age";
+    public static final String PROFIL_COULEUR_CHEVEUX = "couleur_cheveux";
+    public static final String PROFIL_ORIENTATION = "orientation";
+
     // photo + localisation + date_dispo
 
     //Pour la table Utilisateur
@@ -89,8 +89,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     PROFIL_SEXE + " TEXT, " +
                     PROFIL_AGE + "INTEGER, " +
                     PROFIL_COULEUR_CHEVEUX + "TEXT, " +
-                    PROFIL_ORIENTATION + "TEXT," +
-                    PROFIL_ID_USER + "INTEGER FOREIGN KEY REFERENCES ID_USER);";
+                    PROFIL_ORIENTATION + "TEXT);";
 
     public static final String UTILISATEUR_TABLE_CREATE =
             "CREATE TABLE" + UTILISATEUR_TABLE_NAME + "(" +
