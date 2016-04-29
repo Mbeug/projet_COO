@@ -20,6 +20,11 @@
             ></activity>
 
         <activity
+            android:name=".DiscoverActivity"
+            android:label="DiscoverActivity"
+            ></activity>
+
+        <activity
             android:name=".InscriptionActivity"
             android:label="InscriptionActivity"
             ></activity>
