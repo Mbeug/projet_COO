@@ -24,7 +24,7 @@ public class Search_profil {
             this.orientation = orientation;
             this.localisation = localisation;
             this.taille = taille;
-            this.id_user = id_user
+            this.id_user = id_user;
 
         }
 

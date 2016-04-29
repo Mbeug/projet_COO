@@ -92,16 +92,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String UTILISATEUR_TABLE_CREATE =
             "CREATE TABLE" + UTILISATEUR_TABLE_NAME + "(" +
-<<<<<<< HEAD:UCLove/app/src/main/java/com/example/maximebeugoms/uclove/Database/DatabaseHandler.java
-                    UTILISATEUR_ID_USER + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    UTILISATEUR_ID_USER + "INTEGER" +
-=======
 
                     UTILISATEUR_ID_USER + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-
                     UTILISATEUR_ID_USER + "INTEGER" +
-
->>>>>>> origin/master:UCLove/app/src/main/java/com/example/maximebeugoms/uclove/DatabaseHandler.java
+                    UTILISATEUR_ID_USER + "INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    UTILISATEUR_ID_USER + "INTEGER" +
                     UTILISATEUR_LOGIN + "TEXT, " +
                     UTILISATEUR_MAIL + "TEXT, " +
                     UTILISATEUR_PASSWORD + "TEXT);";
@@ -109,13 +104,6 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String EVENEMENT_TABLE_CREATE =
             "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
                     UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-<<<<<<< HEAD:UCLove/app/src/main/java/com/example/maximebeugoms/uclove/Database/DatabaseHandler.java
-                    EVENEMENT_ID_EVENEMENT + "INTEGER" +
-=======
-
-                    EVENEMENT_ID_EVENEMENT + "INTEGER" +
-
->>>>>>> origin/master:UCLove/app/src/main/java/com/example/maximebeugoms/uclove/DatabaseHandler.java
                     EVENEMENT_DATE + "DATE, " +
                     EVENEMENT_TYPE + "STRING);";
 

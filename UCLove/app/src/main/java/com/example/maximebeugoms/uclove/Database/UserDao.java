@@ -1,11 +1,12 @@
 package com.example.maximebeugoms.uclove.Database;
 
 import android.content.ContentValues;
+import android.content.Context;
 
 /**
  * Created by damien on 29/04/16.
  */
-public class UserDao extends DAOBase, DatabaseHandler {
+public class UserDao extends DAOBase {
 
         public static final String TABLE_NAME = "user";
         public static final String KEY = "id_user";
@@ -18,16 +19,20 @@ public class UserDao extends DAOBase, DatabaseHandler {
 
         public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
-        /**
+    public UserDao(Context pContext) {
+        super(pContext);
+    }
+
+    /**
          * @param u l'utilisateur à ajouter à la base
          */
         public void add(User u)
         {
             ContentValues values = new ContentValues();
-            values.put(UTILISATEUR_ID_USER, u.getId());
-            values.put(UTILISATEUR_LOGIN, u.getLogin());
-            values.put(UTILISATEUR_MAIL, u.getMail());
-            values.put(UTILISATEUR_PASSWORD, u.getPassword());
+            values.put(KEY, u.getId());
+            values.put(LOGIN, u.getLogin());
+            values.put(MAIL, u.getMail());
+            values.put(PASSWORD, u.getPassword());
             mDb.insert(UserDao.TABLE_NAME, null, values);
         }
 
@@ -45,10 +50,10 @@ public class UserDao extends DAOBase, DatabaseHandler {
         public void update(User u)
         {
             ContentValues values = new ContentValues();
-            values.put(UTILISATEUR_ID_USER, u.getId());
-            values.put(UTILISATEUR_LOGIN, u.getLogin());
-            values.put(UTILISATEUR_MAIL, u.getMail());
-            values.put(UTILISATEUR_PASSWORD, u.getPassword());
+            values.put(KEY, u.getId());
+            values.put(LOGIN, u.getLogin());
+            values.put(MAIL, u.getMail());
+            values.put(PASSWORD, u.getPassword());
             mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(u.getId())});
         }
 

@@ -39,4 +39,12 @@ public class Evenement {
     public void setType(String type) {
         this.type = type;
     }
+
+    public long getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(long id_user) {
+        this.id_user = id_user;
+    }
 }
