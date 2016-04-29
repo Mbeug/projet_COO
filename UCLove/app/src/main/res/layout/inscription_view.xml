@@ -8,16 +8,17 @@
 
 
     <EditText
+        android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/nom"
         android:hint="@string/hintnom"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/email"
-        android:layout_alignStart="@+id/email" />
+        android:layout_toStartOf="@+id/photo"
+        android:layout_toLeftOf="@+id/photo" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,7 +28,10 @@
         android:id="@+id/mdp"
         android:hint="@string/hintmdp"
         android:layout_below="@+id/email"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:layout_alignEnd="@+id/email" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,7 +41,10 @@
         android:id="@+id/email"
         android:hint="@string/email"
         android:layout_below="@+id/dateNaissance"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/dateNaissance"
+        android:layout_alignStart="@+id/dateNaissance"
+        android:layout_toLeftOf="@+id/imageTest"
+        android:layout_toStartOf="@+id/imageTest" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,7 +55,9 @@
         android:hint="@string/datenaissance"
         android:layout_below="@+id/nom"
         android:layout_alignLeft="@+id/nom"
-        android:layout_alignStart="@+id/nom" />
+        android:layout_alignStart="@+id/nom"
+        android:layout_toLeftOf="@+id/imageTest"
+        android:layout_toStartOf="@+id/imageTest" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="        "
+        android:text="    "
         android:id="@+id/textView12"
         android:layout_below="@+id/mdp" />
 
@@ -120,8 +129,8 @@
         android:layout_below="@+id/textView15"
         android:layout_alignLeft="@+id/textView15"
         android:layout_alignStart="@+id/textView15"
-        android:layout_alignRight="@+id/sexeSpinner"
-        android:layout_alignEnd="@+id/sexeSpinner" />
+        android:layout_toLeftOf="@+id/textView11"
+        android:layout_toStartOf="@+id/textView11" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -148,16 +157,37 @@
         android:layout_below="@+id/textView16"
         android:layout_alignLeft="@+id/textView16"
         android:layout_alignStart="@+id/textView16"
-        android:layout_alignRight="@+id/couleurCheveuxSpinner"
-        android:layout_alignEnd="@+id/couleurCheveuxSpinner" />
+        android:layout_toLeftOf="@+id/textView11"
+        android:layout_toStartOf="@+id/textView11" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
         android:id="@+id/Soumettre"
-        android:layout_marginBottom="44dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/couleurYeuxSpinner"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/photo"
+        android:id="@+id/photo"
+        android:layout_alignTop="@+id/couleurYeuxSpinner"
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:id="@+id/imageTest"
+        android:src="@drawable/ic_menu_gallery"
+        android:layout_alignTop="@+id/nom"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView11"
+        android:layout_above="@+id/textView11"
+        android:layout_toRightOf="@+id/textView11" />
 
 </RelativeLayout>

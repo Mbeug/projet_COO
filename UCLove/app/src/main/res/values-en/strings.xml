@@ -50,5 +50,6 @@
     <string name="bleu" >Blue</string>
     <string name="vert" >Green</string>
     <string name="longueurCheveux" >Hair length</string>
+    <string name="photo" >Picture</string>
 
 </resources>
