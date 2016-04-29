@@ -5,23 +5,23 @@ package com.example.maximebeugoms.uclove;
  */
 public class Evenement {
 
-    private long id_event;
+    private long id_user;
     private String date;
     private String type;
 
-    public Evenement(long id_event, long id_historique, String date, String type){
+    public Evenement(long id_user, long id_historique, String date, String type){
         super();
         this.date = date;
-        this.id_event = id_event;
+        this.id_user = id_user;
         this.type = type;
     }
 
     public long getId_event() {
-        return id_event;
+        return id_user;
     }
 
     public void setId_event(long id_event) {
-        this.id_event = id_event;
+        this.id_user = id_user;
     }
 
     public String getDate() {

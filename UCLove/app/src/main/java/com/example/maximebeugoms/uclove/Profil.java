@@ -5,7 +5,7 @@ package com.example.maximebeugoms.uclove;
  */
 public class Profil {
 
-        private long id_profil;
+        private long id_user;
         private String nom;
         private String sexe;
         private int age;
@@ -15,9 +15,9 @@ public class Profil {
 
         //localisation + photo + date_dispo
 
-        public Profil(long id_profil, String sexe, int age, String couleur_cheveux, String couleur_yeux, String orientation) {
+        public Profil(long id_user, String sexe, int age, String couleur_cheveux, String couleur_yeux, String orientation) {
             super();
-            this.id_profil = id_profil;
+            this.id_user = id_user;
             this.sexe = sexe;
             this.age = age;
             this.couleur_cheveux = couleur_cheveux;
@@ -26,11 +26,11 @@ public class Profil {
         }
 
         public long getId(){
-            return id_profil;
+            return id_user;
         }
 
         public void setId(long id){
-            this.id_profil = id;
+            this.id_user = id;
         }
 
         public String getNom(){

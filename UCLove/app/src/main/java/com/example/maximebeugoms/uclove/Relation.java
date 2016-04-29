@@ -30,13 +30,9 @@ public class Relation {
         return etat_acceptation;
     }
 
-    public void setEtat_acceptation(int etat_acceptation) {
-        this.etat_acceptation = etat_acceptation;
-    }
+    public void setEtat_acceptation(int etat_acceptation) {this.etat_acceptation = etat_acceptation;}
 
-    public long getOther_user() {
-        return other_user;
-    }
+    public long getOther_user() {return other_user;}
 
     public void setOther_user(long other_user) {
         this.other_user = other_user;

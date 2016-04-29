@@ -5,24 +5,24 @@ package com.example.maximebeugoms.uclove;
  */
 public class Message {
 
-    private long id_message;
+    private long id_relation;
     private String texte;
     private String date;
 
-    public Message(long id_message, long id_relation, String texte, String date){
+    public Message(long id_relation, String texte, String date){
         super();
-        this.id_message = id_message;
+        this.id_relation = id_relation;
         this.texte = texte;
         this.date = date;
 
     }
 
     public long getId_message() {
-        return id_message;
+        return id_relation;
     }
 
     public void setId_message(long id_message) {
-        this.id_message = id_message;
+        this.id_relation = id_message;
     }
 
     public String getDate() {
