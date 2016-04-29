@@ -1,4 +1,4 @@
-/*package com.example.maximebeugoms.uclove;
+package com.example.maximebeugoms.uclove;
 
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
@@ -29,28 +29,32 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     // Pour la table Evenement
 
+    public static final String EVENEMENT_ID_EVENEMENT = "id_event";
     public static final String EVENEMENT_DATE = "date";
     public static final String EVENEMENT_TYPE = "type";
 
 
     // Pour la table relation
 
+    public static final String RELATION_ID_RELATION = "id_relation";
     public static final String RELATION_ETAT_ACCEPTATION = "etat_acceptation";
 
     //Pour la table Message
 
+    public static final String MESSAGE_ID_MESSAGE = "id_message";
     public static final String MESSAGE_TEXTE = "texte";
     public static final String MESSAGE_DATE = "date";
 
     // Pour la table Preference
 
+    public static final String PREFERENCE_ID_PREF = "id_pref";
     public static final String PREFERENCE_LANGUE ="langue";
     public static final String PREFERENCE_NIVEAU_CONFIDENTIALITE = "niveau_confidentialite";
 
     /*
     * Pour avoir les noms des différentes tables
     */
-/*
+
     public static final String PROFIL_TABLE_NAME = "Profil";
     public static final String UTILISATEUR_TABLE_NAME = "Utilisateur";
     public static final String EVENEMENT_TABLE_NAME = "Evenement";
@@ -61,7 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     /*
      *  Creation des différentes tables dans des strings
      */
- /*   public static final String PROFIL_TABLE_CREATE =
+    public static final String PROFIL_TABLE_CREATE =
             "CREATE TABLE " + PROFIL_TABLE_NAME + " (" +
 
                     PROFIL_NOM + " TEXT, " +
@@ -72,6 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String UTILISATEUR_TABLE_CREATE =
             "CREATE TABLE" + UTILISATEUR_TABLE_NAME + "(" +
+                    UTILISATEUR_ID_USER + "INTEGER" +
                     UTILISATEUR_LOGIN + "TEXT, " +
                     UTILISATEUR_MAIL + "TEXT, " +
                     UTILISATEUR_PASSWORD + "TEXT, " +
@@ -79,9 +84,10 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String EVENEMENT_TABLE_CREATE =
             "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
+                    EVENEMENT_ID_EVENEMENT + "INTEGER" +
                     EVENEMENT_DATE + "DATE, " +
                     EVENEMENT_TYPE + "STRING);";
-/*
+
     public static final String RELATION_TABLE_CREATE =
             "CREATE TABLE" + RELATION_TABLE_NAME +"(" +
                     RELATION_ID_RELATION + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -140,4 +146,4 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
 }
-*/
+
