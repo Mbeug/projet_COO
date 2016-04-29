@@ -1,4 +1,4 @@
-package com.example.maximebeugoms.uclove;
+package com.example.maximebeugoms.uclove.Database;
 
 /**
  * Created by damien on 28/04/16.
@@ -12,10 +12,11 @@ public class Profil {
         private String couleur_cheveux;
         private String couleur_yeux;
         private String orientation;
+        private String localisation;
 
         //localisation + photo + date_dispo
 
-        public Profil(long id_user, String sexe, int age, String couleur_cheveux, String couleur_yeux, String orientation) {
+        public Profil(long id_user, String sexe, int age, String couleur_cheveux, String couleur_yeux, String orientation, String localisation) {
             super();
             this.id_user = id_user;
             this.sexe = sexe;
@@ -23,6 +24,7 @@ public class Profil {
             this.couleur_cheveux = couleur_cheveux;
             this.couleur_yeux = couleur_yeux;
             this.orientation = orientation;
+            this.localisation = localisation;
         }
 
         public long getId(){
@@ -81,6 +83,23 @@ public class Profil {
 
             this.orientation = orientation;
         }
+
+    public String getLocalisation() {
+        return localisation;
     }
+
+    public void setLocalisation(String localisation) {
+        this.localisation = localisation;
+    }
+
+    public long getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(long id_user) {
+        this.id_user = id_user;
+    }
+
+}
 
 

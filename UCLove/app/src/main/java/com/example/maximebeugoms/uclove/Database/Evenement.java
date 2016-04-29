@@ -1,4 +1,4 @@
-package com.example.maximebeugoms.uclove;
+package com.example.maximebeugoms.uclove.Database;
 
 /**
  * Created by damien on 25/04/16.

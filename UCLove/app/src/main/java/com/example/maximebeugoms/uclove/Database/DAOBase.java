@@ -1,4 +1,4 @@
-package com.example.maximebeugoms.uclove;
+package com.example.maximebeugoms.uclove.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by damien on 28/04/16.
  */
-/*public abstract class DAOBase
+public abstract class DAOBase
 {
     // Nous sommes à la première version de la base
     // Si je décide de la mettre à jour, il faudra changer cet attribut
@@ -21,6 +21,7 @@ import android.database.sqlite.SQLiteDatabase;
     protected DatabaseHandler mHandler = null;
 
     public DAOBase(Context pContext) {
+        super();
         this.mHandler = new DatabaseHandler(pContext, NOM, null, VERSION);
     }
 
@@ -37,4 +38,4 @@ import android.database.sqlite.SQLiteDatabase;
     public SQLiteDatabase getDb() {
         return mDb;
     }
-}*/
+}

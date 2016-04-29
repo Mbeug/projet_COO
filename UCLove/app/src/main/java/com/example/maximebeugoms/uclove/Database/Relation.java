@@ -1,4 +1,4 @@
-package com.example.maximebeugoms.uclove;
+package com.example.maximebeugoms.uclove.Database;
 
 /**
  * Created by damien on 25/04/16.
@@ -6,16 +6,16 @@ package com.example.maximebeugoms.uclove;
 public class Relation {
 
     private long id_relation;
+    private long id_user;
     private int etat_acceptation;
     private long other_user;
-    private long id_message;
 
-    public Relation(long id_relation, long other_user, int etat_acceptation, long id_message){
+    public Relation(long id_relation, long other_user, int etat_acceptation, long id_user){
         super();
         this.id_relation = id_relation;
+        this.id_user = id_user;
         this.other_user = other_user;
         this.etat_acceptation = etat_acceptation;
-        this.id_message = id_message;
     }
 
     public long getId_relation() {
@@ -38,12 +38,12 @@ public class Relation {
         this.other_user = other_user;
     }
 
-    public long getId_message() {
-        return id_message;
+    public long getId_user() {
+        return id_user;
     }
 
-    public void setId_message(long id_message) {
-        this.id_message = id_message;
+    public void setId_user(long id_user) {
+        this.id_user = id_user;
     }
 }
 

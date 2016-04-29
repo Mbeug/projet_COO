@@ -1,4 +1,4 @@
-package com.example.maximebeugoms.uclove;
+package com.example.maximebeugoms.uclove.Database;
 
 /**
  * Created by damien on 25/04/16.
@@ -14,15 +14,14 @@ public class Message {
         this.id_relation = id_relation;
         this.texte = texte;
         this.date = date;
-
     }
 
-    public long getId_message() {
+    public void setId_relation(long id_relation) {
+        this.id_relation = id_relation;
+    }
+
+    public long getId_relation() {
         return id_relation;
-    }
-
-    public void setId_message(long id_message) {
-        this.id_relation = id_message;
     }
 
     public String getDate() {
@@ -40,4 +39,5 @@ public class Message {
     public void setTexte(String texte) {
         this.texte = texte;
     }
+
 }
