@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by damien on 28/04/16.
  */
-public abstract class DAOBase
+/*public abstract class DAOBase
 {
     // Nous sommes à la première version de la base
     // Si je décide de la mettre à jour, il faudra changer cet attribut
@@ -37,4 +37,4 @@ public abstract class DAOBase
     public SQLiteDatabase getDb() {
         return mDb;
     }
-}
+}*/

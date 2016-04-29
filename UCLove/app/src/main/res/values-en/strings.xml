@@ -16,4 +16,19 @@
     <string name="hintlogger"> E-mail</string>
     <string name="decouverte">Discovery</string>
     <string name="action_settings">Settings</string>
+    <string name="submit">Submit</string>
+    <string name="inscription">Registration</string>
+    <string name="email">E-mail</string>
+    <string name="datenaissance">Birthday</string>
+    <string name="sexe">Gender</string>
+    <string name="homme">Man</string>
+    <string name="femme">Woman</string>
+    <string name="couleurCheveux">Hair colour</string>
+    <string name="brun">Brown</string>
+    <string name="blond">Blond</string>
+    <string name="blanc">White</string>
+    <string name="roux">Red</string>
+    <string name="chatain">Chestnut</string>
+    <string name="noir">Black</string>
+
 </resources>
