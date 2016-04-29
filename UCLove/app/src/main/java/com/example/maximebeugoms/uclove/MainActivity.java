@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,8 +38,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 
     @Override
@@ -79,32 +78,33 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
         if (id == R.id.nav_profil) {
 
             // Handle the action
 
-            Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+            Intent intent = new Intent(this,ProfileActivity.class);
             startActivity(intent);
             return true;
 
 
         } else if (id == R.id.nav_decouverte) {
-            Intent intent = new Intent(MainActivity.this, ProfileOtherActivity.class );
+            Intent intent = new Intent(this, DiscoverActivity.class );
             startActivity(intent);
             return true;
 
         } else if (id == R.id.nav_settings_recherche) {
-            Intent intent = new Intent(MainActivity.this, SearchActivity.class );
+            Intent intent = new Intent(this, SearchActivity.class );
             startActivity(intent);
             return true;
 
         } else if (id == R.id.nav_calendrier) {
-            Intent intent = new Intent(MainActivity.this, CalendarActivity.class );
+            Intent intent = new Intent(this, CalendarActivity.class );
             startActivity(intent);
             return true;
 
         } else if (id == R.id.nav_amis) {
-            Intent intent = new Intent(MainActivity.this, FriendListActivity.class );
+            Intent intent = new Intent(this, FriendListActivity.class );
             startActivity(intent);
             return true;
 
