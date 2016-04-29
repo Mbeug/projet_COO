@@ -3,6 +3,7 @@
     package="com.example.maximebeugoms.uclove">
 
     <application
+        android:name="Uclove"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appname"
