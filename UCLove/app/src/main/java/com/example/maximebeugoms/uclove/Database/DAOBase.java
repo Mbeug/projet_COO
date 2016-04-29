@@ -3,8 +3,6 @@ package com.example.maximebeugoms.uclove.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.maximebeugoms.uclove.Database.DatabaseHandler;
-
 /**
  * Created by damien on 28/04/16.
  */
