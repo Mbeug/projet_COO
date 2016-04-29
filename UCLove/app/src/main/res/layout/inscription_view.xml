@@ -3,19 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<include layout="@layout/app_bar_main"
-    />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inscription"
-        android:id="@+id/textView12"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-
-        android:layout_marginTop="48dp" />
+    <include layout="@layout/app_bar_main" />
 
 
     <EditText
@@ -24,12 +13,11 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/nom"
-        android:layout_below="@+id/textView12"
-        android:layout_alignRight="@+id/textView12"
-        android:layout_alignEnd="@+id/textView12"
-        android:layout_marginRight="62dp"
-        android:layout_marginEnd="62dp"
-        android:hint="@string/hintnom" />
+        android:hint="@string/hintnom"
+        android:layout_marginTop="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,10 +25,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/mdp"
-        android:layout_below="@+id/nom"
-        android:layout_alignRight="@+id/nom"
-        android:layout_alignEnd="@+id/nom"
-        android:hint="@string/hintmdp" />
+        android:hint="@string/hintmdp"
+        android:layout_below="@+id/email"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,10 +35,9 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/email"
-        android:layout_below="@+id/mdp"
-        android:layout_alignRight="@+id/mdp"
-        android:layout_alignEnd="@+id/mdp"
-        android:hint="@string/email" />
+        android:hint="@string/email"
+        android:layout_below="@+id/dateNaissance"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -59,56 +45,119 @@
         android:inputType="date"
         android:ems="10"
         android:id="@+id/dateNaissance"
-        android:layout_below="@+id/email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="@string/datenaissance"
-        android:layout_alignRight="@+id/email"
-        android:layout_alignEnd="@+id/email" />
+        android:layout_below="@+id/nom"
+        android:layout_alignLeft="@+id/nom"
+        android:layout_alignStart="@+id/nom" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:id="@+id/Soumettre"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="             "
+        android:id="@+id/textView11"
+        android:layout_below="@+id/mdp"
+        android:layout_centerHorizontal="true" />
 
-    <Spinner
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sexeSpinner"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/orientation"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/mdp"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="        "
+        android:id="@+id/textView12"
+        android:layout_below="@+id/mdp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/sexe"
-        android:layout_above="@+id/sexeSpinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/textView14"
+        android:layout_below="@+id/mdp"
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:id="@+id/sexeSpinner"
+        android:layout_below="@+id/textView11"
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:id="@+id/orientationSpinner"
+        android:layout_alignTop="@+id/sexeSpinner"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/couleurCheveux"
-        android:id="@+id/textView13"
+        android:id="@+id/textView15"
         android:layout_below="@+id/sexeSpinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp" />
+        android:layout_alignLeft="@+id/sexeSpinner"
+        android:layout_alignStart="@+id/sexeSpinner" />
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50px"
         android:id="@+id/couleurCheveuxSpinner"
-        android:layout_below="@+id/textView13"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/textView15"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_alignRight="@+id/sexeSpinner"
+        android:layout_alignEnd="@+id/sexeSpinner" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:id="@+id/longueurCheveuxSpinner"
+        android:layout_below="@+id/textView15"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/couleurYeux"
+        android:id="@+id/textView16"
+        android:layout_below="@+id/couleurCheveuxSpinner"
+        android:layout_alignLeft="@+id/couleurCheveuxSpinner"
+        android:layout_alignStart="@+id/couleurCheveuxSpinner" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:id="@+id/couleurYeuxSpinner"
+        android:layout_below="@+id/textView16"
+        android:layout_alignLeft="@+id/textView16"
+        android:layout_alignStart="@+id/textView16"
+        android:layout_alignRight="@+id/couleurCheveuxSpinner"
+        android:layout_alignEnd="@+id/couleurCheveuxSpinner" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:id="@+id/Soumettre"
+        android:layout_marginBottom="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

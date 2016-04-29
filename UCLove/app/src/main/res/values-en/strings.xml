@@ -23,7 +23,7 @@
     <string name="sexe">Gender</string>
     <string name="homme">Man</string>
     <string name="femme">Woman</string>
-    <string name="couleurCheveux">Hair colour</string>
+    <string name="couleurCheveux">Hair colour and length</string>
     <string name="brun">Brown</string>
     <string name="blond">Blond</string>
     <string name="blanc">White</string>
@@ -42,5 +42,13 @@
     <string name="settings_recherche">Filter options</string>
     <string name="amis">Friends</string>
     <string name="genreF">Woman</string>
+    <string name="orientation">Orientation</string>
+    <string name="couleurYeux">Eye colour</string>
+    <string name="court">Short</string>
+    <string name="milong">Half-long</string>
+    <string name="Long">Long</string>
+    <string name="bleu" >Blue</string>
+    <string name="vert" >Green</string>
+    <string name="longueurCheveux" >Hair length</string>
 
 </resources>
