@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-/*public class DatabaseHandler extends SQLiteOpenHelper
+public class DatabaseHandler extends SQLiteOpenHelper
 {
     // Pour la table Profil
     public static final String PROFIL_NOM = "nom";
@@ -29,21 +29,25 @@ import java.io.FileReader;
 
     // Pour la table Evenement
 
+    public static final String EVENEMENT_ID_EVENEMENT = "id_event";
     public static final String EVENEMENT_DATE = "date";
     public static final String EVENEMENT_TYPE = "type";
 
 
     // Pour la table relation
 
+    public static final String RELATION_ID_RELATION = "id_relation";
     public static final String RELATION_ETAT_ACCEPTATION = "etat_acceptation";
 
     //Pour la table Message
 
+    public static final String MESSAGE_ID_MESSAGE = "id_message";
     public static final String MESSAGE_TEXTE = "texte";
     public static final String MESSAGE_DATE = "date";
 
     // Pour la table Preference
 
+    public static final String PREFERENCE_ID_PREF = "id_pref";
     public static final String PREFERENCE_LANGUE ="langue";
     public static final String PREFERENCE_NIVEAU_CONFIDENTIALITE = "niveau_confidentialite";
 
@@ -72,6 +76,7 @@ import java.io.FileReader;
 
     public static final String UTILISATEUR_TABLE_CREATE =
             "CREATE TABLE" + UTILISATEUR_TABLE_NAME + "(" +
+                    UTILISATEUR_ID_USER + "INTEGER" +
                     UTILISATEUR_LOGIN + "TEXT, " +
                     UTILISATEUR_MAIL + "TEXT, " +
                     UTILISATEUR_PASSWORD + "TEXT, " +
@@ -79,6 +84,7 @@ import java.io.FileReader;
 
     public static final String EVENEMENT_TABLE_CREATE =
             "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
+                    EVENEMENT_ID_EVENEMENT + "INTEGER" +
                     EVENEMENT_DATE + "DATE, " +
                     EVENEMENT_TYPE + "STRING);";
 
@@ -139,5 +145,5 @@ import java.io.FileReader;
         onCreate(db);
     }
 
-}*/
+}
 
