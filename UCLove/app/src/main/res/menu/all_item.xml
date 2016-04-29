@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:compat="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    >
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        compat:showAsAction="never" />
-    <item
+    <group><item
         android:id="@+id/action_profile"
         android:orderInCategory="1"
         android:title="@string/profil"
@@ -33,6 +28,5 @@
     <item
         android:id="@+id/action_meet"
         android:title="@string/rencontre"
-        compat:showAsAction="never" />
-
+        compat:showAsAction="never" /></group>
 </menu>

@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class DatabaseHandler extends SQLiteOpenHelper
+/*public class DatabaseHandler extends SQLiteOpenHelper
 {
     // Pour la table Profil
     public static final String PROFIL_NOM = "nom";
@@ -47,9 +47,9 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String PREFERENCE_LANGUE ="langue";
     public static final String PREFERENCE_NIVEAU_CONFIDENTIALITE = "niveau_confidentialite";
 
-    /*
-    * Pour avoir les noms des différentes tables
-    */
+
+    // Pour avoir les noms des différentes tables
+
 
     public static final String PROFIL_TABLE_NAME = "Profil";
     public static final String UTILISATEUR_TABLE_NAME = "Utilisateur";
@@ -58,9 +58,9 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String MESSAGE_TABLE_NAME = "Message";
     public static final String PREFERENCE_TABLE_NAME = "Preference";
 
-    /*
-     *  Creation des différentes tables dans des strings
-     */
+
+     //  Creation des différentes tables dans des strings
+
     public static final String PROFIL_TABLE_CREATE =
             "CREATE TABLE " + PROFIL_TABLE_NAME + " (" +
 
@@ -139,5 +139,5 @@ public class DatabaseHandler extends SQLiteOpenHelper
         onCreate(db);
     }
 
-}
+}*/
 

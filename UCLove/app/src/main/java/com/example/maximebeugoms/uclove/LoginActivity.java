@@ -1,11 +1,14 @@
 package com.example.maximebeugoms.uclove;
 
 import android.content.Intent;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,11 +26,11 @@ public class LoginActivity extends MainActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_view);
-        /*if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.drawer_layout, new LoginFragment())
-                    .commit();
-        }*/
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+
         connexion = (Button) findViewById(R.id.btn_co);
         inscription= (Button) findViewById(R.id.btn_insc);
 
@@ -47,21 +50,18 @@ public class LoginActivity extends MainActivity
             }
         });
     }
-    /**
-     * Ce fragment contient le login_view
-     * Created by Menal_000
-     */
-    public static class LoginFragment extends Fragment {
-        public LoginFragment() {
 
-        }
 
-        @Nullable
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.login_view, container, false);
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
 }
 
 

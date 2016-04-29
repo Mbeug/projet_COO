@@ -21,10 +21,17 @@
     <string name="btninsc"> Inscription </string>
     <string name="hintmdp"> Mot de passe </string>
     <string name="hintlogger">Adresse mail </string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Login</string>
     <string name="title_activity_calendar">Calendrier</string>
     <string name="action_settings">Paramètre</string>
-    <string name="listeamis">Liste d\'amis</string>
+    <string name="listeamis">Les amis</string>
+    <string name="title_activity_friendlist">Liste des amis</string>
+    <string name="title_activity_inscription">Inscription</string>
+
+    <string name="title_activity_profile">Mon profil</string>
+    <string name="title_activity_profile_other">Profil</string>
+    <string name="title_activity_search">Nouveaux profils</string>
+
 
 
 </resources>
