@@ -14,7 +14,7 @@
         android:ems="10"
         android:id="@+id/nom"
         android:hint="@string/hintnom"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="80dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/email"
         android:layout_alignStart="@+id/email" />
@@ -89,7 +89,7 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="50px"
+        android:layout_height="50dp"
         android:id="@+id/sexeSpinner"
         android:layout_below="@+id/textView11"
         android:layout_toRightOf="@+id/textView12"
@@ -97,7 +97,7 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="50px"
+        android:layout_height="50dp"
         android:id="@+id/orientationSpinner"
         android:layout_alignTop="@+id/sexeSpinner"
         android:layout_toRightOf="@+id/textView11"
@@ -115,7 +115,7 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="50px"
+        android:layout_height="50dp"
         android:id="@+id/couleurCheveuxSpinner"
         android:layout_below="@+id/textView15"
         android:layout_alignLeft="@+id/textView15"
@@ -125,7 +125,7 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="50px"
+        android:layout_height="50dp"
         android:id="@+id/longueurCheveuxSpinner"
         android:layout_below="@+id/textView15"
         android:layout_toRightOf="@+id/textView11"
@@ -143,7 +143,7 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="50px"
+        android:layout_height="50dp"
         android:id="@+id/couleurYeuxSpinner"
         android:layout_below="@+id/textView16"
         android:layout_alignLeft="@+id/textView16"

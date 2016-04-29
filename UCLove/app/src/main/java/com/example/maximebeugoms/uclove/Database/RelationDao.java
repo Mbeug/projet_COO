@@ -34,7 +34,7 @@ public class RelationDao extends DAOBase{
 
     }
 
-    public Relation select(long id){
+    /*public Relation select(long id){
 
-    }
+    }*/
 }

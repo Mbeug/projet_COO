@@ -54,7 +54,7 @@ public class Search_profilDao extends DAOBase{
         mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(sp.getId_user())});
     }
 
-    public Search_profil select(long id){
+   /* public Search_profil select(long id){
 
-    }
+    }*/
 }

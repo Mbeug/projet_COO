@@ -42,7 +42,7 @@ public class Preference_systDao extends DAOBase
         mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(ps.getId_user())});
     }
 
-    public Preference_syst select(long id){
+    /*public Preference_syst select(long id){
 
-    }
+    }*/
 }

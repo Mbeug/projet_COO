@@ -40,10 +40,10 @@ public class EvenementDao extends DAOBase {
         values.put(DATE, e.getDate());
         values.put(TYPE, e.getType());
 
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(e.getId())});
+        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(e.getId_user())});
     }
 
-    public Evenement select (long id){
+   /* public Evenement select (long id){
 
-    }
+    }*/
 }

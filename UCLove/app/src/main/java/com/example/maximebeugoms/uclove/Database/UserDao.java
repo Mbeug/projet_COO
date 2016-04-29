@@ -60,7 +60,7 @@ public class UserDao extends DAOBase {
         /**
          * @param id l'identifiant du métier à récupérer
          */
-        public User selectionner(long id) {
+        /*public User selectionner(long id) {
 
-        }
+        }*/
     }

@@ -69,8 +69,8 @@ public class ProfilDao extends DAOBase {
         /**
          * @param id l'identifiant du métier à récupérer
          */
-        public Profil select(long id) {
+        /*public Profil select(long id) {
 
-        }
+        }*/
     }
 
