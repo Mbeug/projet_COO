@@ -33,7 +33,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     // Pour la table relation
 
-    public static final String RELATION_ID_RELATION = "id_relation";
+    //public static final String RELATION_ID_RELATION = "id_relation";
     public static final String RELATION_ETAT_ACCEPTATION = "etat_acceptation";
     public static final String RELATION_ID_RELATION = "id_relation";
     // ajout deux autres user
@@ -50,7 +50,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String PREFERENCE_LANGUE ="langue";
     public static final String PREFERENCE_NIVEAU_CONFIDENTIALITE = "niveau_confidentialite";
 
-<<<<<<< HEAD
+
     // Pour la table Search
 
     public static final String SEARCH_AGE = "age";
@@ -62,11 +62,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
     /*
     * Pour avoir les noms des différentes tables
     */
-=======
+
 
     // Pour avoir les noms des différentes tables
 
->>>>>>> origin/master
+
 
     public static final String PROFIL_TABLE_NAME = "Profil";
     public static final String UTILISATEUR_TABLE_NAME = "Utilisateur";
@@ -94,22 +94,21 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String UTILISATEUR_TABLE_CREATE =
             "CREATE TABLE" + UTILISATEUR_TABLE_NAME + "(" +
-<<<<<<< HEAD
+
                     UTILISATEUR_ID_USER + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-=======
+
                     UTILISATEUR_ID_USER + "INTEGER" +
->>>>>>> origin/master
+
                     UTILISATEUR_LOGIN + "TEXT, " +
                     UTILISATEUR_MAIL + "TEXT, " +
                     UTILISATEUR_PASSWORD + "TEXT);";
 
     public static final String EVENEMENT_TABLE_CREATE =
             "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
-<<<<<<< HEAD
                     UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-=======
+
                     EVENEMENT_ID_EVENEMENT + "INTEGER" +
->>>>>>> origin/master
+
                     EVENEMENT_DATE + "DATE, " +
                     EVENEMENT_TYPE + "STRING);";
 

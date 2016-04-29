@@ -30,5 +30,17 @@
     <string name="roux">Red</string>
     <string name="chatain">Chestnut</string>
     <string name="noir">Black</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="title_activity_friendlist">Friends\' list</string>
+    <string name="title_activity_inscription">Registration</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_profile">My profile</string>
+    <string name="title_activity_profile_other">Profile</string>
+    <string name="title_activity_search">New profiles</string>
+    <string name="profil">Profile</string>
+    <string name="rencontre">Date</string>
+    <string name="settings_recherche">Filter options</string>
+    <string name="amis">Friends</string>
+    <string name="genreF">Woman</string>
 
 </resources>
