@@ -2,6 +2,7 @@ package com.example.maximebeugoms.uclove.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 /**
  * Created by damien on 29/04/16.
@@ -58,9 +59,20 @@ public class UserDao extends DAOBase {
         }
 
         /**
-         * @param id l'identifiant du métier à récupérer
+         * @param Email l'identifiant du métier à récupérer
          */
-        /*public User selectionner(long id) {
-
-        }*/
+        public User selectionner(String Email) {
+            Cursor c = mDb.rawQuery("select " + MAIL + " from " + TABLE_NAME + " where mail = ?", new String[] {Email});
+            if(c.moveToNext()){
+                long id = c.getLong(0);
+                String login = c.getString(1);
+                String mail = c.getString(2);
+                String mdp = c.getString(3);
+                return new User(id,login,mail,mdp);
+            }
+            else{
+                c.close();
+                return null;
+            }
+        }
     }
