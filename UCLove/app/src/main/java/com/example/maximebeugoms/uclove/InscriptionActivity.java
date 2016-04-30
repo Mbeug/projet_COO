@@ -282,7 +282,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                 try {
                     destination.createNewFile();
-                    fo = new FileOutputStream(destination.getPath());
+                    fo = new FileOutputStream(destination);
                     fo.write(bytes.toByteArray());
                     fo.close();
 
