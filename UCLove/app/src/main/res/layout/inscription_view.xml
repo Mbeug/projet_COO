@@ -16,7 +16,7 @@
 
         <EditText
 
-            android:layout_width="250dp"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
@@ -108,10 +108,9 @@
             android:layout_height="50dp"
             android:id="@+id/sexeSpinner"
             android:layout_below="@+id/textView11"
-            android:layout_toRightOf="@+id/textView12"
             android:layout_toLeftOf="@+id/textView11"
-            android:layout_toStartOf="@+id/textView11"
-            android:layout_marginLeft="20dp"/>
+            android:layout_toRightOf="@+id/textView12"
+            android:layout_toEndOf="@+id/textView12" />
 
         <Spinner
             android:layout_width="wrap_content"

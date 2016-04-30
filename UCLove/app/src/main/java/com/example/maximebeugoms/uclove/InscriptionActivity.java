@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -39,7 +40,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import android.widget.AdapterView.OnItemSelectedListener;
 /*
@@ -70,6 +74,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
         Button button = (Button) findViewById(R.id.Soumettre);
 
+        assert button != null;
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -94,8 +99,44 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
 
+                if(mNom == null || mNom.isEmpty()) {
+                    toast.makeText(InscriptionActivity.this, R.string.nom_non_conforme, toast.LENGTH_SHORT).show();
+                }
+
+                try {
+                    String currentDateString = "30/04/1998";
+                    SimpleDateFormat sd = new SimpleDateFormat("dd/mm/yyyy");
+                    Date allowedDate = sd.parse(currentDateString);
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+                    Date parsedDate = dateFormat.parse(mDate);
+
+                    //java.sql.Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
+                    // If the string can be parsed in date, it matches the SimpleDateFormat
+                    // Do whatever you want to do if String matches SimpleDateFormat.
+                    if (parsedDate.after(allowedDate)) {
+                        System.out.println("After");
+                        toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
+                    }else{
+                        //peut etre soumis
+                        System.out.println(parsedDate.toString());
+                        System.out.println(mDate);
+                    }
+
+                }
+                catch (java.text.ParseException e) {
+                    // Else if there's an exception, it doesn't
+                    // Do whatever you want to do if it doesn't.
+                    toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
+                }
+
+
+
                 if (!mMail.contains("@") || !mMail.contains(".")) {
                     toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
+                }
+
+                if(mMdp == null || mMdp.isEmpty()) {
+                    toast.makeText(InscriptionActivity.this, R.string.mdp_non_conforme, toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -201,16 +242,16 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
     private static final int REQUEST_CAMERA = 0;
     private static final int SELECT_FILE = 1;
     private void selectImage() {
-        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
+        final CharSequence[] items = {getResources().getString(R.string.prendrePhoto), getResources().getString(R.string.galerie), getResources().getString(R.string.annuler)};
         AlertDialog.Builder builder = new AlertDialog.Builder(InscriptionActivity.this);
-        builder.setTitle("Add Photo!");
+        builder.setTitle(R.string.ajouterPhoto);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Take Photo")) {
+                if (items[item].equals(getResources().getString(R.string.prendrePhoto))) {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(intent, REQUEST_CAMERA);
-                } else if (items[item].equals("Choose from Library")) {
+                } else if (items[item].equals(getResources().getString(R.string.galerie))) {
                     Intent intent = new Intent(
                             Intent.ACTION_PICK,
                             android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -218,7 +259,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                     startActivityForResult(
                             Intent.createChooser(intent, "Select File"),
                             SELECT_FILE);
-                } else if (items[item].equals("Cancel")) {
+                } else if (items[item].equals(getResources().getString(R.string.annuler))) {
                     dialog.dismiss();
                 }
             }
@@ -262,7 +303,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeFile(selectedImagePath, options);
-                final int REQUIRED_SIZE = 300;
+                final int REQUIRED_SIZE = 200;
                 int scale = 1;
                 while (options.outWidth / scale / 2 >= REQUIRED_SIZE
                         && options.outHeight / scale / 2 >= REQUIRED_SIZE)
@@ -270,7 +311,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 options.inSampleSize = scale;
                 options.inJustDecodeBounds = false;
                 bm = BitmapFactory.decodeFile(selectedImagePath, options);
-
+/*
                 int bmpWidth = bm.getWidth();
                 int bmpHeight = bm.getHeight();
 
@@ -289,8 +330,8 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 matrix.postRotate(90);
 
                 Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, bmpWidth, bmpHeight, matrix, true);
-
-                imageTest.setImageBitmap(resizedBitmap);
+*/
+                imageTest.setImageBitmap(bm);
             }
         }
     }
