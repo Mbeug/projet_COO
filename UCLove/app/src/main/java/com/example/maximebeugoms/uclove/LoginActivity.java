@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
@@ -30,6 +31,10 @@ public class LoginActivity extends MainActivity
         setSupportActionBar(toolbar);
 
 
+        final EditText nom = (EditText) findViewById(R.id.textLogger);
+        final EditText mdp = (EditText) findViewById(R.id.textMdp);
+
+
 
         connexion = (Button) findViewById(R.id.btn_co);
         inscription= (Button) findViewById(R.id.btn_insc);
@@ -37,6 +42,12 @@ public class LoginActivity extends MainActivity
         connexion.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View vue){
+
+                //Get the values from the input fields
+                String mNom = nom.getText().toString();
+                String mMdp = mdp.getText().toString();
+
+
                 Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
                 startActivity(intent);
             }
@@ -54,7 +65,7 @@ public class LoginActivity extends MainActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
