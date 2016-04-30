@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -278,18 +279,46 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 File destination = new File(Environment.getExternalStorageDirectory(),
                         System.currentTimeMillis() + ".jpg");
                 FileOutputStream fo;
+
                 try {
                     destination.createNewFile();
-                    fo = new FileOutputStream(destination);
+                    fo = new FileOutputStream(destination.getPath());
                     fo.write(bytes.toByteArray());
                     fo.close();
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                imageTest.setImageBitmap(thumbnail);
+                Uri selectedImageUri = data.getData();
+                String takenImagePath = getPath(getApplicationContext() , selectedImageUri);
+                System.out.println(takenImagePath);
+
+                ExifInterface ei = null;
+                try {
+                    ei = new ExifInterface(takenImagePath);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+                System.out.println(orientation);
+                switch(orientation) {
+                    case ExifInterface.ORIENTATION_ROTATE_90:
+                        imageTest.setImageBitmap(rotateImage(thumbnail, 90));
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_180:
+                        imageTest.setImageBitmap(rotateImage(thumbnail, 180));
+                        break;
+                    default:
+                        imageTest.setImageBitmap(thumbnail);
+                }
+
+
+
+                //imageTest.setImageBitmap(thumbnail);
             } else if (requestCode == SELECT_FILE) {
                 Uri selectedImageUri = data.getData();/*
                 String[] projection = {MediaStore.MediaColumns.DATA};
@@ -311,27 +340,30 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 options.inSampleSize = scale;
                 options.inJustDecodeBounds = false;
                 bm = BitmapFactory.decodeFile(selectedImagePath, options);
-/*
-                int bmpWidth = bm.getWidth();
-                int bmpHeight = bm.getHeight();
 
-                int newWidth = REQUIRED_SIZE;
+                ExifInterface ei = null;
+                try {
+                    ei = new ExifInterface(selectedImagePath);
+                    System.out.println(selectedImagePath);
 
-                int newHeight  = REQUIRED_SIZE;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+                System.out.println(orientation);
+                switch(orientation) {
+                    case ExifInterface.ORIENTATION_ROTATE_90:
+                        imageTest.setImageBitmap(rotateImage(bm, 90));
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_180:
+                        imageTest.setImageBitmap(rotateImage(bm, 180));
+                        break;
+                    default:
+                        imageTest.setImageBitmap(bm);
+                }
 
-                // calculate the scale - in this case = 0.4f
 
-                float scaleWidth = ((float) newWidth) / bmpWidth;
-
-                float scaleHeight = ((float) newHeight) / bmpHeight;
-
-                Matrix matrix = new Matrix();
-                matrix.postScale(scaleWidth, scaleHeight);
-                matrix.postRotate(90);
-
-                Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, bmpWidth, bmpHeight, matrix, true);
-*/
-                imageTest.setImageBitmap(bm);
+                //imageTest.setImageBitmap(bm);
             }
         }
     }
@@ -454,5 +486,15 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
      */
     public static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
+    }
+
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Bitmap retVal;
+
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        retVal = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+
+        return retVal;
     }
 }
