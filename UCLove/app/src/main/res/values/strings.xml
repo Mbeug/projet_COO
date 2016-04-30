@@ -57,6 +57,7 @@
     <string name="vert" >Vert</string>
     <string name="longueurCheveux" >Longueur</string>
     <string name="photo" >Photo</string>
+    <string name="email_non_conforme" >Entrez une adresse mail valide</string>
 
 
 </resources>
