@@ -1,193 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"> <!--IMPORTANT otherwise backgrnd img. will not fill the whole screen -->
 
-    <include layout="@layout/app_bar_main" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="850dp"/>
 
 
-    <EditText
-        android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/nom"
-        android:hint="@string/hintnom"
-        android:layout_marginTop="70dp"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/photo"
-        android:layout_toLeftOf="@+id/photo" />
+        <EditText
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/mdp"
-        android:hint="@string/hintmdp"
-        android:layout_below="@+id/email"
-        android:layout_alignLeft="@+id/email"
-        android:layout_alignStart="@+id/email"
-        android:layout_alignRight="@+id/email"
-        android:layout_alignEnd="@+id/email" />
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/nom"
+            android:hint="@string/hintnom"
+            android:layout_marginTop="79dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/email"
-        android:hint="@string/email"
-        android:layout_below="@+id/dateNaissance"
-        android:layout_alignLeft="@+id/dateNaissance"
-        android:layout_alignStart="@+id/dateNaissance"
-        android:layout_toLeftOf="@+id/imageTest"
-        android:layout_toStartOf="@+id/imageTest" />
+        <EditText
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/mdp"
+            android:hint="@string/hintmdp"
+            android:layout_below="@+id/email"
+            android:layout_alignLeft="@+id/email"
+            android:layout_alignStart="@+id/email"
+            android:layout_alignRight="@+id/email"
+            android:layout_alignEnd="@+id/email" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/dateNaissance"
-        android:hint="@string/datenaissance"
-        android:layout_below="@+id/nom"
-        android:layout_alignLeft="@+id/nom"
-        android:layout_alignStart="@+id/nom"
-        android:layout_toLeftOf="@+id/imageTest"
-        android:layout_toStartOf="@+id/imageTest" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/email"
+            android:hint="@string/email"
+            android:layout_below="@+id/dateNaissance"
+            android:layout_alignLeft="@+id/dateNaissance"
+            android:layout_alignStart="@+id/dateNaissance"
+            android:layout_alignRight="@+id/dateNaissance"
+            android:layout_alignEnd="@+id/dateNaissance" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="             "
-        android:id="@+id/textView11"
-        android:layout_below="@+id/mdp"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/dateNaissance"
+            android:hint="@string/datenaissance"
+            android:layout_below="@+id/nom"
+            android:layout_alignLeft="@+id/nom"
+            android:layout_alignStart="@+id/nom"
+            android:layout_alignRight="@+id/nom"
+            android:layout_alignEnd="@+id/nom" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/orientation"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/mdp"
-        android:layout_toRightOf="@+id/textView11"
-        android:layout_toEndOf="@+id/textView11" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="             "
+            android:id="@+id/textView11"
+            android:layout_below="@+id/mdp"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="    "
-        android:id="@+id/textView12"
-        android:layout_below="@+id/mdp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/orientation"
+            android:id="@+id/textView13"
+            android:layout_below="@+id/mdp"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/sexe"
-        android:id="@+id/textView14"
-        android:layout_below="@+id/mdp"
-        android:layout_toRightOf="@+id/textView12"
-        android:layout_toEndOf="@+id/textView12" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="    "
+            android:id="@+id/textView12"
+            android:layout_below="@+id/mdp" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/sexeSpinner"
-        android:layout_below="@+id/textView11"
-        android:layout_toRightOf="@+id/textView12"
-        android:layout_toEndOf="@+id/textView12" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/sexe"
+            android:id="@+id/textView14"
+            android:layout_below="@+id/mdp"
+            android:layout_toRightOf="@+id/textView12"
+            android:layout_toEndOf="@+id/textView12" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/orientationSpinner"
-        android:layout_alignTop="@+id/sexeSpinner"
-        android:layout_toRightOf="@+id/textView11"
-        android:layout_toEndOf="@+id/textView11" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/sexeSpinner"
+            android:layout_below="@+id/textView11"
+            android:layout_toRightOf="@+id/textView12"
+            android:layout_toLeftOf="@+id/textView11"
+            android:layout_toStartOf="@+id/textView11"
+            android:layout_marginLeft="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/couleurCheveux"
-        android:id="@+id/textView15"
-        android:layout_below="@+id/sexeSpinner"
-        android:layout_alignLeft="@+id/sexeSpinner"
-        android:layout_alignStart="@+id/sexeSpinner" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/orientationSpinner"
+            android:layout_alignTop="@+id/sexeSpinner"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_above="@+id/textView15"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"/>
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/couleurCheveuxSpinner"
-        android:layout_below="@+id/textView15"
-        android:layout_alignLeft="@+id/textView15"
-        android:layout_alignStart="@+id/textView15"
-        android:layout_toLeftOf="@+id/textView11"
-        android:layout_toStartOf="@+id/textView11" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/couleurCheveux"
+            android:id="@+id/textView15"
+            android:layout_below="@+id/sexeSpinner"
+            android:layout_toRightOf="@+id/textView12"
+            android:layout_toEndOf="@+id/textView12"
+            android:layout_marginTop="15dp"/>
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/longueurCheveuxSpinner"
-        android:layout_below="@+id/textView15"
-        android:layout_toRightOf="@+id/textView11"
-        android:layout_toEndOf="@+id/textView11" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/couleurCheveuxSpinner"
+            android:layout_below="@+id/textView15"
+            android:layout_alignLeft="@+id/textView15"
+            android:layout_alignStart="@+id/textView15"
+            android:layout_toLeftOf="@+id/textView11"
+            android:layout_toStartOf="@+id/textView11" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/couleurYeux"
-        android:id="@+id/textView16"
-        android:layout_below="@+id/couleurCheveuxSpinner"
-        android:layout_alignLeft="@+id/couleurCheveuxSpinner"
-        android:layout_alignStart="@+id/couleurCheveuxSpinner" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/longueurCheveuxSpinner"
+            android:layout_below="@+id/textView15"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_above="@+id/textView16"
+            android:layout_alignRight="@+id/orientationSpinner"
+            android:layout_alignEnd="@+id/orientationSpinner" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/couleurYeuxSpinner"
-        android:layout_below="@+id/textView16"
-        android:layout_alignLeft="@+id/textView16"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_toLeftOf="@+id/textView11"
-        android:layout_toStartOf="@+id/textView11" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/couleurYeux"
+            android:id="@+id/textView16"
+            android:layout_below="@+id/couleurCheveuxSpinner"
+            android:layout_alignLeft="@+id/couleurCheveuxSpinner"
+            android:layout_alignStart="@+id/couleurCheveuxSpinner"
+            android:layout_marginTop="15dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:id="@+id/Soumettre"
-        android:layout_below="@+id/couleurYeuxSpinner"
-        android:layout_centerHorizontal="true" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/couleurYeuxSpinner"
+            android:layout_below="@+id/textView16"
+            android:layout_alignLeft="@+id/textView16"
+            android:layout_alignStart="@+id/textView16"
+            android:layout_toLeftOf="@+id/textView11"
+            android:layout_toStartOf="@+id/textView11" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/photo"
-        android:id="@+id/photo"
-        android:layout_alignTop="@+id/couleurYeuxSpinner"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_alignEnd="@+id/textView13" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:id="@+id/Soumettre"
+            android:layout_below="@+id/imageTest"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:id="@+id/imageTest"
-        android:src="@drawable/ic_menu_gallery"
-        android:layout_alignTop="@+id/nom"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView11"
-        android:layout_above="@+id/textView11"
-        android:layout_toRightOf="@+id/textView11" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photo"
+            android:id="@+id/photo"
+            android:layout_alignTop="@+id/couleurYeuxSpinner"
+            android:layout_alignRight="@+id/textView13"
+            android:layout_alignEnd="@+id/textView13" />
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:id="@+id/imageTest"
+            android:src="@drawable/ic_menu_gallery"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/couleurYeuxSpinner"
+            android:layout_marginTop="20dp"/>
+
+    </RelativeLayout>
+
+
+</ScrollView>

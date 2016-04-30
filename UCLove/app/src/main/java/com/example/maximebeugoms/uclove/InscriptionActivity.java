@@ -94,7 +94,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
 
-                if (!mMail.contains("@") && !mMail.contains(".")) {
+                if (!mMail.contains("@") || !mMail.contains(".")) {
                     toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
                 }
             }
