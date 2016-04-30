@@ -5,33 +5,37 @@
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="7"
         android:title="@string/action_settings"
         compat:showAsAction="never" />
     <item
         android:id="@+id/action_profile"
-        android:orderInCategory="1"
+        android:orderInCategory="4"
         android:title="@string/profil"
         compat:showAsAction="never" />
     <item
         android:id="@+id/action_search"
-        android:orderInCategory="2"
+        android:orderInCategory="1"
         android:title="@string/decouverte"
         compat:showAsAction="never" />
     <item
         android:id="@+id/action_filter"
+        android:orderInCategory="5"
         android:title="@string/settings_recherche"
         compat:showAsAction="never" />
     <item
         android:id="@+id/action_calendar"
+        android:orderInCategory="6"
         android:title="@string/calendrier"
         compat:showAsAction="never" />
     <item
         android:id="@+id/action_friends"
+        android:orderInCategory="3"
         android:title="@string/amis"
         compat:showAsAction="never" />
     <item
         android:id="@+id/action_meet"
+        android:orderInCategory="2"
         android:title="@string/rencontre"
         compat:showAsAction="never" />
 
