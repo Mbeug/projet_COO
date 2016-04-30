@@ -57,30 +57,51 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
         final EditText mdp = (EditText) findViewById(R.id.mdp);
         final EditText mail = (EditText) findViewById(R.id.email);
         final EditText naissance = (EditText) findViewById(R.id.dateNaissance);
+        
+        
+        // Spinner element
+        final Spinner sexSpinner = (Spinner) findViewById(R.id.sexeSpinner);
+        final Spinner couleurCheveuxSpinner = (Spinner) findViewById(R.id.couleurCheveuxSpinner);
+        final Spinner orientationSpinner = (Spinner) findViewById(R.id.orientationSpinner);
+        final Spinner longueurCheveuxSpinner = (Spinner) findViewById(R.id.longueurCheveuxSpinner);
+        final Spinner couleurYeuxSpinner = (Spinner) findViewById(R.id.couleurYeuxSpinner);
+
 
 
         Button button = (Button) findViewById(R.id.Soumettre);
 
         button.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {/*
+            public void onClick(View view) {
+                String mNom = nom.getText().toString();
+
+                String mMdp = mdp.getText().toString();
+
+                String mMail = mail.getText().toString();
+
+                String mDate = naissance.getText().toString();
+
+                String mSexe = sexSpinner.getSelectedItem().toString();
+
+                String mCouleurCheveux = couleurCheveuxSpinner.getSelectedItem().toString();
+
+                String mOrientation = orientationSpinner.getSelectedItem().toString();
+
+                String mLongueurCheveux = longueurCheveuxSpinner.getSelectedItem().toString();
+
+                String mCouleurYeux = couleurYeuxSpinner.getSelectedItem().toString();
+
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
-                toast.makeText(InscriptionActivity.this, nom.getText(), toast.LENGTH_SHORT).show();
-                toast.makeText(InscriptionActivity.this, mdp.getText(), toast.LENGTH_SHORT).show();
-                toast.makeText(InscriptionActivity.this, mail.getText(), toast.LENGTH_SHORT).show();
-                toast.makeText(InscriptionActivity.this, naissance.getText(), toast.LENGTH_SHORT).show();
-*/
+
+                if (!mMail.contains("@") && !mMail.contains(".")) {
+                    toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
+                }
             }
 
         });
 
-        // Spinner element
-        Spinner sexSpinner = (Spinner) findViewById(R.id.sexeSpinner);
-        Spinner couleurCheveuxSpinner = (Spinner) findViewById(R.id.couleurCheveuxSpinner);
-        Spinner orientationSpinner = (Spinner) findViewById(R.id.orientationSpinner);
-        Spinner longueurCheveuxSpinner = (Spinner) findViewById(R.id.longueurCheveuxSpinner);
-        Spinner couleurYeuxSpinner = (Spinner) findViewById(R.id.couleurYeuxSpinner);
+        
 
         // Spinner click listener
         sexSpinner.setOnItemSelectedListener(this);
@@ -153,7 +174,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
