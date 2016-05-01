@@ -59,5 +59,7 @@
     <string name="prendrePhoto" >Take Photo</string>
     <string name="galerie" >Choose from Library</string>
     <string name="annuler" >Cancel</string>
-
+    <string name="mauvais_login">This E-mail password combination does not exist </string>
+    <string name="connexion">Logging in ! </string>
+    <string name="deja_utilise">This e-mail is already used</string>
 </resources>

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -47,6 +48,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import android.widget.AdapterView.OnItemSelectedListener;
+
+import com.example.maximebeugoms.uclove.Database.Profil;
+import com.example.maximebeugoms.uclove.Database.ProfilDao;
+import com.example.maximebeugoms.uclove.Database.User;
+import com.example.maximebeugoms.uclove.Database.UserDao;
 /*
  * Created by maximebeugoms on 28/04/16.
  */
@@ -62,6 +68,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
         final EditText mdp = (EditText) findViewById(R.id.mdp);
         final EditText mail = (EditText) findViewById(R.id.email);
         final EditText naissance = (EditText) findViewById(R.id.dateNaissance);
+        final EditText pseudo = (EditText) findViewById(R.id.pseudo);
         
         
         // Spinner element
@@ -87,6 +94,8 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                 String mDate = naissance.getText().toString();
 
+                String mPseudo = pseudo.getText().toString();
+
                 String mSexe = sexSpinner.getSelectedItem().toString();
 
                 String mCouleurCheveux = couleurCheveuxSpinner.getSelectedItem().toString();
@@ -100,8 +109,17 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
 
+                //Check multiple conditions
                 if(mNom == null || mNom.isEmpty()) {
                     toast.makeText(InscriptionActivity.this, R.string.nom_non_conforme, toast.LENGTH_SHORT).show();
+                }
+
+                if (!mMail.contains("@") || !mMail.contains(".")) {
+                    toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
+                }
+
+                if(mMdp == null || mMdp.isEmpty()) {
+                    toast.makeText(InscriptionActivity.this, R.string.mdp_non_conforme, toast.LENGTH_SHORT).show();
                 }
 
                 try {
@@ -115,12 +133,49 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                     // If the string can be parsed in date, it matches the SimpleDateFormat
                     // Do whatever you want to do if String matches SimpleDateFormat.
                     if (parsedDate.after(allowedDate)) {
-                        System.out.println("After");
                         toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
-                    }else{
-                        //peut etre soumis
-                        System.out.println(parsedDate.toString());
-                        System.out.println(mDate);
+                    }
+
+                    else{
+
+                        //If all checks are passed add the information to the database and return to login page (for now) //TODO change page loaded
+
+                        //Open db
+                        UserDao userDb = new UserDao(getApplicationContext());
+                        SQLiteDatabase mDb = userDb.open();
+
+
+                        //TODO Crash at this line
+                        //Get the user associated to email from db
+                        User checker = userDb.selectionner(mMail);
+
+                        //If we find an account with the same e-mail
+                        if(checker != null){
+                            toast.makeText(InscriptionActivity.this, R.string.deja_utilise, toast.LENGTH_SHORT).show();
+                        }
+                        //If no account exists
+                        else{
+
+                            User user = new User(mPseudo,mMail,mMdp);
+
+                            //TODO age en fonction de date et ajout localisation
+                            Profil profil = new Profil(mMail,mSexe,55,mCouleurCheveux,mCouleurYeux,mOrientation,"Belgique");
+
+
+                            //We add user and profile in the database
+                            userDb.add(user);
+
+                            ProfilDao profilDb = new ProfilDao(getApplicationContext());
+                            SQLiteDatabase pDb = userDb.open();
+
+                            profilDb.add(profil);
+
+                            userDb.close();
+
+                            Intent intent = new Intent(InscriptionActivity.this,LoginActivity.class);
+                            startActivity(intent);
+                        }
+
                     }
 
                 }
@@ -130,15 +185,6 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                     toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
                 }
 
-
-
-                if (!mMail.contains("@") || !mMail.contains(".")) {
-                    toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
-                }
-
-                if(mMdp == null || mMdp.isEmpty()) {
-                    toast.makeText(InscriptionActivity.this, R.string.mdp_non_conforme, toast.LENGTH_SHORT).show();
-                }
             }
 
         });

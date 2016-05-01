@@ -65,6 +65,7 @@
     <string name="prendrePhoto" >Prendre Photo</string>
     <string name="galerie" >Choisir dans la Galerie</string>
     <string name="annuler" >Annuler</string>
-
-
+    <string name="mauvais_login">Cette combinaison E-mail mot de passe n\'existe pas</string>
+    <string name="connexion">Connection en cours !</string>
+    <string name="deja_utilise">L\'email est déjà utilisé</string>
 </resources>

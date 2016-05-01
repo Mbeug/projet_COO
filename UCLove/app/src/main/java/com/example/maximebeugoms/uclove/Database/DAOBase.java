@@ -21,7 +21,7 @@ public abstract class DAOBase
     protected DatabaseHandler mHandler = null;
 
     public DAOBase(Context pContext) {
-        super();
+        //super();
         this.mHandler = new DatabaseHandler(pContext, NOM, null, VERSION);
     }
 

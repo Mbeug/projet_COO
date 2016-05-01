@@ -5,28 +5,19 @@ package com.example.maximebeugoms.uclove.Database;
  */
 public class User {
 
-    private long id_user;
     private String login;
     private String mail;
     private String password;
 
 
-    public User(long id_user,String login,String mail, String password){
+    public User(String login,String mail, String password){
         super();
-        this.id_user = id_user;
         this.login = login;
         this.mail = mail;
         this.password = password;
 
     }
 
-    public long getId() {
-        return id_user;
-    }
-
-    public void setId(long id) {
-        this.id_user = id;
-    }
 
     public String getLogin() {
         return login;
@@ -52,7 +43,4 @@ public class User {
         this.password = password;
     }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
-    }
 }

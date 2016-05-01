@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.util.Log;
 
 /*
  *  définition générale des schémas de la base de donnée
@@ -13,7 +14,6 @@ public class DatabaseHandler extends SQLiteOpenHelper
 {
     //Pour la table Utilisateur
 
-    public static final String UTILISATEUR_ID_USER = "id_user";
     public static final String UTILISATEUR_LOGIN = "login";
     public static final String UTILISATEUR_MAIL = "mail";
     public static final String UTILISATEUR_PASSWORD = "password";
@@ -79,62 +79,62 @@ public class DatabaseHandler extends SQLiteOpenHelper
      //  Creation des différentes tables dans des strings
 
     public static final String PROFIL_TABLE_CREATE =
-            "CREATE TABLE " + PROFIL_TABLE_NAME + " (" +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
+            "CREATE TABLE " + PROFIL_TABLE_NAME + " ( " +
                     PROFIL_NOM + " TEXT, " +
                     PROFIL_SEXE + " TEXT, " +
-                    PROFIL_AGE + "INTEGER, " +
-                    PROFIL_COULEUR_YEUX + "TEXT," +
-                    PROFIL_COULEUR_CHEVEUX + "TEXT, " +
-                    PROFIL_TAILLE + "REAL," +
-                    PROFIL_LOCALISATION + "TEXT, " +
-                    PROFIL_ORIENTATION + "TEXT);";
+                    PROFIL_AGE + " INTEGER, " +
+                    PROFIL_COULEUR_YEUX + " TEXT, " +
+                    PROFIL_COULEUR_CHEVEUX + " TEXT, " +
+                    PROFIL_TAILLE + " REAL, " +
+                    PROFIL_LOCALISATION + " TEXT, " +
+                    PROFIL_ORIENTATION + " TEXT, " +
+                    UTILISATEUR_MAIL + " STRING," +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String UTILISATEUR_TABLE_CREATE =
-            "CREATE TABLE" + UTILISATEUR_TABLE_NAME + "(" +
-
-                    UTILISATEUR_ID_USER + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    UTILISATEUR_ID_USER + "INTEGER" +
-                    UTILISATEUR_ID_USER + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    UTILISATEUR_ID_USER + "INTEGER" +
-                    UTILISATEUR_LOGIN + "TEXT, " +
-                    UTILISATEUR_MAIL + "TEXT, " +
-                    UTILISATEUR_PASSWORD + "TEXT);";
+            "CREATE TABLE " + UTILISATEUR_TABLE_NAME + " ( " +
+                    UTILISATEUR_MAIL + " STRING PRIMARY KEY, " +
+                    UTILISATEUR_LOGIN + " TEXT, " +
+                    UTILISATEUR_PASSWORD + " TEXT);";
 
     public static final String EVENEMENT_TABLE_CREATE =
-            "CREATE TABLE" + EVENEMENT_TABLE_NAME + "(" +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-                    EVENEMENT_DATE + "DATE, " +
-                    EVENEMENT_TYPE + "STRING);";
+            "CREATE TABLE " + EVENEMENT_TABLE_NAME + " ( " +
+                    EVENEMENT_DATE + " DATE, " +
+                    EVENEMENT_TYPE + " STRING, " +
+                    UTILISATEUR_MAIL + " STRING, " +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
 // a modifier RELATION avec les deux users
     public static final String RELATION_TABLE_CREATE =
-            "CREATE TABLE" + RELATION_TABLE_NAME +"(" +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-                    RELATION_ID_RELATION + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    RELATION_ETAT_ACCEPTATION + "INTEGER);";
+            "CREATE TABLE " + RELATION_TABLE_NAME +" ( " +
+                    RELATION_ID_RELATION + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    RELATION_ETAT_ACCEPTATION + " INTEGER, " +
+                    UTILISATEUR_MAIL + " STRING , " +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String MESSAGE_TABLE_CREATE =
-            "CREATE TABLE" + MESSAGE_TABLE_NAME + "(" +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-                    MESSAGE_TEXTE + "TEXT, " +
-                    MESSAGE_DATE + "DATE);";
+            "CREATE TABLE " + MESSAGE_TABLE_NAME + " ( " +
+                    MESSAGE_TEXTE + " TEXT, " +
+                    MESSAGE_DATE + " DATE, " +
+                    UTILISATEUR_MAIL + " STRING," +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String PREFERENCE_TABLE_CREATE =
-            "CREATE TABLE" + PREFERENCE_TABLE_NAME + "(" +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-                    PREFERENCE_LANGUE + "TEXT, " +
-                    PREFERENCE_NIVEAU_CONFIDENTIALITE + "TEXT); ";
+            "CREATE TABLE " + PREFERENCE_TABLE_NAME + " ( " +
+                    PREFERENCE_LANGUE + " TEXT, " +
+                    PREFERENCE_NIVEAU_CONFIDENTIALITE + " TEXT, " +
+                    UTILISATEUR_MAIL + " STRING," +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String SEARCH_TABLE_CREATE =
-            "CREATE TABLE" + PREFERENCE_TABLE_NAME + "(" +
-                    UTILISATEUR_ID_USER + "INTEGER FOREIGN KEY," +
-                    SEARCH_AGE + "INTEGER, " +
-                    SEARCH_GENRE + "TEXT, " +
-                    SEARCH_LANGUE + "TEXT," +
-                    SEARCH_LOCALISATION + "TEXT, " +
-                    SEARCH_TAILLE + "REAL);";
+            "CREATE TABLE " + SEARCH_TABLE_NAME + " ( " +
+                    SEARCH_AGE + " INTEGER, " +
+                    SEARCH_GENRE + " TEXT, " +
+                    SEARCH_LANGUE + " TEXT, " +
+                    SEARCH_LOCALISATION + " TEXT, " +
+                    SEARCH_TAILLE + " REAL, " +
+                    UTILISATEUR_MAIL + " STRING," +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public DatabaseHandler(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);

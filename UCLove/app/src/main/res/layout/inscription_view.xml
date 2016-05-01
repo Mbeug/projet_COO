@@ -22,9 +22,21 @@
             android:ems="10"
             android:id="@+id/nom"
             android:hint="@string/hintnom"
-            android:layout_marginTop="79dp"
+            android:layout_marginTop="108dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+        <EditText
+
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/pseudo"
+            android:hint="@string/hintpseudo"
+            android:layout_below="@+id/nom"
+            android:layout_alignRight="@+id/nom"
+            android:layout_alignEnd="@+id/nom" />
 
         <EditText
             android:layout_marginBottom="20dp"
@@ -61,10 +73,8 @@
             android:id="@+id/dateNaissance"
             android:hint="@string/datenaissance"
             android:layout_below="@+id/nom"
-            android:layout_alignLeft="@+id/nom"
-            android:layout_alignStart="@+id/nom"
-            android:layout_alignRight="@+id/nom"
-            android:layout_alignEnd="@+id/nom" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,6 +91,16 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/orientation"
             android:id="@+id/textView13"
+            android:layout_below="@+id/mdp"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/orientation"
+            android:id="@+id/textView17"
             android:layout_below="@+id/mdp"
             android:layout_toRightOf="@+id/textView11"
             android:layout_toEndOf="@+id/textView11" />

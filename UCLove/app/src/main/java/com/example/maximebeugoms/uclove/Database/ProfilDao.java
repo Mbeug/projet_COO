@@ -9,7 +9,7 @@ import android.content.Context;
 public class ProfilDao extends DAOBase {
 
         public static final String TABLE_NAME = "profil";
-        public static final String KEY = "id_user";
+        public static final String KEY = "mail";
         public static final String NOM = "nom";
         public static final String SEXE = "sexe";
         public static final String AGE = "age";
@@ -19,7 +19,7 @@ public class ProfilDao extends DAOBase {
         public static final String COULEUR_YEUX = "couleur_yeux";
 
 
-        public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " STRING PRIMARY KEY AUTOINCREMENT, "
                 + NOM + " TEXT, " + SEXE + "TEXT," + AGE + " REALs" + ORIENTATION + "TEXT," +  LOCALISATION + "TEXT);";
         public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
@@ -33,7 +33,7 @@ public class ProfilDao extends DAOBase {
         public void add(Profil p)
         {
             ContentValues values = new ContentValues();
-            values.put(KEY, p.getId_user());
+            values.put(KEY, p.getMail());
             values.put(AGE, p.getAge());
             values.put(COULEUR_CHEVEUX, p.getCouleur_cheveux());
             values.put(COULEUR_YEUX, p.getCouleur_yeux());
@@ -55,7 +55,7 @@ public class ProfilDao extends DAOBase {
          */
         public void update(Profil p) {
             ContentValues values = new ContentValues();
-            values.put(KEY, p.getId_user());
+            values.put(KEY, p.getMail());
             values.put(COULEUR_CHEVEUX, p.getCouleur_cheveux());
             values.put(COULEUR_YEUX, p.getCouleur_yeux());
             values.put(NOM, p.getNom());
@@ -63,7 +63,7 @@ public class ProfilDao extends DAOBase {
             values.put(SEXE, p.getSexe());
             values.put(ORIENTATION, p.getOrientation());
 
-            mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(p.getId())});
+            mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {p.getMail()});
         }
 
         /**
