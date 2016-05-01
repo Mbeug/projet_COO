@@ -37,7 +37,7 @@
     <string name="submit">Soumettre</string>
     <string name="inscription">Inscription</string>
     <string name="email">Adresse e-mail</string>
-    <string name="datenaissance">Date de naissance jj/mm/aaaa</string>
+    <string name="datenaissance">Age</string>
     <string name="sexe">Sexe</string>
     <string name="homme">Homme</string>
     <string name="femme">Femme</string>
@@ -58,7 +58,7 @@
     <string name="longueurCheveux" >Longueur</string>
     <string name="photo" >Photo</string>
     <string name="email_non_conforme" >Entrez une adresse mail valide</string>
-    <string name="date_non_conforme" >Entrez une date valide</string>
+    <string name="date_non_conforme" >Entrez un age valide</string>
     <string name="nom_non_conforme" >Entrez un nom valide</string>
     <string name="mdp_non_conforme" >Entrez un mot de passe valide</string>
     <string name="ajouterPhoto" >Ajouter Photo!</string>
@@ -68,4 +68,5 @@
     <string name="mauvais_login">Cette combinaison E-mail mot de passe n\'existe pas</string>
     <string name="connexion">Connection en cours !</string>
     <string name="deja_utilise">L\'email est déjà utilisé</string>
+    <string name="compteCree" >Compte créé</string>
 </resources>

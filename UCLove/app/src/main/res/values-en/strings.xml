@@ -19,7 +19,7 @@
     <string name="submit">Submit</string>
     <string name="inscription">Registration</string>
     <string name="email">E-mail</string>
-    <string name="datenaissance">Birthday dd/mm/yyyy</string>
+    <string name="datenaissance">Age</string>
     <string name="sexe">Gender</string>
     <string name="homme">Man</string>
     <string name="femme">Woman</string>
@@ -52,7 +52,7 @@
     <string name="longueurCheveux" >Hair length</string>
     <string name="photo" >Picture</string>
     <string name="email_non_conforme" >Please enter a valid e-mail</string>
-    <string name="date_non_conforme" >Please enter a valid date</string>
+    <string name="date_non_conforme" >Please enter a valid age</string>
     <string name="nom_non_conforme" >Please enter a valid name</string>
     <string name="mdp_non_conforme" >Please enter a valid password</string>
     <string name="ajouterPhoto" >Add Photo!</string>
@@ -62,4 +62,5 @@
     <string name="mauvais_login">This E-mail password combination does not exist </string>
     <string name="connexion">Logging in ! </string>
     <string name="deja_utilise">This e-mail is already used</string>
+    <string name="compteCree" >Account created</string>
 </resources>

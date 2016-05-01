@@ -1,5 +1,6 @@
 package com.example.maximebeugoms.uclove;
 
+import android.Manifest;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;
@@ -20,7 +21,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -58,6 +61,8 @@ import com.example.maximebeugoms.uclove.Database.UserDao;
  */
 
 public class InscriptionActivity extends MainActivity implements OnItemSelectedListener {
+    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscription_view);
@@ -106,88 +111,68 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                 String mCouleurYeux = couleurYeuxSpinner.getSelectedItem().toString();
 
+                Bitmap bmThumbnail = null;
+
                 Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
+                toast.setGravity(Gravity.TOP | Gravity.START, 0, 0);
 
                 //Check multiple conditions
-                if(mNom == null || mNom.isEmpty()) {
+                if (mNom == null || mNom.isEmpty()) {
                     toast.makeText(InscriptionActivity.this, R.string.nom_non_conforme, toast.LENGTH_SHORT).show();
-                }
-
-                if (!mMail.contains("@") || !mMail.contains(".")) {
-                    toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
-                }
-
-                if(mMdp == null || mMdp.isEmpty()) {
-                    toast.makeText(InscriptionActivity.this, R.string.mdp_non_conforme, toast.LENGTH_SHORT).show();
-                }
-
-                try {
-                    String currentDateString = "30/04/1998";
-                    SimpleDateFormat sd = new SimpleDateFormat("dd/mm/yyyy");
-                    Date allowedDate = sd.parse(currentDateString);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-                    Date parsedDate = dateFormat.parse(mDate);
-
-                    //java.sql.Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
-                    // If the string can be parsed in date, it matches the SimpleDateFormat
-                    // Do whatever you want to do if String matches SimpleDateFormat.
-                    if (parsedDate.after(allowedDate)) {
-                        toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
-                    }
-
-                    else{
-
-                        //If all checks are passed add the information to the database and return to login page (for now) //TODO change page loaded
-
-                        //Open db
-                        UserDao userDb = new UserDao(getApplicationContext());
-                        SQLiteDatabase mDb = userDb.open();
-
-
-                        //TODO Crash at this line
-                        //Get the user associated to email from db
-                        User checker = userDb.selectionner(mMail);
-
-                        //If we find an account with the same e-mail
-                        if(checker != null){
-                            toast.makeText(InscriptionActivity.this, R.string.deja_utilise, toast.LENGTH_SHORT).show();
-                        }
-                        //If no account exists
-                        else{
-
-                            User user = new User(mPseudo,mMail,mMdp);
-
-                            //TODO age en fonction de date et ajout localisation
-                            Profil profil = new Profil(mMail,mSexe,55,mCouleurCheveux,mCouleurYeux,mOrientation,"Belgique");
-
-
-                            //We add user and profile in the database
-                            userDb.add(user);
-
-                            ProfilDao profilDb = new ProfilDao(getApplicationContext());
-                            SQLiteDatabase pDb = userDb.open();
-
-                            profilDb.add(profil);
-
-                            userDb.close();
-
-                            Intent intent = new Intent(InscriptionActivity.this,LoginActivity.class);
-                            startActivity(intent);
-                        }
-
-                    }
-
-                }
-                catch (java.text.ParseException e) {
-                    // Else if there's an exception, it doesn't
-                    // Do whatever you want to do if it doesn't.
+                } else if (mDate == null || mDate.isEmpty() || Integer.parseInt(mDate) < 18) {
                     toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
-                }
+                } else if (!mMail.contains("@") || !mMail.contains(".")) {
+                    toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
+                } else if (mMdp == null || mMdp.isEmpty()) {
+                    toast.makeText(InscriptionActivity.this, R.string.mdp_non_conforme, toast.LENGTH_SHORT).show();
 
+
+                } else {
+                    //If all checks are passed add the information to the database and return to login page (for now) //TODO change page loaded
+
+                    //Open db
+                    UserDao userDb = new UserDao(getApplicationContext());
+                    SQLiteDatabase mDb = userDb.open();
+
+
+                    //TODO Crash at this line
+                    //Get the user associated to email from db
+                    User checker = userDb.selectionner(mMail);
+
+                    //If we find an account with the same e-mail
+                    if (checker != null) {
+                        toast.makeText(InscriptionActivity.this, R.string.deja_utilise, toast.LENGTH_SHORT).show();
+                    }
+                    //If no account exists
+                    else {
+
+                        User user = new User(mPseudo, mMail, mMdp);
+
+                        //TODO  ajout localisation
+                        Profil profil = new Profil(mMail, mSexe, Integer.parseInt(mDate), mCouleurCheveux, mCouleurYeux, mOrientation, "Belgique");
+
+
+                        //We add user and profile in the database
+                        userDb.add(user);
+
+                        ProfilDao profilDb = new ProfilDao(getApplicationContext());
+                        SQLiteDatabase pDb = userDb.open();
+
+                        profilDb.add(profil);
+
+                        userDb.close();
+
+                        toast.makeText(InscriptionActivity.this, R.string.compteCree, toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(InscriptionActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+
+                }
             }
 
-        });
+
+    });
 
         
 
@@ -250,9 +235,39 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
         Button photoButton = (Button) findViewById(R.id.photo);
 
+        assert photoButton != null;
         photoButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                System.out.println("IN BUTTON");
+                if (ContextCompat.checkSelfPermission(InscriptionActivity.this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    System.out.println("PERMISSION NOT GRANTED");
+                    // Should we show an explanation?
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(InscriptionActivity.this,
+                            Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+                        // Show an expanation to the user *asynchronously* -- don't block
+                        // this thread waiting for the user's response! After the user
+                        // sees the explanation, try again to request the permission.
+
+                    } else {
+
+                        // No explanation needed, we can request the permission.
+
+                        ActivityCompat.requestPermissions(InscriptionActivity.this,
+                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+
+                        // MY_PERMISSIONS_READ_EXTERNAL_STORAGE is an
+                        // app-defined int constant. The callback method gets the
+                        // result of the request.
+
+                    }
+                }
+
                 selectImage();
             }
 
@@ -337,10 +352,23 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
+                String takenImagePath;
                 Uri selectedImageUri = data.getData();
-                String takenImagePath = getPath(getApplicationContext() , selectedImageUri);
+
+                takenImagePath = getPath(getApplicationContext() , selectedImageUri);
                 System.out.println(takenImagePath);
+
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(takenImagePath, options);
+                final int REQUIRED_SIZE = 200;
+                int scale = 1;
+                while (options.outWidth / scale / 2 >= REQUIRED_SIZE
+                        && options.outHeight / scale / 2 >= REQUIRED_SIZE)
+                    scale *= 2;
+                options.inSampleSize = scale;
+                options.inJustDecodeBounds = false;
+                Bitmap bm = BitmapFactory.decodeFile(takenImagePath, options);
 
                 ExifInterface ei = null;
                 try {
@@ -353,13 +381,20 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 System.out.println(orientation);
                 switch(orientation) {
                     case ExifInterface.ORIENTATION_ROTATE_90:
-                        imageTest.setImageBitmap(rotateImage(thumbnail, 90));
+                        System.out.println("ORIENTATION_ROTATE_90");
+                        imageTest.setImageBitmap(rotateImage(bm, 90));
                         break;
                     case ExifInterface.ORIENTATION_ROTATE_180:
-                        imageTest.setImageBitmap(rotateImage(thumbnail, 180));
+                        System.out.println("ORIENTATION_ROTATE_180");
+                        imageTest.setImageBitmap(rotateImage(bm, 180));
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_270:
+                        System.out.println("ORIENTATION_ROTATE_270");
+                        imageTest.setImageBitmap(rotateImage(bm, 270));
                         break;
                     default:
-                        imageTest.setImageBitmap(thumbnail);
+                        System.out.println("DEFAULT");
+                        imageTest.setImageBitmap(bm);
                 }
 
 
@@ -399,12 +434,19 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 System.out.println(orientation);
                 switch(orientation) {
                     case ExifInterface.ORIENTATION_ROTATE_90:
+                        System.out.println("ORIENTATION_ROTATE_90");
                         imageTest.setImageBitmap(rotateImage(bm, 90));
                         break;
                     case ExifInterface.ORIENTATION_ROTATE_180:
+                        System.out.println("ORIENTATION_ROTATE_180");
                         imageTest.setImageBitmap(rotateImage(bm, 180));
                         break;
+                    case ExifInterface.ORIENTATION_ROTATE_270:
+                        System.out.println("ORIENTATION_ROTATE_270");
+                        imageTest.setImageBitmap(rotateImage(bm, 270));
+                        break;
                     default:
+                        System.out.println("DEFAULT");
                         imageTest.setImageBitmap(bm);
                 }
 
