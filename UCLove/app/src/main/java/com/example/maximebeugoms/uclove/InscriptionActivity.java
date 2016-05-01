@@ -62,7 +62,7 @@ import com.example.maximebeugoms.uclove.Database.UserDao;
 
 public class InscriptionActivity extends MainActivity implements OnItemSelectedListener {
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
-
+    String mPhotoPath = null;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscription_view);
@@ -74,6 +74,8 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
         final EditText mail = (EditText) findViewById(R.id.email);
         final EditText naissance = (EditText) findViewById(R.id.dateNaissance);
         final EditText pseudo = (EditText) findViewById(R.id.pseudo);
+        final EditText localisation = (EditText) findViewById(R.id.localisation);
+
         
         
         // Spinner element
@@ -101,6 +103,8 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                 String mPseudo = pseudo.getText().toString();
 
+                String mLocalisation = localisation.getText().toString();
+
                 String mSexe = sexSpinner.getSelectedItem().toString();
 
                 String mCouleurCheveux = couleurCheveuxSpinner.getSelectedItem().toString();
@@ -111,7 +115,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                 String mCouleurYeux = couleurYeuxSpinner.getSelectedItem().toString();
 
-                Bitmap bmThumbnail = null;
+
 
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP | Gravity.START, 0, 0);
@@ -119,12 +123,16 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 //Check multiple conditions
                 if (mNom == null || mNom.isEmpty()) {
                     toast.makeText(InscriptionActivity.this, R.string.nom_non_conforme, toast.LENGTH_SHORT).show();
+                } else if (mPseudo == null || mPseudo.isEmpty()) {
+                    toast.makeText(InscriptionActivity.this, R.string.pseudo_non_conforme, toast.LENGTH_SHORT).show();
                 } else if (mDate == null || mDate.isEmpty() || Integer.parseInt(mDate) < 18) {
                     toast.makeText(InscriptionActivity.this, R.string.date_non_conforme, toast.LENGTH_SHORT).show();
                 } else if (!mMail.contains("@") || !mMail.contains(".")) {
                     toast.makeText(InscriptionActivity.this, R.string.email_non_conforme, toast.LENGTH_SHORT).show();
                 } else if (mMdp == null || mMdp.isEmpty()) {
                     toast.makeText(InscriptionActivity.this, R.string.mdp_non_conforme, toast.LENGTH_SHORT).show();
+                } else if (mLocalisation == null || mLocalisation.isEmpty()) {
+                    toast.makeText(InscriptionActivity.this, R.string.localisation_non_conforme, toast.LENGTH_SHORT).show();
 
 
                 } else {
@@ -149,7 +157,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                         User user = new User(mPseudo, mMail, mMdp);
 
                         //TODO  ajout localisation
-                        Profil profil = new Profil(mMail, mSexe, Integer.parseInt(mDate), mCouleurCheveux, mCouleurYeux, mOrientation, "Belgique");
+                        Profil profil = new Profil(mMail, mSexe, Integer.parseInt(mDate), mCouleurCheveux, mLongueurCheveux, mCouleurYeux, mOrientation, mLocalisation, mPhotoPath);
 
 
                         //We add user and profile in the database
@@ -398,7 +406,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 }
 
 
-
+                mPhotoPath = takenImagePath;
                 //imageTest.setImageBitmap(thumbnail);
             } else if (requestCode == SELECT_FILE) {
                 Uri selectedImageUri = data.getData();/*
@@ -450,7 +458,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                         imageTest.setImageBitmap(bm);
                 }
 
-
+                mPhotoPath = selectedImagePath;
                 //imageTest.setImageBitmap(bm);
             }
         }

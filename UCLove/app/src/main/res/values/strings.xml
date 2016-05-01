@@ -69,4 +69,7 @@
     <string name="connexion">Connection en cours !</string>
     <string name="deja_utilise">L\'email est déjà utilisé</string>
     <string name="compteCree" >Compte créé</string>
+    <string name="localisation" >Ville</string>
+    <string name="localisation_non_conforme" >Entrez une ville valide</string>
+    <string name="pseudo_non_conforme" >Entrez un pseudo valide</string>
 </resources>

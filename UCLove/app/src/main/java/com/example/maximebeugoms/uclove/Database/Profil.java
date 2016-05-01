@@ -13,10 +13,12 @@ public class Profil {
         private String couleur_yeux;
         private String orientation;
         private String localisation;
+        private String longueur_cheveux;
+        private String photo_path;
 
-        //localisation + photo + date_dispo
+        //date_dispo
 
-        public Profil(String mail_user, String sexe, int age, String couleur_cheveux, String couleur_yeux, String orientation, String localisation) {
+        public Profil(String mail_user, String sexe, int age, String couleur_cheveux, String longueur_cheveux, String couleur_yeux, String orientation, String localisation, String photo_path) {
             super();
             this.mail_user = mail_user;
             this.sexe = sexe;
@@ -25,6 +27,8 @@ public class Profil {
             this.couleur_yeux = couleur_yeux;
             this.orientation = orientation;
             this.localisation = localisation;
+            this.longueur_cheveux = longueur_cheveux;
+            this.photo_path = photo_path;
         }
 
         public String getNom(){
@@ -92,6 +96,21 @@ public class Profil {
         this.mail_user = mail_user;
     }
 
+    public String getLongueur_cheveux() {
+        return longueur_cheveux;
+    }
+
+    public void setLongueur_cheveux(String longueur_cheveux) {
+        this.longueur_cheveux = longueur_cheveux;
+    }
+
+    public String getPhoto_path() {
+        return photo_path;
+    }
+
+    public void setPhoto_path(String photo_path) {
+        this.photo_path = photo_path;
+    }
 }
 
 

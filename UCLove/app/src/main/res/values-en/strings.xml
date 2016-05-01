@@ -4,7 +4,7 @@
     <string name="btninsc">Register</string>
     <string name="hintdate">Your birthday</string>
     <string name="hintnom">Name</string>
-    <string name="hintpseudo">Pseudo</string>
+    <string name="hintpseudo">Username</string>
     <string name="genreM">Men</string>
     <string name="titresearch">I\'m looking for :</string>
     <string name="labelAge">Old :</string>
@@ -63,4 +63,7 @@
     <string name="connexion">Logging in ! </string>
     <string name="deja_utilise">This e-mail is already used</string>
     <string name="compteCree" >Account created</string>
+    <string name="localisation" >City</string>
+    <string name="localisation_non_conforme" >Please enter a valid city</string>
+    <string name="pseudo_non_conforme" >Please enter a valid username</string>
 </resources>

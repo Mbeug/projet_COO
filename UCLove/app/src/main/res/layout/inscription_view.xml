@@ -11,7 +11,7 @@
 
     <include layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="1100dp"/>
+        android:layout_height="1150dp"/>
 
 
         <EditText
@@ -85,18 +85,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="             "
             android:id="@+id/textView11"
-            android:layout_below="@+id/mdp"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@+id/textView17" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/orientation"
-            android:id="@+id/textView13"
-            android:layout_below="@+id/mdp"
-            android:layout_toRightOf="@+id/textView11"
-            android:layout_toEndOf="@+id/textView11" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,9 +95,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/orientation"
             android:id="@+id/textView17"
-            android:layout_below="@+id/mdp"
             android:layout_toRightOf="@+id/textView11"
-            android:layout_toEndOf="@+id/textView11" />
+            android:layout_toEndOf="@+id/textView11"
+            android:layout_alignTop="@+id/textView14" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -114,7 +105,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="    "
             android:id="@+id/textView12"
-            android:layout_below="@+id/mdp" />
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -122,29 +113,33 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/sexe"
             android:id="@+id/textView14"
-            android:layout_below="@+id/mdp"
-            android:layout_toRightOf="@+id/textView12"
-            android:layout_toEndOf="@+id/textView12" />
+            android:layout_marginTop="23dp"
+
+            android:layout_below="@+id/localisation"
+            android:layout_alignLeft="@+id/textView15"
+            android:layout_alignStart="@+id/textView15" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:id="@+id/sexeSpinner"
             android:layout_below="@+id/textView11"
-            android:layout_toLeftOf="@+id/textView11"
+
             android:layout_toRightOf="@+id/textView12"
-            android:layout_toEndOf="@+id/textView12" />
+            android:layout_toLeftOf="@+id/textView11"
+            android:layout_toStartOf="@+id/textView11" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:id="@+id/orientationSpinner"
             android:layout_alignTop="@+id/sexeSpinner"
-            android:layout_toRightOf="@+id/textView11"
+
             android:layout_above="@+id/textView15"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="20dp"/>
+
+
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -164,6 +159,7 @@
             android:layout_below="@+id/textView15"
             android:layout_alignLeft="@+id/textView15"
             android:layout_alignStart="@+id/textView15"
+
             android:layout_toLeftOf="@+id/textView11"
             android:layout_toStartOf="@+id/textView11" />
 
@@ -171,11 +167,13 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:id="@+id/longueurCheveuxSpinner"
-            android:layout_below="@+id/textView15"
-            android:layout_toRightOf="@+id/textView11"
-            android:layout_above="@+id/textView16"
+
             android:layout_alignRight="@+id/orientationSpinner"
-            android:layout_alignEnd="@+id/orientationSpinner" />
+            android:layout_alignEnd="@+id/orientationSpinner"
+            android:layout_below="@+id/textView15"
+            android:layout_above="@+id/textView16"
+            android:layout_alignLeft="@+id/orientationSpinner"
+            android:layout_alignStart="@+id/orientationSpinner" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -216,8 +214,8 @@
             android:text="@string/photo"
             android:id="@+id/photo"
             android:layout_alignTop="@+id/couleurYeuxSpinner"
-            android:layout_alignRight="@+id/textView13"
-            android:layout_alignEnd="@+id/textView13" />
+            android:layout_toRightOf="@+id/Soumettre"
+            android:layout_toEndOf="@+id/Soumettre" />
 
         <ImageView
             android:layout_width="225dp"
@@ -230,6 +228,19 @@
             android:layout_marginTop="20dp"
 
             />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/localisation"
+            android:layout_alignTop="@+id/mdp"
+            android:layout_marginTop="41dp"
+            android:layout_alignLeft="@+id/mdp"
+            android:layout_alignStart="@+id/mdp"
+            android:layout_alignRight="@+id/mdp"
+            android:layout_alignEnd="@+id/mdp"
+            android:hint="@string/localisation" />
+
 
     </RelativeLayout>
 

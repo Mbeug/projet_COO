@@ -27,7 +27,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String PROFIL_COULEUR_YEUX = "couleur_yeux";
     public static final String PROFIL_ORIENTATION = "orientation";
     public static final String PROFIL_LOCALISATION = "localisation";
-    public static final String PROFIL_TAILLE = "taille";
+    public static final String PROFIL_LONGUEUR_CHEVEUX = "longueur_cheveux";
+    public static final String PROFIL_PHOTO_PATH = "photo_path";
 
     // Pour la table Evenement
 
@@ -85,9 +86,10 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     PROFIL_AGE + " INTEGER, " +
                     PROFIL_COULEUR_YEUX + " TEXT, " +
                     PROFIL_COULEUR_CHEVEUX + " TEXT, " +
-                    PROFIL_TAILLE + " REAL, " +
+                    PROFIL_LONGUEUR_CHEVEUX + " TEXT, " +
                     PROFIL_LOCALISATION + " TEXT, " +
                     PROFIL_ORIENTATION + " TEXT, " +
+                    PROFIL_PHOTO_PATH + " TEXT, " +
                     UTILISATEUR_MAIL + " STRING," +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
