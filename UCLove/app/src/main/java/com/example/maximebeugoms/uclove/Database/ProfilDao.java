@@ -23,7 +23,7 @@ public class ProfilDao extends DAOBase {
 
 
         public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " STRING PRIMARY KEY, "  //garder autoincrement?
-                + NOM + " TEXT, " + SEXE + "TEXT," + AGE + " REALs" + ORIENTATION + "TEXT," +  LOCALISATION + "TEXT," + LONGUEUR_CHEVEUX + "TEXT," + PHOTO_PATH + "TEXT" + ");";
+                + NOM + " TEXT, " + SEXE + " TEXT," + AGE + " REALS, " + ORIENTATION + " TEXT, " +  LOCALISATION + " TEXT, " + LONGUEUR_CHEVEUX + " TEXT, " + PHOTO_PATH + " TEXT " + ");";
         public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
     public ProfilDao(Context pContext) {
