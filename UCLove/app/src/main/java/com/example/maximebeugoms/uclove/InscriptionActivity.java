@@ -151,7 +151,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                         User user = new User(mPseudo, mMail, mMdp);
 
-                        //TODO  ajout localisation
+
                         Profil profil = new Profil(mNom, mMail, mSexe, Integer.parseInt(mDate), mCouleurCheveux, mLongueurCheveux, mCouleurYeux, mOrientation, mLocalisation, mPhotoPath);
 
 
