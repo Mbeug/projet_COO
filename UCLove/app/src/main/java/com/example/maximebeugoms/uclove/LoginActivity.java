@@ -69,6 +69,8 @@ public class LoginActivity extends MainActivity
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
 
+                userDb.close(); // ajouté mais pas sur
+
                 //If the account doesn't exist || the password doesn't match
                 if(checker == null || !checker.getPassword().equals(mMdp)){
                     toast.makeText(LoginActivity.this, R.string.mauvais_login, toast.LENGTH_SHORT).show();

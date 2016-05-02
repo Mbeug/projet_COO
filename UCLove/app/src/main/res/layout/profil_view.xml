@@ -4,64 +4,18 @@
     android:layout_height="match_parent">
 
 <include layout="@layout/app_bar_main"/>
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/hintpseudo"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_marginTop="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/hintnom"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/hintlogger"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:hint="@string/hintmdp"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:hint="@string/hintdate"
-        android:id="@+id/editText5"
-        android:layout_below="@+id/editText4"
-        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profil"
-        android:id="@+id/textView6"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="nomProfil"
+        android:id="@+id/nomProfil"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="50sp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="95dp" />
 
 </RelativeLayout>

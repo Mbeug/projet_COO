@@ -18,8 +18,10 @@ public class Profil {
 
         //date_dispo
 
-        public Profil(String mail_user, String sexe, int age, String couleur_cheveux, String longueur_cheveux, String couleur_yeux, String orientation, String localisation, String photo_path) {
+        public Profil(String nom, String mail_user, String sexe, int age, String couleur_cheveux, String longueur_cheveux,
+                      String couleur_yeux, String orientation, String localisation, String photo_path) {
             super();
+            this.nom = nom;
             this.mail_user = mail_user;
             this.sexe = sexe;
             this.age = age;
