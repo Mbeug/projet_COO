@@ -239,6 +239,7 @@
             android:layout_alignStart="@+id/mdp"
             android:layout_alignRight="@+id/mdp"
             android:layout_alignEnd="@+id/mdp"
+            android:inputType="textPostalAddress"
             android:ems="10"
             android:hint="@string/localisation" />
 

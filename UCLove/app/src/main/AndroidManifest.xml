@@ -9,6 +9,7 @@
         android:label="@string/appname"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
+
         >
         <activity
             android:name=".MainActivity"
@@ -19,11 +20,13 @@
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
-            ></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
 
         <activity
             android:name=".InscriptionActivity"
             android:label="@string/title_activity_inscription"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             >
 
         </activity>
