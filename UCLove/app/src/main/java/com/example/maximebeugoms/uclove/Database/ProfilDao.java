@@ -22,7 +22,6 @@ public class ProfilDao extends DAOBase {
         public static final String PHOTO_PATH = "photo_path";
 
 
-
         public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " STRING PRIMARY KEY, "  //garder autoincrement?
                 + NOM + " TEXT, " + SEXE + " TEXT, " + AGE + " INTEGER, " + ORIENTATION + " TEXT, " +  LOCALISATION + " TEXT, "
                 +  COULEUR_CHEVEUX + " TEXT, " +  COULEUR_YEUX + " TEXT, " + LONGUEUR_CHEVEUX + " TEXT, " + PHOTO_PATH + " TEXT " + ");";

@@ -2,6 +2,7 @@ package com.example.maximebeugoms.uclove.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 /**
  * Created by damien on 29/04/16.
@@ -9,7 +10,7 @@ import android.content.Context;
 public class MessageDao extends DAOBase {
 
     public static final String TABLE_NAME = "Message";
-    public static final String KEY = "id_relation";
+    public static final String KEY = "mail";
     public static final String DATE = "Date";
     public static final String TEXTE = "Texte";
 
@@ -24,7 +25,7 @@ public class MessageDao extends DAOBase {
 
     public void add(Message m){
         ContentValues values = new ContentValues();
-        values.put(KEY, m.getId_relation());
+        values.put(KEY, m.getMail_user());
         values.put(DATE, m.getDate());
         values.put(TEXTE, m.getTexte());
     }
@@ -35,10 +36,24 @@ public class MessageDao extends DAOBase {
 
     public void update(Message m){
         ContentValues values = new ContentValues();
-        values.put(KEY, m.getId_relation());
+        values.put(KEY, m.getMail_user());
         values.put(DATE, m.getDate());
         values.put(TEXTE, m.getTexte());
 
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(m.getId_relation())});
+        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(m.getMail_user())});
+    }
+
+    public Message select (String Email){
+        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
+        if(c.moveToNext()){
+            String mail = c.getString(0);
+            String date = c.getString(1);
+            String texte = c.getString(2);
+            return new Message(mail, date, texte);
+        }
+        else{
+            c.close();
+            return null;
+        }
     }
 }

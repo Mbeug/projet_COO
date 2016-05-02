@@ -5,23 +5,23 @@ package com.example.maximebeugoms.uclove.Database;
  */
 public class Message {
 
-    private long id_relation;
+    private String mail_user;
     private String texte;
     private String date;
 
-    public Message(long id_relation, String texte, String date){
+    public Message(String mail_user, String texte, String date){
         super();
-        this.id_relation = id_relation;
+        this.mail_user = mail_user;
         this.texte = texte;
         this.date = date;
     }
 
-    public void setId_relation(long id_relation) {
-        this.id_relation = id_relation;
+    public String getMail_user() {
+        return mail_user;
     }
 
-    public long getId_relation() {
-        return id_relation;
+    public void setMail_user(String mail_user) {
+        this.mail_user = mail_user;
     }
 
     public String getDate() {
