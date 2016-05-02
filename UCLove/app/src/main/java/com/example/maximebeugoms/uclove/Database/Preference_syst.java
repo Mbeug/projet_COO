@@ -7,18 +7,18 @@ public class Preference_syst {
 
     private String langue;
     private String niveau_confidentialite;
-    private int id_user;
+    private String mail_user;
 
-    public Preference_syst(String langue, String niveau_confidentialite, int  id_user)
+    public Preference_syst(String langue, String niveau_confidentialite, String mail_user)
     {
         super();
         this.langue = langue;
         this.niveau_confidentialite = niveau_confidentialite;
-        this.id_user = id_user;
+        this.mail_user = mail_user;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setMail_user(String mail_user) {
+        this.mail_user = mail_user;
     }
 
     public void setLangue(String langue) {
@@ -29,8 +29,8 @@ public class Preference_syst {
         return langue;
     }
 
-    public int getId_user() {
-        return id_user;
+    public String getMail_user() {
+        return mail_user;
     }
 
     public String getNiveau_confidentialite() {
