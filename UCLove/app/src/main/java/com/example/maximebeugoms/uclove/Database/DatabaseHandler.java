@@ -116,9 +116,9 @@ public class DatabaseHandler extends SQLiteOpenHelper
             "CREATE TABLE " + RELATION_TABLE_NAME +" ( " +
                     RELATION_ID_RELATION + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     RELATION_ETAT_ACCEPTATION + " INTEGER, " +
-                    RELATION_RECEIVER + "STRING" +
-                    RELATION_SENDER + "STRING" +
-                    UTILISATEUR_MAIL + " STRING , " +
+                    RELATION_RECEIVER + " STRING, " +
+                    RELATION_SENDER + " STRING, " +
+                    UTILISATEUR_MAIL + "  STRING, " +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String MESSAGE_TABLE_CREATE =
@@ -147,8 +147,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String DISPONIBILITE_TABLE_CREATE =
             "CREATE TABLE" + DISPONIBILITE_TABLE_NAME + "(" +
-                    DISPONIBILITE_DATE + "TEXT," +
-                    DISPONIBILITE_DISPO +"STRING," +
+                    DISPONIBILITE_DATE + " TEXT," +
+                    DISPONIBILITE_DISPO +" STRING," +
                     UTILISATEUR_MAIL + " STRING," +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
@@ -171,11 +171,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String PROFIL_TABLE_DROP = "DROP TABLE IF EXISTS " + PROFIL_TABLE_NAME + ";";
     public static final String UTILISATEUR_TABLE_DROP = "DROP TABLE IF EXISTS " + UTILISATEUR_TABLE_NAME + ";";
     public static final String EVENEMENT_TABLE_DROP = "DROP TABLE IF EXISTS " + EVENEMENT_TABLE_NAME +";";
-    public static final String PREFERENCE_TABLE_DROP = "DROP TABLE IF EXISTS" + PREFERENCE_TABLE_NAME+";";
-    public static final String RELATION_TABLE_DROP = "DROP TABLE IF EXISTS" + RELATION_TABLE_NAME+";";
-    public static final String MESSAGE_TABLE_DROP = "DROP TABLE If EXISTS" + MESSAGE_TABLE_NAME + ";";
-    public static final String SEARCH_TABLE_DROP = "DROP TABLE IF EXISTS" + SEARCH_TABLE_NAME + ";";
-    public static final String DISPONIBILITE_TABLE_DROP = "DROP TABLE IF EXISTS" + DISPONIBILITE_TABLE_NAME + ";";
+    public static final String PREFERENCE_TABLE_DROP = "DROP TABLE IF EXISTS " + PREFERENCE_TABLE_NAME+";";
+    public static final String RELATION_TABLE_DROP = "DROP TABLE IF EXISTS " + RELATION_TABLE_NAME+";";
+    public static final String MESSAGE_TABLE_DROP = "DROP TABLE If EXISTS " + MESSAGE_TABLE_NAME + ";";
+    public static final String SEARCH_TABLE_DROP = "DROP TABLE IF EXISTS " + SEARCH_TABLE_NAME + ";";
+    public static final String DISPONIBILITE_TABLE_DROP = "DROP TABLE IF EXISTS " + DISPONIBILITE_TABLE_NAME + ";";
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
