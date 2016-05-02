@@ -165,7 +165,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                         userDb.add(user);
 
                         ProfilDao profilDb = new ProfilDao(getApplicationContext());
-                        SQLiteDatabase pDb = userDb.open();
+                        SQLiteDatabase pDb = profilDb.open();
 
                         profilDb.add(profil);
 
