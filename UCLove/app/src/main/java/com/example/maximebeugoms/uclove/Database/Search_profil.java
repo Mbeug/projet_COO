@@ -7,7 +7,7 @@ public class Search_profil {
 
         private String sexe;
         private int age;
-        private long id_user;
+        private Strin mail_user;
         private String orientation;
         private String localisation;
         private String langue;
@@ -16,7 +16,7 @@ public class Search_profil {
 
         //localisation + photo + date_dispo
 
-        public Search_profil(String sexe, int age, String orientation, String localisation, String langue, String taille, long id_user) {
+        public Search_profil(String sexe, int age, String orientation, String localisation, String langue, String taille, String mail_user) {
             super();
             this.langue = langue;
             this.sexe = sexe;
@@ -24,7 +24,7 @@ public class Search_profil {
             this.orientation = orientation;
             this.localisation = localisation;
             this.taille = taille;
-            this.id_user = id_user;
+            this.mail_user = mail_user;
 
         }
 
@@ -77,11 +77,11 @@ public class Search_profil {
             this.orientation = orientation;
         }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
+    public void setMail_user(long mail_user) {
+        this.mail_user = mail_user;
     }
 
-    public long getId_user() {
-        return id_user;
+    public String getMail_user() {
+        return mail_user;
     }
 }

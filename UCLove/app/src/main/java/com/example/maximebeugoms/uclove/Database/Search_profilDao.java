@@ -9,7 +9,7 @@ import android.content.Context;
 public class Search_profilDao extends DAOBase{
 
     public static final String TABLE_NAME = "search_profil";
-    public static final String KEY = "id_user";
+    public static final String KEY = "mzil_user";
     public static final String SEXE = "sexe";
     public static final String AGE = "age";
     public static final String ORIENTATION= "orientation";
@@ -21,7 +21,7 @@ public class Search_profilDao extends DAOBase{
         super(pContext);
     }
 
-    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " STRING PRIMARY KEY, "
             + LANGUE + " TEXT, " + SEXE + "TEXT, " + AGE + "INTEGER, " + TAILLE + "REAL," + LOCALISATION + "TEXT, " +
             ORIENTATION + "TEXT);";
     public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
@@ -54,7 +54,23 @@ public class Search_profilDao extends DAOBase{
         mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(sp.getId_user())});
     }
 
-   /* public Search_profil select(long id){
+   public Search_profil select(long id){
+		Cursor c = mDb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
+            if(c.moveToNext()){
+                String sexe = c.getString(0);
+                int age = c.getInt(1);
+                String orientation = c.getString(2);
+                String localisation = c.getString(3);
+                String langue = c.getString(4);
+                String taille = c.getString(5)
+                String mail = c.getString(6);
 
-    }*/
+                return new Profil(sexe,age,orientation,localisation,langue,taille,mail);
+            }
+            else{
+                c.close();
+                return null;
+            }
+
+    }
 }
