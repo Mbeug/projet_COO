@@ -14,7 +14,7 @@ public class UserDao extends DAOBase {
         public static final String MAIL = "mail";
         public static final String PASSWORD = "password";
 
-        public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " ( " + MAIL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " ( " + MAIL + " STRING PRIMARY KEY, "
                 + LOGIN + " TEXT, " + PASSWORD + " TEXT);";
 
         public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
