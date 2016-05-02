@@ -2,6 +2,7 @@ package com.example.maximebeugoms.uclove.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 /**
  * Created by damien on 29/04/16.
@@ -9,7 +10,7 @@ import android.content.Context;
 public class Search_profilDao extends DAOBase{
 
     public static final String TABLE_NAME = "search_profil";
-    public static final String KEY = "mzil_user";
+    public static final String KEY = "mail_user";
     public static final String SEXE = "sexe";
     public static final String AGE = "age";
     public static final String ORIENTATION= "orientation";
@@ -28,7 +29,7 @@ public class Search_profilDao extends DAOBase{
 
     public void add(Search_profil sp){
         ContentValues values = new ContentValues();
-        values.put(KEY, sp.getId_user());
+        values.put(KEY, sp.getMail_user());
         values.put(LANGUE, sp.getLangue());
         values.put(SEXE, sp.getSexe());
         values.put(AGE, sp.getAge());
@@ -43,7 +44,7 @@ public class Search_profilDao extends DAOBase{
 
     public void update(Search_profil sp){
         ContentValues values = new ContentValues();
-        values.put(KEY, sp.getId_user());
+        values.put(KEY, sp.getMail_user());
         values.put(LANGUE, sp.getLangue());
         values.put(SEXE, sp.getSexe());
         values.put(AGE, sp.getAge());
@@ -51,7 +52,7 @@ public class Search_profilDao extends DAOBase{
         values.put(LOCALISATION, sp.getLocalisation());
         values.put(TAILLE, sp.getTaille());
 
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(sp.getId_user())});
+        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(sp.getMail_user())});
     }
 
    public Search_profil select(long id){
@@ -62,10 +63,10 @@ public class Search_profilDao extends DAOBase{
                 String orientation = c.getString(2);
                 String localisation = c.getString(3);
                 String langue = c.getString(4);
-                String taille = c.getString(5)
+                String taille = c.getString(5);
                 String mail = c.getString(6);
 
-                return new Profil(sexe,age,orientation,localisation,langue,taille,mail);
+                return new Search_profil(sexe,age,orientation,localisation,langue,taille,mail);
             }
             else{
                 c.close();

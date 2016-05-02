@@ -7,7 +7,7 @@ public class Search_profil {
 
         private String sexe;
         private int age;
-        private Strin mail_user;
+        private String mail_user;
         private String orientation;
         private String localisation;
         private String langue;
@@ -77,7 +77,7 @@ public class Search_profil {
             this.orientation = orientation;
         }
 
-    public void setMail_user(long mail_user) {
+    public void setMail_user(String mail_user) {
         this.mail_user = mail_user;
     }
 
