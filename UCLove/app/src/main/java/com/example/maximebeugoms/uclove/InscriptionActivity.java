@@ -143,10 +143,11 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                     SQLiteDatabase mDb = userDb.open();
 
 
-                    //TODO Crash at this line
+
                     //Get the user associated to email from db
                     User checker = userDb.selectionner(mMail);
 
+                    //TODO error messages in values string
                     //If we find an account with the same e-mail
                     if (checker != null) {
                         toast.makeText(InscriptionActivity.this, R.string.deja_utilise, toast.LENGTH_SHORT).show();
@@ -168,7 +169,9 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                         profilDb.add(profil);
 
+                        //Close dbs
                         userDb.close();
+                        profilDb.close();
 
                         toast.makeText(InscriptionActivity.this, R.string.compteCree, toast.LENGTH_SHORT).show();
 
