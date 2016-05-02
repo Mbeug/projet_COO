@@ -146,7 +146,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String DISPONIBILITE_TABLE_CREATE =
-            "CREATE TABLE" + DISPONIBILITE_TABLE_NAME + "(" +
+            "CREATE TABLE " + DISPONIBILITE_TABLE_NAME + "(" +
                     DISPONIBILITE_DATE + " TEXT," +
                     DISPONIBILITE_DISPO +" STRING," +
                     UTILISATEUR_MAIL + " STRING," +
