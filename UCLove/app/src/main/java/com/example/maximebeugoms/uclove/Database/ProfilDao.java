@@ -24,7 +24,7 @@ public class ProfilDao extends DAOBase {
 
 
         public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " STRING PRIMARY KEY, "  //garder autoincrement?
-                + NOM + " TEXT, " + SEXE + " TEXT, " + AGE + " INTEGER " + ORIENTATION + " TEXT, " +  LOCALISATION + " TEXT, "
+                + NOM + " TEXT, " + SEXE + " TEXT, " + AGE + " INTEGER, " + ORIENTATION + " TEXT, " +  LOCALISATION + " TEXT, "
                 +  COULEUR_CHEVEUX + " TEXT, " +  COULEUR_YEUX + " TEXT, " + LONGUEUR_CHEVEUX + " TEXT, " + PHOTO_PATH + " TEXT " + ");";
         public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
@@ -83,16 +83,16 @@ public class ProfilDao extends DAOBase {
         public Profil selectionner(String Email) {
             Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
             if(c.moveToNext()){
-                String mail = c.getString(0);
-                String nom = c.getString(1);
-                String sexe = c.getString(2);
-                int age = c.getInt(3);
-                String orientation = c.getString(4);
-                String localisation = c.getString(5);
-                String couleur_cheveux = c.getString(6);
-                String couleur_yeux = c.getString(7);
-                String longueur_cheveux = c.getString(8);
-                String photo_path = c.getString(9);
+                String nom = c.getString(0);
+                String sexe = c.getString(1);
+                int age = c.getInt(2);
+                String couleur_yeux = c.getString(3);
+                String couleur_cheveux = c.getString(4);
+                String longueur_cheveux = c.getString(5);
+                String localisation = c.getString(6);
+                String orientation = c.getString(7);
+                String photo_path = c.getString(8);
+                String mail = c.getString(9);
 
                 return new Profil(nom, mail, sexe, age, couleur_cheveux, longueur_cheveux, couleur_yeux, orientation, localisation, photo_path);
             }
