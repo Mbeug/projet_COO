@@ -62,7 +62,7 @@ import com.example.maximebeugoms.uclove.Database.UserDao;
 
 public class InscriptionActivity extends MainActivity implements OnItemSelectedListener {
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
-    String mPhotoPath = null;
+    String mPhotoPath = "NoPhoto";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscription_view);
