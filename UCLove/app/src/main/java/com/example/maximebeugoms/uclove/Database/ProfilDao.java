@@ -8,7 +8,7 @@ import android.content.Context;
  */
 public class ProfilDao extends DAOBase {
 
-        public static final String TABLE_NAME = "profil";
+        public static final String TABLE_NAME = "Profil";
         public static final String KEY = "mail";
         public static final String NOM = "nom";
         public static final String SEXE = "sexe";
@@ -46,6 +46,7 @@ public class ProfilDao extends DAOBase {
             values.put(SEXE, p.getSexe());
             values.put(LONGUEUR_CHEVEUX, p.getLongueur_cheveux());
             values.put(PHOTO_PATH, p.getPhoto_path());
+            mDb.insert(TABLE_NAME,null,values);
         }
 
         /**
