@@ -59,8 +59,10 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String SEARCH_AGE = "age";
     public static final String SEARCH_GENRE = "genre";
     public static final String SEARCH_LOCALISATION = "localisation";
-    public static final String SEARCH_LANGUE = "langue";
-    public static final String SEARCH_TAILLE = "taille";
+    public static final String SEARCH_COULEUR_CHEVEUX = "couleur_cheveux";
+    public static final String SEARCH_LONGUEUR_CHEVEUX = "longueur_cheveux";
+    public static final String SEARCH_COULEUR_YEUX = "couleur_yeux";
+
 
     //Pur la table Disponibilite
 
@@ -139,10 +141,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
             "CREATE TABLE " + SEARCH_TABLE_NAME + " ( " +
                     SEARCH_AGE + " INTEGER, " +
                     SEARCH_GENRE + " TEXT, " +
-                    SEARCH_LANGUE + " TEXT, " +
+                    SEARCH_COULEUR_CHEVEUX + " TEXT, " +
+                    SEARCH_LONGUEUR_CHEVEUX + " TEXT, " +
                     SEARCH_LOCALISATION + " TEXT, " +
-                    SEARCH_TAILLE + " REAL, " +
-                    UTILISATEUR_MAIL + " STRING," +
+                    SEARCH_COULEUR_YEUX + " TEXT, " +
+                    UTILISATEUR_MAIL + " STRING, " +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String DISPONIBILITE_TABLE_CREATE =
