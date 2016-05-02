@@ -11,7 +11,7 @@ public class Preference_systDao extends DAOBase
 {
 
         public static final String TABLE_NAME = "preference système";
-        public static final String KEY = "mail";
+        public static final String KEY = "mail_user";
         public static final String LANGUE = "langue";
         public static final String NIVEAU_CONFIDENTIALITE = "niveau confidentialite";
 
@@ -49,8 +49,8 @@ public class Preference_systDao extends DAOBase
 		 if(c.moveToNext()){
 		 	String langue = c.getString(0);
 		 	String niveau_confidentialite = c.getString(1);
-		 	String mail = c.getString(2);
-		 	return new Preference_syst(langue,niveau_confidentialite,mail);
+		 	String mail_user = c.getString(2);
+		 	return new Preference_syst(langue,niveau_confidentialite,mail_user);
 		 }
 		 else{
 		 	c.close();

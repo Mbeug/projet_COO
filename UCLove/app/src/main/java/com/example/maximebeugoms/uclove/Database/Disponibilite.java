@@ -40,12 +40,5 @@ public class Disponibilite {
         return date;
     }
 
-    public String getMail() {
-        return mail_user;
-    }
-
-    public void setMail(String mail_user) {
-        this.mail_user = mail_user;
-    }
 
 }

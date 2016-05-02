@@ -51,7 +51,6 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     // Pour la table Preference système
 
-    public static final String PREFERENCE_ID_PREF = "id_pref";
     public static final String PREFERENCE_LANGUE ="langue";
     public static final String PREFERENCE_NIVEAU_CONFIDENTIALITE = "niveau_confidentialite";
 
@@ -62,6 +61,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String SEARCH_LOCALISATION = "localisation";
     public static final String SEARCH_LANGUE = "langue";
     public static final String SEARCH_TAILLE = "taille";
+
+    //Pur la table Disponibilite
+
+    public static final String DISPONIBILITE_DATE = "date";
+    public static final String DISPONIBILITE_DISPO = "dispo";
 
     /*
     * Pour avoir les noms des différentes tables
@@ -76,6 +80,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String MESSAGE_TABLE_NAME = "Message";
     public static final String PREFERENCE_TABLE_NAME = "Preference";
     public static final String SEARCH_TABLE_NAME = "search";
+    public static final String DISPONIBILITE_TABLE_NAME = "Disponibilite";
 
 
      //  Creation des différentes tables dans des strings
@@ -107,7 +112,6 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     UTILISATEUR_MAIL + " STRING, " +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
-// a modifier RELATION avec les deux users
     public static final String RELATION_TABLE_CREATE =
             "CREATE TABLE " + RELATION_TABLE_NAME +" ( " +
                     RELATION_ID_RELATION + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -141,6 +145,13 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     UTILISATEUR_MAIL + " STRING," +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
+    public static final String DISPONIBILITE_TABLE_CREATE =
+            "CREATE TABLE" + DISPONIBILITE_TABLE_NAME + "(" +
+                    DISPONIBILITE_DATE + "TEXT," +
+                    DISPONIBILITE_DISPO +"STRING," +
+                    UTILISATEUR_MAIL + " STRING," +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
+
     public DatabaseHandler(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -154,6 +165,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         db.execSQL(RELATION_TABLE_CREATE);
         db.execSQL(MESSAGE_TABLE_CREATE);
         db.execSQL(SEARCH_TABLE_CREATE);
+        db.execSQL(DISPONIBILITE_TABLE_CREATE);
     }
 
     public static final String PROFIL_TABLE_DROP = "DROP TABLE IF EXISTS " + PROFIL_TABLE_NAME + ";";
@@ -163,6 +175,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String RELATION_TABLE_DROP = "DROP TABLE IF EXISTS" + RELATION_TABLE_NAME+";";
     public static final String MESSAGE_TABLE_DROP = "DROP TABLE If EXISTS" + MESSAGE_TABLE_NAME + ";";
     public static final String SEARCH_TABLE_DROP = "DROP TABLE IF EXISTS" + SEARCH_TABLE_NAME + ";";
+    public static final String DISPONIBILITE_TABLE_DROP = "DROP TABLE IF EXISTS" + DISPONIBILITE_TABLE_NAME + ";";
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -173,6 +186,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         db.execSQL(RELATION_TABLE_DROP);
         db.execSQL(MESSAGE_TABLE_DROP);
         db.execSQL(SEARCH_TABLE_DROP);
+        db.execSQL(DISPONIBILITE_TABLE_DROP);
         onCreate(db);
     }
 

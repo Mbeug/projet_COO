@@ -10,7 +10,7 @@ import android.database.Cursor;
 public class ProfilDao extends DAOBase {
 
         public static final String TABLE_NAME = "Profil";
-        public static final String KEY = "mail";
+        public static final String KEY = "mail_user";
         public static final String NOM = "nom";
         public static final String SEXE = "sexe";
         public static final String AGE = "age";
@@ -91,9 +91,9 @@ public class ProfilDao extends DAOBase {
                 String localisation = c.getString(6);
                 String orientation = c.getString(7);
                 String photo_path = c.getString(8);
-                String mail = c.getString(9);
+                String mail_user = c.getString(9);
 
-                return new Profil(nom, mail, sexe, age, couleur_cheveux, longueur_cheveux, couleur_yeux, orientation, localisation, photo_path);
+                return new Profil(nom, mail_user, sexe, age, couleur_cheveux, longueur_cheveux, couleur_yeux, orientation, localisation, photo_path);
             }
             else{
                 c.close();

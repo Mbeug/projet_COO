@@ -10,7 +10,7 @@ import android.database.Cursor;
 public class MessageDao extends DAOBase {
 
     public static final String TABLE_NAME = "Message";
-    public static final String KEY = "mail";
+    public static final String KEY = "mail_user";
     public static final String DATE = "Date";
     public static final String TEXTE = "Texte";
 
@@ -46,10 +46,10 @@ public class MessageDao extends DAOBase {
     public Message select (String Email){
         Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
         if(c.moveToNext()){
-            String mail = c.getString(0);
+            String mail_user = c.getString(0);
             String date = c.getString(1);
             String texte = c.getString(2);
-            return new Message(mail, date, texte);
+            return new Message(mail_user, date, texte);
         }
         else{
             c.close();

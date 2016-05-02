@@ -10,7 +10,7 @@ import android.database.Cursor;
 public class EvenementDao extends DAOBase {
 
     public static final String TABLE_NAME = "Evenement";
-    public static final String KEY = "mail";
+    public static final String KEY = "mail_user";
     public static final String DATE = "Date";
     public static final String TYPE = "Type";
 
@@ -19,7 +19,7 @@ public class EvenementDao extends DAOBase {
         super(pContext);
     }
 
-    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER PRIMARY KEY, "
             + DATE + " TEXT, " +  TYPE + "TEXT);";
     public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
@@ -47,10 +47,10 @@ public class EvenementDao extends DAOBase {
    public Evenement select (String Email){
        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
        if(c.moveToNext()){
-           String mail = c.getString(0);
+           String mail_user = c.getString(0);
            String date = c.getString(1);
            String type = c.getString(2);
-           return new Evenement(mail, date, type);
+           return new Evenement(mail_user, date, type);
        }
        else{
            c.close();
