@@ -37,10 +37,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     // Pour la table relation
 
-    //public static final String RELATION_ID_RELATION = "id_relation";
+
     public static final String RELATION_ETAT_ACCEPTATION = "etat_acceptation";
     public static final String RELATION_ID_RELATION = "id_relation";
-    // ajout deux autres user
+    public static final String RELATION_SENDER = "expediteur";
+    public static final String RELATION_RECEIVER = "destinateur";
 
     //Pour la table Message
 
@@ -111,6 +112,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
             "CREATE TABLE " + RELATION_TABLE_NAME +" ( " +
                     RELATION_ID_RELATION + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     RELATION_ETAT_ACCEPTATION + " INTEGER, " +
+                    RELATION_RECEIVER + "STRING" +
+                    RELATION_SENDER + "STRING" +
                     UTILISATEUR_MAIL + " STRING , " +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 

@@ -6,16 +6,26 @@ package com.example.maximebeugoms.uclove.Database;
 public class Relation {
 
     private long id_relation;
-    private long id_user;
     private int etat_acceptation;
-    private long other_user;
+    private String sender;
+    private String receiver;
+    private String mail_user;
 
-    public Relation(long id_relation, long other_user, int etat_acceptation, long id_user){
+    public Relation(long id_relation, String sender, int etat_acceptation, String receiver, String mail_user){
         super();
         this.id_relation = id_relation;
-        this.id_user = id_user;
-        this.other_user = other_user;
+        this.receiver = receiver;
+        this.sender = sender;
         this.etat_acceptation = etat_acceptation;
+        this.mail_user = mail_user;
+    }
+
+    public void setMail_user(String mail_user) {
+        this.mail_user = mail_user;
+    }
+
+    public String getMail_user() {
+        return mail_user;
     }
 
     public long getId_relation() {
@@ -32,18 +42,21 @@ public class Relation {
 
     public void setEtat_acceptation(int etat_acceptation) {this.etat_acceptation = etat_acceptation;}
 
-    public long getOther_user() {return other_user;}
-
-    public void setOther_user(long other_user) {
-        this.other_user = other_user;
+    public String getReceiver() {
+        return receiver;
     }
 
-    public long getId_user() {
-        return id_user;
+    public String getSender() {
+        return sender;
     }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 }
+
 
