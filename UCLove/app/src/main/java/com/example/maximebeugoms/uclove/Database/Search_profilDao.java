@@ -10,7 +10,7 @@ import android.database.Cursor;
 public class Search_profilDao extends DAOBase{
 
     public static final String TABLE_NAME = "search_profil";
-    public static final String KEY = "mail_user";
+    public static final String KEY = "mail";
     public static final String GENRE = "genre";
     public static final String AGE = "age";
     public static final String ORIENTATION= "orientation";

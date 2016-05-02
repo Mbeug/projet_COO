@@ -10,7 +10,7 @@ import android.database.Cursor;
 public class EvenementDao extends DAOBase {
 
     public static final String TABLE_NAME = "Evenement";
-    public static final String KEY = "mail_user";
+    public static final String KEY = "mail";
     public static final String DATE = "Date";
     public static final String TYPE = "Type";
 

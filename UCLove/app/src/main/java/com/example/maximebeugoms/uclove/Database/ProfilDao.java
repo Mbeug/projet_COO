@@ -10,7 +10,7 @@ import android.database.Cursor;
 public class ProfilDao extends DAOBase {
 
         public static final String TABLE_NAME = "Profil";
-        public static final String KEY = "mail_user";
+        public static final String KEY = "mail";
         public static final String NOM = "nom";
         public static final String SEXE = "sexe";
         public static final String AGE = "age";
