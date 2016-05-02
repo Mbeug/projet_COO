@@ -217,6 +217,7 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
                 imageTest.setImageBitmap(bm);
         }
 
+        profilDb.close();
 
         Button button = (Button) findViewById(R.id.Modifier);
 
@@ -266,23 +267,24 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
                 //Open db
                 UserDao userDb = new UserDao(getApplicationContext());
                 SQLiteDatabase mDb = userDb.open();
+                ProfilDao profilDb = new ProfilDao(getApplicationContext());
+                SQLiteDatabase pDb = profilDb.open();
 
 
                 // create updated user and profile
                 User updatedUser = new User(mPseudo, currentUser.getMail(), mMdp);
-
-                //TODO  ajout localisation
                 Profil updatedProfil = new Profil(mNom, currentUser.getMail(), mSexe, currentProfil.getAge(), mCouleurCheveux, mLongueurCheveux, mCouleurYeux, mOrientation, mLocalisation, mPhotoPath);
 
 
                 //We update user and profile in the database
                 userDb.update(updatedUser);
-
                 profilDb.update(updatedProfil);
 
                 //Close db
                 userDb.close();
                 profilDb.close();
+
+
 
 
                 toast.makeText(ProfileActivity.this, R.string.compteModifie, toast.LENGTH_SHORT).show();
@@ -294,7 +296,7 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
 
         });
 
-        profilDb.close();
+
 
         // Spinner click listener
         sexSpinner.setOnItemSelectedListener(this);
