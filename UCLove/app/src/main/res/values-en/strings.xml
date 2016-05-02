@@ -66,4 +66,6 @@
     <string name="localisation" >City</string>
     <string name="localisation_non_conforme" >Please enter a valid city</string>
     <string name="pseudo_non_conforme" >Please enter a valid username</string>
+    <string name="modifier" >Modify</string>
+    <string name="compteModifie" >Account modified</string>
 </resources>

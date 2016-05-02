@@ -62,7 +62,7 @@ public class ProfilDao extends DAOBase {
          */
         public void update(Profil p) {
             ContentValues values = new ContentValues();
-            //values.put(KEY, p.getMail());   //devrait on pouvoir changer la clé primaire?
+            values.put(KEY, p.getMail());
             values.put(COULEUR_CHEVEUX, p.getCouleur_cheveux());
             values.put(COULEUR_YEUX, p.getCouleur_yeux());
             values.put(NOM, p.getNom());

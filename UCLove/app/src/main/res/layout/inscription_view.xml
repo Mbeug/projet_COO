@@ -200,7 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/submit"
-            android:id="@+id/Soumettre"
+            android:id="@+id/Submit"
             android:layout_below="@+id/imageTest"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="30dp"
@@ -214,8 +214,8 @@
             android:text="@string/photo"
             android:id="@+id/photo"
             android:layout_alignTop="@+id/couleurYeuxSpinner"
-            android:layout_toRightOf="@+id/Soumettre"
-            android:layout_toEndOf="@+id/Soumettre" />
+            android:layout_toRightOf="@+id/Submit"
+            android:layout_toEndOf="@+id/Submit" />
 
         <ImageView
             android:layout_width="225dp"
@@ -239,6 +239,7 @@
             android:layout_alignStart="@+id/mdp"
             android:layout_alignRight="@+id/mdp"
             android:layout_alignEnd="@+id/mdp"
+            android:ems="10"
             android:hint="@string/localisation" />
 
 

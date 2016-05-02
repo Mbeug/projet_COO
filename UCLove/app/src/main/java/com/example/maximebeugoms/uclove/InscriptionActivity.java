@@ -3,11 +3,9 @@ package com.example.maximebeugoms.uclove;
 import android.Manifest;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -22,7 +20,6 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
@@ -45,10 +42,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -87,7 +81,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
 
 
-        Button button = (Button) findViewById(R.id.Soumettre);
+        Button button = (Button) findViewById(R.id.Submit);
 
         assert button != null;
         button.setOnClickListener(new View.OnClickListener() {
@@ -169,8 +163,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                         profilDb.add(profil);
 
-                        //Close dbs
-                        userDb.close();
+                        //Close db
                         profilDb.close();
 
                         toast.makeText(InscriptionActivity.this, R.string.compteCree, toast.LENGTH_SHORT).show();
@@ -178,6 +171,10 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                         Intent intent = new Intent(InscriptionActivity.this, LoginActivity.class);
                         startActivity(intent);
                     }
+
+                    //Close db
+                    userDb.close();
+
 
                 }
             }

@@ -72,4 +72,6 @@
     <string name="localisation" >Ville</string>
     <string name="localisation_non_conforme" >Entrez une ville valide</string>
     <string name="pseudo_non_conforme" >Entrez un pseudo valide</string>
+    <string name="modifier" >Modifier</string>
+    <string name="compteModifie" >Compte modifié</string>
 </resources>
