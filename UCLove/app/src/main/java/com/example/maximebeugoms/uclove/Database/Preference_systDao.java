@@ -2,6 +2,7 @@ package com.example.maximebeugoms.uclove.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 /**
  * Created by damien on 29/04/16.
@@ -35,14 +36,14 @@ public class Preference_systDao extends DAOBase
 
     public void update(Preference_syst ps){
         ContentValues values = new ContentValues();
-        values.put(KEY, ps.getId_user());
+        values.put(KEY, ps.getMail_user());
         values.put(LANGUE, ps.getLangue());
         values.put(NIVEAU_CONFIDENTIALITE, ps.getNiveau_confidentialite());
 
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(ps.getId_user())});
+        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(ps.getMail_user())});
     }
 
-    public Preference_syst select(long id){
+    public Preference_syst select(String Email){
 		
 		 Cursor c = mDb.rawQuery("SELECT * FROM "+ TABLE_NAME+" WHERE mail = ?", new String [] {Email});
 		 if(c.moveToNext()){

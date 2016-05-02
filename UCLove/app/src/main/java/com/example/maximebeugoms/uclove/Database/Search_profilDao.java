@@ -55,7 +55,7 @@ public class Search_profilDao extends DAOBase{
         mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(sp.getMail_user())});
     }
 
-   public Search_profil select(long id){
+   public Search_profil select(String Email){
 		Cursor c = mDb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
             if(c.moveToNext()){
                 String sexe = c.getString(0);
