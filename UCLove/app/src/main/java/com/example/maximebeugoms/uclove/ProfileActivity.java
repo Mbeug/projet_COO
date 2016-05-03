@@ -82,6 +82,13 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
        // nomProfil.setText(currentProfil.getNom());
 
     }*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
     String mPhotoPath = "NoPhoto";
@@ -539,18 +546,6 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-
-
-    }
-
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();
@@ -891,10 +886,5 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
         client.disconnect();
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-
-        return super.onCreateOptionsMenu(menu);
-    }*/
 }
