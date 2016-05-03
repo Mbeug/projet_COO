@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -44,6 +45,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.example.maximebeugoms.uclove.Database.Profil;
@@ -99,6 +102,9 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                 String mLocalisation = localisation.getText().toString();
 
+                Configuration config = getApplicationContext().getResources().getConfiguration();
+
+
                 String mSexe = sexSpinner.getSelectedItem().toString();
 
                 String mCouleurCheveux = couleurCheveuxSpinner.getSelectedItem().toString();
@@ -108,7 +114,6 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                 String mLongueurCheveux = longueurCheveuxSpinner.getSelectedItem().toString();
 
                 String mCouleurYeux = couleurYeuxSpinner.getSelectedItem().toString();
-
 
 
                 Toast toast = new Toast(getApplicationContext());

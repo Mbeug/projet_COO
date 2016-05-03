@@ -139,12 +139,12 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
         final Spinner longueurCheveuxSpinner = (Spinner) findViewById(R.id.longueurCheveuxSpinner);
         final Spinner couleurYeuxSpinner = (Spinner) findViewById(R.id.couleurYeuxSpinner);
 
+        System.out.println(currentProfil.getSexe());
 
         assert sexSpinner != null;
         sexSpinner.post(new Runnable() {
             @Override
             public void run() {
-
                 sexSpinner.setSelection(((ArrayAdapter) sexSpinner.getAdapter()).getPosition(currentProfil.getSexe()));
             }
         });

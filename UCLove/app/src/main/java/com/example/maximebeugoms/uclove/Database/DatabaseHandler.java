@@ -169,6 +169,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         db.execSQL(MESSAGE_TABLE_CREATE);
         db.execSQL(SEARCH_TABLE_CREATE);
         db.execSQL(DISPONIBILITE_TABLE_CREATE);
+
     }
 
     public static final String PROFIL_TABLE_DROP = "DROP TABLE IF EXISTS " + PROFIL_TABLE_NAME + ";";

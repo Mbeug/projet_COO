@@ -3,8 +3,10 @@ package com.example.maximebeugoms.uclove;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,8 +24,12 @@ import android.widget.Toast;
 
 import com.example.maximebeugoms.uclove.Database.DAOBase;
 import com.example.maximebeugoms.uclove.Database.DatabaseHandler;
+import com.example.maximebeugoms.uclove.Database.Profil;
+import com.example.maximebeugoms.uclove.Database.ProfilDao;
 import com.example.maximebeugoms.uclove.Database.User;
 import com.example.maximebeugoms.uclove.Database.UserDao;
+
+import java.util.Locale;
 
 
 /**
@@ -40,6 +46,90 @@ public class LoginActivity extends MainActivity
         setContentView(R.layout.login_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!prefs.getBoolean("firstTime", false)) {
+            // <---- run your one time code here
+
+            UserDao userDb = new UserDao(getApplicationContext());
+            SQLiteDatabase mDb = userDb.open();
+            ProfilDao profilDb = new ProfilDao(getApplicationContext());
+            SQLiteDatabase pDb = profilDb.open();
+
+            //We create matching user and profile in the database
+            /*  attributs possibles - attention a l'orthographe
+            Homme   Man
+            Femme   Woman
+            Bi      Bi
+            Brun    Brown
+            Blond   Blond
+            Blanc   White
+            Roux    Red
+            Châtain Chestnut
+            Noir    Black
+            Court   Short
+            Mi-long Half-long
+            Long    Long
+            Bleu    Blue
+            Vert    Green
+
+            userDb.add(new User("pseudo", "mail", "mot de passe"));
+            profilDb.add(new Profil("Nom", "mail", "sexe", age, "couleur cheveux", "longueur cheveux", "couleur yeux", "orientation", "Localisation", "NoPhoto"));
+            */
+
+            System.out.println("Language: " + Locale.getDefault().getLanguage());
+
+            if (Locale.getDefault().getLanguage().contentEquals("en")) {
+
+                userDb.add(new User("gano", "gano@yopmail.com", "gano"));
+                profilDb.add(new Profil("Gano", "gano@yopmail.com", "Man", 35, "Brown", "Short", "Brown", "Woman", "Namur", "NoPhoto"));
+
+                userDb.add(new User("yves", "yves@yopmail.com", "yves"));
+                profilDb.add(new Profil("Yves", "yves@yopmail.com", "Man", 21, "Blond", "Half-long", "Blue", "Woman", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("armand", "armand@yopmail.com", "armand"));
+                profilDb.add(new Profil("Armand", "armand@yopmail.com", "Man", 23, "Blond", "Short", "Green", "Bi", "Bruxelles", "NoPhoto"));
+
+                userDb.add(new User("violette", "violette@yopmail.com", "violette"));
+                profilDb.add(new Profil("Violette", "violette@yopmail.com", "Woman", 36, "Chestnut", "Long", "Blue", "Man", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("julie", "julie@yopmail.com", "julie"));
+                profilDb.add(new Profil("Julie", "julie@yopmail.com", "Woman", 27, "Black", "Half-long", "Brown", "Woman", "Namur", "NoPhoto"));
+
+                userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
+                profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Woman", 33, "Red", "Long", "Green", "Man", "Bruxelles", "NoPhoto"));
+
+            } else {
+
+                userDb.add(new User("gano", "gano@yopmail.com", "gano"));
+                profilDb.add(new Profil("Gano", "gano@yopmail.com", "Homme", 35, "Brun", "Court", "Brun", "Femme", "Namur", "NoPhoto"));
+
+                userDb.add(new User("yves", "yves@yopmail.com", "yves"));
+                profilDb.add(new Profil("Yves", "yves@yopmail.com", "Homme", 21, "Blond", "Mi-long", "Bleu", "Femme", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("armand", "armand@yopmail.com", "armand"));
+                profilDb.add(new Profil("Armand", "armand@yopmail.com", "Homme", 23, "Blond", "Court", "Vert", "Bi", "Bruxelles", "NoPhoto"));
+
+                userDb.add(new User("violette", "violette@yopmail.com", "violette"));
+                profilDb.add(new Profil("Violette", "violette@yopmail.com", "Femme", 36, "Châtain", "Long", "Bleu", "Homme", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("julie", "julie@yopmail.com", "julie"));
+                profilDb.add(new Profil("Julie", "julie@yopmail.com", "Femme", 27, "Noir", "Mi-long", "Brun", "Femme", "Namur", "NoPhoto"));
+
+                userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
+                profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Femme", 33, "Roux", "Long", "Vert", "Homme", "Bruxelles", "NoPhoto"));
+
+            }
+
+            //Close db
+            userDb.close();
+            profilDb.close();
+
+            // mark first time has runned.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
 
 
         final EditText nom = (EditText) findViewById(R.id.textLogger);
