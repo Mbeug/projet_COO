@@ -28,6 +28,7 @@ public class Preference_systDao extends DAOBase
         values.put(KEY, ps.getMail_user());
         values.put(LANGUE, ps.getLangue());
         values.put(NIVEAU_CONFIDENTIALITE, ps.getNiveau_confidentialite());
+        mDb.insert(TABLE_NAME,null,values);
     }
 
     public void delete(long id){
