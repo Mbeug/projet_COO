@@ -1,5 +1,6 @@
 package com.example.maximebeugoms.uclove;
 
+import static com.example.maximebeugoms.uclove.Constants.FIFTH_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.FIRST_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.SECOND_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.THIRD_COLUMN;
@@ -76,6 +77,7 @@ public class SearchActivity extends MainActivity{
                 temp.put(SECOND_COLUMN, cursorProfil.getNom());
                 temp.put(THIRD_COLUMN, Integer.toString(cursorProfil.getAge()));
                 temp.put(FOURTH_COLUMN, cursorProfil.getLocalisation());
+                temp.put(FIFTH_COLUMN, cursorProfil.getMail());
                 list.add(temp);
 
                 cursor.moveToNext();
@@ -92,20 +94,28 @@ public class SearchActivity extends MainActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id)
             {
-                int pos=position+1;
-                Toast.makeText(SearchActivity.this, Integer.toString(pos)+" Clicked", Toast.LENGTH_SHORT).show();
+                //int pos=position+1;
+                //Toast.makeText(SearchActivity.this, Integer.toString(pos)+" Clicked", Toast.LENGTH_SHORT).show();
 
-                String value = (String)adapter.getItem(position);
+                HashMap<String,String> profilList = (HashMap<String,String>) adapter.getItem(position);
+                String mail = profilList.get(FIFTH_COLUMN);
+                System.out.println(mail);
+
+                //Open profil database, get selected profil and close
+                ProfilDao profilDb = new ProfilDao(getApplicationContext());
+                SQLiteDatabase pDb = profilDb.open();
+                Profil profilDecouverte = profilDb.selectionner(mail);
+                profilDb.close();
 
                 //On récupère l'application
                 Application application = (Application)Uclove.getContext();
                 Uclove app = (Uclove)application;
 
                 //On set Profil
-                //app.setProfil(checker);
+                app.setProfil(profilDecouverte);
 
-                //Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SearchActivity.this, ProfileOtherActivity.class);
+                startActivity(intent);
             }
 
         });

@@ -222,7 +222,7 @@
             android:layout_height="400dp"
             android:scaleType = "fitXY"
             android:id="@+id/imageTest"
-            android:src="@drawable/ic_menu_gallery"
+            android:src="@drawable/anonyme_perso"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/couleurYeuxSpinner"
             android:layout_marginTop="20dp"

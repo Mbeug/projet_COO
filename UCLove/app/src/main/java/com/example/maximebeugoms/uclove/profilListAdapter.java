@@ -4,6 +4,8 @@ import static com.example.maximebeugoms.uclove.Constants.FIRST_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.SECOND_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.THIRD_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.FOURTH_COLUMN;
+import static com.example.maximebeugoms.uclove.Constants.FIFTH_COLUMN;
+
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -16,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.maximebeugoms.uclove.Database.Profil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +36,7 @@ public class profilListAdapter extends BaseAdapter{
     TextView txtSecond;
     TextView txtThird;
     TextView txtFourth;
+
     public profilListAdapter(Activity activity, ArrayList<HashMap<String, String>> list){
         super();
         this.activity=activity;
