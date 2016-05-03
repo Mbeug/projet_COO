@@ -6,14 +6,18 @@ import static com.example.maximebeugoms.uclove.Constants.THIRD_COLUMN;
 import static com.example.maximebeugoms.uclove.Constants.FOURTH_COLUMN;
 
 import android.app.Application;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
@@ -78,12 +82,33 @@ public class SearchActivity extends MainActivity{
             }
         }
 
-        profilListAdapter adapter = new profilListAdapter(this, list);
+        final profilListAdapter adapter = new profilListAdapter(this, list);
         mainListView.setAdapter(adapter);
 
-
-
         profilDb.close();
+
+        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id)
+            {
+                int pos=position+1;
+                Toast.makeText(SearchActivity.this, Integer.toString(pos)+" Clicked", Toast.LENGTH_SHORT).show();
+
+                String value = (String)adapter.getItem(position);
+
+                //On récupère l'application
+                Application application = (Application)Uclove.getContext();
+                Uclove app = (Uclove)application;
+
+                //On set Profil
+                //app.setProfil(checker);
+
+                //Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                //startActivity(intent);
+            }
+
+        });
 
     }
 

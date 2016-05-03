@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            intent = new Intent(this,PrefSystActivity.class);
+            startActivity(intent);
             return true;
         }
          else if (id == R.id.action_search) {

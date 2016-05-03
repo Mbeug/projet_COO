@@ -4,6 +4,8 @@ import android.content.res.Configuration;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+
 
 import com.example.maximebeugoms.uclove.MainActivity;
 import com.example.maximebeugoms.uclove.R;
@@ -15,7 +17,7 @@ import java.util.Locale;
 /**
  * Created by damien on 29/04/16.
  */
-public class Preference_syst extends MainActivity implements AdapterView.OnItemSelectedListener {
+public class Preference_syst extends MainActivity {
 
     private String langue;
     private String niveau_confidentialite;
@@ -53,29 +55,6 @@ public class Preference_syst extends MainActivity implements AdapterView.OnItemS
         this.niveau_confidentialite = niveau_confidentialite;
     }
 
-    //Spinner
-    final Spinner langues = (Spinner) findViewById(R.id.spinnerLang);
 
-    langues.setOnItemSelectedListener(this);
-    List<String> languesCategories = new ArrayList<String>();
-    languesCategories.add(getResources().getString("english"));
-    languesCategories.add(getResources().getString("français"));
-
-    public void switchLocaleLanguage(View v) {
-        if (langue.equals("english")) {
-            Locale loc = Locale.ENGLISH;
-            Configuration config = new Configuration();
-            config.locale = loc;
-            Locale.setDefault(loc);
-            getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        }
-        else {
-            Locale loc = Locale.FRANCE;
-            Configuration config = new Configuration();
-            config.locale= loc;
-            Locale.setDefault(loc);
-            getBaseConext().getResources().updateCongfiguratio(config, getResources().getDisplayMetrics());
-        }
-    }
 
 }
