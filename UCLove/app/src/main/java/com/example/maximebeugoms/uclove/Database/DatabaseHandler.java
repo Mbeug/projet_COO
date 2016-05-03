@@ -57,7 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     // Pour la table Search
 
     public static final String SEARCH_AGE = "age";
-    public static final String SEARCH_GENRE = "genre";
+    public static final String SEARCH_GENRE = "orientation";
     public static final String SEARCH_LOCALISATION = "localisation";
     public static final String SEARCH_COULEUR_CHEVEUX = "couleur_cheveux";
     public static final String SEARCH_LONGUEUR_CHEVEUX = "longueur_cheveux";
@@ -81,7 +81,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public static final String RELATION_TABLE_NAME = "Relation";
     public static final String MESSAGE_TABLE_NAME = "Message";
     public static final String PREFERENCE_TABLE_NAME = "Preference";
-    public static final String SEARCH_TABLE_NAME = "search";
+    public static final String SEARCH_TABLE_NAME = "Search";
     public static final String DISPONIBILITE_TABLE_NAME = "Disponibilite";
 
 

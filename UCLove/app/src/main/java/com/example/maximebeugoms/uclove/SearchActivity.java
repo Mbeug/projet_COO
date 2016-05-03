@@ -1,6 +1,13 @@
 package com.example.maximebeugoms.uclove;
 
-import android.app.Activity;
+import static com.example.maximebeugoms.uclove.Constants.FIRST_COLUMN;
+import static com.example.maximebeugoms.uclove.Constants.SECOND_COLUMN;
+import static com.example.maximebeugoms.uclove.Constants.THIRD_COLUMN;
+import static com.example.maximebeugoms.uclove.Constants.FOURTH_COLUMN;
+
+import android.app.Application;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -8,8 +15,12 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.maximebeugoms.uclove.Database.Profil;
+import com.example.maximebeugoms.uclove.Database.ProfilDao;
+import com.example.maximebeugoms.uclove.Database.User;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 
 /**
@@ -18,7 +29,8 @@ import java.util.Arrays;
 public class SearchActivity extends MainActivity{
 
     private ListView mainListView ;
-    private ArrayAdapter<String> listAdapter ;
+    //private ArrayAdapter<String> listAdapter ;
+    private ArrayList<HashMap<String, String>> list;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,31 +39,55 @@ public class SearchActivity extends MainActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Application application = (Application) Uclove.getContext();
+        Uclove app = (Uclove) application;
+
+        //On get User
+        final User currentUser = app.getUser();
+
 
         // Find the ListView resource.
         mainListView = (ListView) findViewById( R.id.rechercheProfils );
+        list = new ArrayList<HashMap<String,String>>();
 
-        // Create and populate a List of planet names.
-        String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
-                "Jupiter", "Saturn", "Uranus", "Neptune"};
-        ArrayList<String> planetList = new ArrayList<String>();
-        planetList.addAll( Arrays.asList(planets) );
+        //Open profil database and query
+        ProfilDao profilDb = new ProfilDao(getApplicationContext());
+        SQLiteDatabase pDb = profilDb.open();
+        /*Cursor cursor = pDb.rawQuery("select * from Profil "
+                + "where mail != " + currentUser.getMail(), null);*/
+        Cursor cursor = pDb.rawQuery("SELECT " + "*" + " FROM " + "Profil" + " WHERE mail != ?", new String[] {currentUser.getMail()});
 
-        // Create ArrayAdapter using the planet list.
-        listAdapter = new ArrayAdapter<String>(this, R.layout.simplerow, planetList);
+        //ArrayList<String> profilList = new ArrayList<String>();
+        //listAdapter = new ArrayAdapter<String>(this, R.layout.column_row, profilList);
+        if (cursor .moveToFirst()) {
 
-        // Add more planets. If you passed a String[] instead of a List<String>
-        // into the ArrayAdapter constructor, you must not add more items.
-        // Otherwise an exception will occur.
-        listAdapter.add( "Ceres" );
-        listAdapter.add( "Pluto" );
-        listAdapter.add( "Haumea" );
-        listAdapter.add( "Makemake" );
-        listAdapter.add( "Eris" );
+            while (cursor.isAfterLast() == false) {
+                String mail = cursor.getString(cursor
+                        .getColumnIndex("mail"));
 
-        // Set the ArrayAdapter as the ListView's adapter.
-        mainListView.setAdapter( listAdapter );
+                Profil cursorProfil = profilDb.selectionner(mail);
+
+                HashMap<String,String> temp=new HashMap<String, String>();
+                temp.put(FIRST_COLUMN, cursorProfil.getPhoto_path());
+                temp.put(SECOND_COLUMN, cursorProfil.getNom());
+                temp.put(THIRD_COLUMN, Integer.toString(cursorProfil.getAge()));
+                temp.put(FOURTH_COLUMN, cursorProfil.getLocalisation());
+                list.add(temp);
+
+                cursor.moveToNext();
+            }
+        }
+
+        profilListAdapter adapter = new profilListAdapter(this, list);
+        mainListView.setAdapter(adapter);
+
+
+
+        profilDb.close();
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
