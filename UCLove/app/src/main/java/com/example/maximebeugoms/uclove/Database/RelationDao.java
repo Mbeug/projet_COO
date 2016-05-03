@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.ArrayList;
+
 /**
  * Created by damien on 29/04/16.
  */
@@ -22,16 +24,16 @@ public class RelationDao extends DAOBase{
         super(pContext);
     }
 
-    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +  ETAT_ACCEPTATION + "INTEGER," + SENDER + "TEXT," + RECEIVER + "TEXT);";
+    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER,"
+            +  ETAT_ACCEPTATION + " INTEGER,"  + RECEIVER + " TEXT," + SENDER + " TEXT);";
     public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
     public void add(Relation r){
         ContentValues values = new ContentValues();
-        values.put(KEY, r.getMail_user());
         values.put(ETAT_ACCEPTATION, r.getEtat_acceptation());
         values.put(SENDER, r.getSender());
         values.put(RECEIVER, r.getReceiver());
+        mDb.insert(TABLE_NAME,null,values);
     }
 
     public void delete(long id){
@@ -47,19 +49,33 @@ public class RelationDao extends DAOBase{
         mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(r.getMail_user())});
     }
 
-    public Relation select(String Email){
-        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
-        if(c.moveToNext()){
-            String sender = c.getString(0);
-            int etat_relation = c.getInt(1);
-            String receiver = c.getString(2);
+    public ArrayList<Relation> select(String Email){
+        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE expediteur = ?", new String[] {Email});
+        Cursor d = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE destinateur = ?", new String[] {Email});
+        ArrayList<Relation> relationArrayList = new ArrayList<Relation>();
+
+        //We get every relation where the user is the sender
+        while(c.moveToNext()){
+            int etat_relation = c.getInt(0);
+            String receiver = c.getString(1);
+            String sender = c.getString(2);
             String mail_user = c.getString(3);
-            return new Relation(sender,etat_relation,receiver,mail_user);
-        }
-        else{
-            c.close();
-            return null;
+            Relation rel = new Relation(sender,etat_relation,receiver,mail_user);
+            relationArrayList.add(rel);
         }
 
+        //We get every relation where the user is the receiver
+        while(d.moveToNext()){
+            int etat_relation = c.getInt(0);
+            String receiver = c.getString(1);
+            String sender = c.getString(2);
+            String mail_user = c.getString(3);
+            Relation rel = new Relation(sender,etat_relation,receiver,mail_user);
+            relationArrayList.add(rel);
+        }
+
+        c.close();
+        d.close();
+        return relationArrayList;
     }
 }

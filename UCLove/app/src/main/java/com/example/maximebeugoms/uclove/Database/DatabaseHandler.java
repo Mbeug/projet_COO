@@ -116,12 +116,13 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String RELATION_TABLE_CREATE =
             "CREATE TABLE " + RELATION_TABLE_NAME +" ( " +
-                    RELATION_ID_RELATION + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     RELATION_ETAT_ACCEPTATION + " INTEGER, " +
                     RELATION_RECEIVER + " STRING, " +
                     RELATION_SENDER + " STRING, " +
-                    UTILISATEUR_MAIL + "  STRING, " +
-                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
+                    UTILISATEUR_MAIL + " STRING, " +
+                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + ")," +
+                    "FOREIGN KEY (" + RELATION_RECEIVER + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + ")," +
+                    "FOREIGN KEY (" + RELATION_SENDER + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String MESSAGE_TABLE_CREATE =
             "CREATE TABLE " + MESSAGE_TABLE_NAME + " ( " +

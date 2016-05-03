@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.ArrayList;
+
 /**
  * Created by damien on 29/04/16.
  */
@@ -43,17 +45,20 @@ public class MessageDao extends DAOBase {
         mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(m.getMail_user())});
     }
 
-    public Message select (String Email){
+    public ArrayList<Message> select (String Email){
         Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
-        if(c.moveToNext()){
-            String mail_user = c.getString(0);
+        ArrayList<Message> messageArrayList = new ArrayList<Message>();
+        while(c.moveToNext()){
+
+            String texte = c.getString(0);
             String date = c.getString(1);
-            String texte = c.getString(2);
-            return new Message(mail_user, date, texte);
+            String mail_user = c.getString(2);
+
+            Message newmess = new Message(mail_user, date, texte);
+            messageArrayList.add(newmess);
         }
-        else{
-            c.close();
-            return null;
-        }
+        c.close();
+        return messageArrayList;
+
     }
 }
