@@ -74,4 +74,7 @@
     <string name="pseudo_non_conforme" >Entrez un pseudo valide</string>
     <string name="modifier" >Modifier</string>
     <string name="compteModifie" >Compte modifié</string>
+    <string name="langues"> Langues</string>
+    <string name="lvl_secret">Niveaux de confidentialité</string>
+    <string name="id_user">L\'idantifiant utilisateur</string>
 </resources>

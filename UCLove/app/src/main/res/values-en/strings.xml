@@ -68,4 +68,7 @@
     <string name="pseudo_non_conforme" >Please enter a valid username</string>
     <string name="modifier" >Modify</string>
     <string name="compteModifie" >Account modified</string>
+    <string name="langues">Languages</string>
+    <string name="lvl_secret">Confidential levels</string>
+    <string name="id_user">The user\'s id</string>
 </resources>
