@@ -82,4 +82,22 @@
     <string name="title_activity_filters" >Filtres</string>
     <string name="inmessage">Entrez un message ...</string>
 
+    <string-array name="couleur_cheveux">
+
+        <item>House</item>
+
+        <item>Car</item>
+
+        <item>Cake</item>
+
+        <item>Money</item>
+
+        <item>Food</item>
+
+        <item>Phone</item>
+
+        <item>Laptop</item>
+
+    </string-array>
+
 </resources>
