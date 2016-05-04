@@ -80,5 +80,6 @@
     <string name="cheveuxDec" >Cheveux: </string>
     <string name="Yeux" >Yeux: </string>
     <string name="title_activity_filters" >Filtres</string>
+    <string name="inmessage">Entrez un message ...</string>
 
 </resources>

@@ -2,13 +2,16 @@ package com.example.maximebeugoms.uclove;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.Locale;
 public class PrefSystActivity extends MainActivity implements OnItemSelectedListener {
 
     String langue = "Français";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,24 +49,30 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
 
         langue = langues.getSelectedItem().toString();
 
-
-
     }
 
 
     public void switchLocaleLanguage(String langue) {
-        if (langue.equals("English")) {
-            Locale loc = Locale.ENGLISH;
-            Configuration config = new Configuration();
-            config.locale = loc;
-            Locale.setDefault(loc);
-            getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        } else {
-            Locale loc = Locale.FRANCE;
-            Configuration config = new Configuration();
-            config.locale = loc;
-            Locale.setDefault(loc);
-            getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
+        Locale loc;
+        Configuration config = new Configuration();
+        switch (langue) {
+
+            case "English":
+                loc= Locale.ENGLISH;
+                config.locale = loc;
+                Locale.setDefault(loc);
+                getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+                break;
+            case "Français":
+                 loc = Locale.FRENCH;
+                config.locale = loc;
+                Locale.setDefault(loc);
+                getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+                break;
+            default:
+                toast.makeText(PrefSystActivity.this, R.string.langSelected, toast.LENGTH_SHORT).show();
         }
     }
 
@@ -86,6 +96,7 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 
 
 }
