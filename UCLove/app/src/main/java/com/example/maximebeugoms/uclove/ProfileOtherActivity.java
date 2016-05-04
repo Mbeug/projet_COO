@@ -2,12 +2,15 @@ package com.example.maximebeugoms.uclove;
 
 import android.app.Activity;
 import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.maximebeugoms.uclove.Database.Preference_syst;
+import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
 
 /**
@@ -28,6 +31,16 @@ public class ProfileOtherActivity extends MainActivity {
 
         //On get Profil selectionné
         Profil profilDecouverte = app.getProfil();
+
+        //open la db pour avoir les preferences du user selectionne
+        Preference_systDao prefsDB = new Preference_systDao(getApplicationContext());
+        SQLiteDatabase pDb = prefsDB.open();
+        Preference_syst prefSyst = prefsDB.select(profilDecouverte.getMail());
+        prefsDB.close();
+
+        String confidential = prefSyst.getNiveau_confidentialite();
+
+        // determiner la vue a charger selon le niveau de confidentialite (a faire)
 
         TextView nomDecouverte = (TextView) findViewById(R.id.nomDecouverte);
         nomDecouverte.setText(profilDecouverte.getNom());
