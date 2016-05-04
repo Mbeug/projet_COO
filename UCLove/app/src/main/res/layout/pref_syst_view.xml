@@ -14,10 +14,9 @@
         android:textSize="30sp"
         android:id="@+id/textView5"
         android:layout_marginLeft="12dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="68dp" />
+        android:layout_marginTop="80dp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -34,7 +33,7 @@
         android:text="@string/lvl_secret"
         android:textSize="30sp"
         android:id="@+id/textView6"
-        android:layout_below="@+id/spinnerLang"
+        android:layout_below="@id/spinnerLang"
         android:layout_marginLeft="12dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
