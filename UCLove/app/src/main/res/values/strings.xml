@@ -30,7 +30,7 @@
 
     <string name="title_activity_profile">Mon profil</string>
     <string name="title_activity_profile_other">Profil</string>
-    <string name="title_activity_search">Nouveaux profils</string>
+    <string name="title_activity_search">Découverte</string>
 
 
     <string name="listeamis">Liste d\'amis</string>
@@ -77,4 +77,7 @@
     <string name="langues"> Langues</string>
     <string name="lvl_secret">Niveaux de confidentialité</string>
     <string name="id_user">L\'idantifiant utilisateur</string>
+    <string name="cheveuxDec" >Cheveux: </string>
+    <string name="Yeux" >Yeux: </string>
+
 </resources>

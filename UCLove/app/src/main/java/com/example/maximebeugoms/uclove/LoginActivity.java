@@ -176,7 +176,7 @@ public class LoginActivity extends MainActivity
                     //On set User
                     app.setUser(checker);
 
-                    Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(intent);
                 }
             }

@@ -36,7 +36,7 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_profile">My profile</string>
     <string name="title_activity_profile_other">Profile</string>
-    <string name="title_activity_search">New profiles</string>
+    <string name="title_activity_search">Discovery</string>
     <string name="profil">Profile</string>
     <string name="rencontre">Date</string>
     <string name="settings_recherche">Filter options</string>
@@ -71,4 +71,8 @@
     <string name="langues">Languages</string>
     <string name="lvl_secret">Confidential levels</string>
     <string name="id_user">The user\'s id</string>
+    <string name="cheveuxDec" >Hair: </string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="Yeux" >Eyes: </string>
+
 </resources>
