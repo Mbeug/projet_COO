@@ -48,7 +48,7 @@
         android:layout_marginTop="15dp"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/nom"
+        android:id="@+id/name"
         android:hint="@string/hintnom"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/ageProfil"/>
@@ -61,9 +61,9 @@
         android:ems="10"
         android:id="@+id/pseudo"
         android:hint="@string/hintpseudo"
-        android:layout_below="@+id/nom"
-        android:layout_alignRight="@+id/nom"
-        android:layout_alignEnd="@+id/nom" />
+        android:layout_below="@+id/name"
+        android:layout_alignRight="@+id/name"
+        android:layout_alignEnd="@+id/name" />
 
     <EditText
         android:layout_marginBottom="20dp"

@@ -60,18 +60,21 @@ public class profilListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater=activity.getLayoutInflater();
+        View v;
 
         if(convertView == null){
 
-            convertView=inflater.inflate(R.layout.column_row, null);
+            LayoutInflater inflater = activity.getLayoutInflater();
+            v = inflater.inflate(R.layout.column_row, null);
 
-            imageFirst=(ImageView) convertView.findViewById(R.id.image);
-            txtSecond=(TextView) convertView.findViewById(R.id.name);
-            txtThird=(TextView) convertView.findViewById(R.id.age);
-            txtFourth=(TextView) convertView.findViewById(R.id.status);
-
+        }else{
+            v = convertView;
         }
+
+        imageFirst=(ImageView) v.findViewById(R.id.image);
+        txtSecond=(TextView) v.findViewById(R.id.name);
+        txtThird=(TextView) v.findViewById(R.id.age);
+        txtFourth=(TextView) v.findViewById(R.id.localisationDisc);
 
         HashMap<String, String> map=list.get(position);
         imageFirst.setImageBitmap(setImage(map.get(FIRST_COLUMN)));
@@ -79,7 +82,7 @@ public class profilListAdapter extends BaseAdapter{
         txtThird.setText(map.get(THIRD_COLUMN));
         txtFourth.setText(map.get(FOURTH_COLUMN));
 
-        return convertView;
+        return v;
     }
 
     private Bitmap setImage(String mPhotoPath) {

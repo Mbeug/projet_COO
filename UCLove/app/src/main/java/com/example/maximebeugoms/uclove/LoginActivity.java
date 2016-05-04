@@ -99,6 +99,24 @@ public class LoginActivity extends MainActivity
                 userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
                 profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Woman", 33, "Red", "Long", "Green", "Man", "Bruxelles", "NoPhoto"));
 
+                userDb.add(new User("etienne", "etienne@yopmail.com", "etienne"));
+                profilDb.add(new Profil("Etienne", "etienne@yopmail.com", "Man", 30, "Brown", "Short", "Brown", "Man", "Louvain", "NoPhoto"));
+
+                userDb.add(new User("benoît", "benoît@yopmail.com", "benoît"));
+                profilDb.add(new Profil("Benoît", "benoît@yopmail.com", "Man", 20, "Blond", "Half-long", "Blue", "Woman", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("georges", "georges@yopmail.com", "georges"));
+                profilDb.add(new Profil("Georges", "georges@yopmail.com", "Man", 25, "Black", "Long", "Green", "Woman", "Bruxelles", "NoPhoto"));
+
+                userDb.add(new User("carole", "carole@yopmail.com", "carole"));
+                profilDb.add(new Profil("Carole", "carole@yopmail.com", "Woman", 30, "Chestnut", "Long", "Blue", "Bi", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("angelique", "angelique@yopmail.com", "angelique"));
+                profilDb.add(new Profil("Angelique", "angelique@yopmail.com", "Woman", 40, "Black", "Half-long", "Brown", "Woman", "Louvain", "NoPhoto"));
+
+                userDb.add(new User("pascaline", "pascaline@yopmail.com", "pascaline"));
+                profilDb.add(new Profil("Pascaline", "pascaline@yopmail.com", "Woman", 19, "Red", "Half-long", "Green", "Man", "Bruxelles", "NoPhoto"));
+
             } else {
 
                 userDb.add(new User("gano", "gano@yopmail.com", "gano"));
@@ -118,6 +136,24 @@ public class LoginActivity extends MainActivity
 
                 userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
                 profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Femme", 33, "Roux", "Long", "Vert", "Homme", "Bruxelles", "NoPhoto"));
+
+                userDb.add(new User("etienne", "etienne@yopmail.com", "etienne"));
+                profilDb.add(new Profil("Etienne", "etienne@yopmail.com", "Homme", 30, "Brun", "Court", "Brun", "Homme", "Louvain", "NoPhoto"));
+
+                userDb.add(new User("benoît", "benoît@yopmail.com", "benoît"));
+                profilDb.add(new Profil("Benoît", "benoît@yopmail.com", "Homme", 20, "Blond", "Mi-long", "Bleu", "Femme", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("georges", "georges@yopmail.com", "georges"));
+                profilDb.add(new Profil("Georges", "georges@yopmail.com", "Homme", 25, "Noir", "Long", "Vert", "Femme", "Bruxelles", "NoPhoto"));
+
+                userDb.add(new User("carole", "carole@yopmail.com", "carole"));
+                profilDb.add(new Profil("Carole", "carole@yopmail.com", "Femme", 30, "Châtain", "Long", "Bleu", "Bi", "Wavre", "NoPhoto"));
+
+                userDb.add(new User("angelique", "angelique@yopmail.com", "angelique"));
+                profilDb.add(new Profil("Angelique", "angelique@yopmail.com", "Femme", 40, "Noir", "Mi-long", "Brun", "Femme", "Louvain", "NoPhoto"));
+
+                userDb.add(new User("pascaline", "pascaline@yopmail.com", "pascaline"));
+                profilDb.add(new Profil("Pascaline", "pascaline@yopmail.com", "Femme", 19, "Roux", "Mi-long", "Vert", "Homme", "Bruxelles", "NoPhoto"));
 
             }
 

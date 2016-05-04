@@ -122,7 +122,7 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
         TextView ageProfil = (TextView) findViewById(R.id.ageProfil);
         ageProfil.setText(String.valueOf(currentProfil.getAge()));
 
-        final EditText nom = (EditText) findViewById(R.id.nom);
+        final EditText nom = (EditText) findViewById(R.id.name);
         final EditText pseudo = (EditText) findViewById(R.id.pseudo);
         final EditText mdp = (EditText) findViewById(R.id.mdp);
         final EditText localisation = (EditText) findViewById(R.id.localisation);

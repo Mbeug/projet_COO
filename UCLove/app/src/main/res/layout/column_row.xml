@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:src="@drawable/anonyme_perso"
         android:id="@+id/image"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_height="100dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nom"
         android:id="@+id/name"
-        android:textSize="20sp"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:textStyle="bold" />
+        android:layout_alignTop="@+id/image"
+        android:layout_toRightOf="@+id/image"
+        android:layout_toEndOf="@+id/image"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Age"
         android:id="@+id/age"
-        android:textSize="20sp"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="0.5" />
+        android:layout_below="@+id/name"
+        android:layout_toRightOf="@+id/image"
+        android:layout_toEndOf="@+id/image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:layout_marginTop="15dp"
-        android:id="@+id/status"
-        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Localisation"
+        android:id="@+id/localisationDisc"
+        android:layout_below="@+id/age"
+        android:layout_toRightOf="@+id/image"
+        android:layout_toEndOf="@+id/image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-</LinearLayout>
+
+</RelativeLayout>

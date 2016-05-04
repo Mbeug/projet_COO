@@ -45,7 +45,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -66,7 +65,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final EditText nom = (EditText) findViewById(R.id.nom);
+        final EditText nom = (EditText) findViewById(R.id.name);
         final EditText mdp = (EditText) findViewById(R.id.mdp);
         final EditText mail = (EditText) findViewById(R.id.email);
         final EditText naissance = (EditText) findViewById(R.id.dateNaissance);
