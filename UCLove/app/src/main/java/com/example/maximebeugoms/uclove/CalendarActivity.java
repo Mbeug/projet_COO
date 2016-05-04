@@ -32,19 +32,18 @@ public class CalendarActivity extends MainActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-    /*
+
         Application application = (Application) Uclove.getContext();
         Uclove app = (Uclove) application;
 
-        //On get User
-        final Disponibilite currentDisponibilite = app.getDisponibilite();
-
-        //Open db
+        //Création de l'objet Dao
         final DisponibiliteDao dispoDb = new DisponibiliteDao(getApplicationContext());
         SQLiteDatabase mDb = dispoDb.open();
-        final Disponibilite currentDisponibilite = dispoDb.selectionner(currentDisponibilite.getMail());
 
-        */
+        //Close db
+        dispoDb.close();
+
+
     }
 
     @Override
@@ -57,25 +56,14 @@ public class CalendarActivity extends MainActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Open db
-    DisponibiliteDao dispoDb = new DisponibiliteDao(getApplicationContext());
-    SQLiteDatabase mDb = dispoDb.open();
-
-
-    // create updated disponibilite
-    Disponibilite updatedDisponibilite = new Disponibilite(...);
-
-
-    //We update disponibilite
-    dispoDb.update(updatedDisponibilite);
-
-    //Close db
-    dispoDb.close();
-    dispoDb.close();
 
     public void setOnDateChangeListener(CalendarView view, int year, int month, int day){
 
         String date = String.valueOf(day) + "-" + String.valueOf(month) + "-" + String.valueOf(year);
+
+        //String mail_user;
+
+        final String[] dispo = new String[1];
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
@@ -87,30 +75,42 @@ public class CalendarActivity extends MainActivity {
         alertDialogBuilder
                 .setMessage("Etes-vous disponible ou pas pour cette date ?")
                 .setCancelable(false)
-                .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                .setPositiveButton("Disponible",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
-                        // ajouter valeur dans bdd
-                        CalendarActivity.this.finish();
-                    }
-                })
-                .setNegativeButton("No",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        //ajouter valeur deans bdd
+                        // ajouter valeur "disponible" dans bdd
+
+                        dispo[0] = "Disponible";
+
                         dialog.cancel();
                     }
                 })
-        .setNeutralButton("Maybe", new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int id){
-                    //ajouter valeur dans bdd
-                   dialog.cancel();
-                }
-                });
+                .setNegativeButton("Indisponible",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        //ajouter valeur "indisponible" dans bdd
 
+                        dispo[0] = "Indisponible";
+
+                        dialog.cancel();
+                    }
+                })
+                .setNeutralButton("Ne sais pas encore", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int id){
+                        //ajouter valeur "ne sais pas" dans bdd
+
+                        dispo[0] = "Ne sais pas encore";
+
+                        dialog.cancel();
+                    }
+                });
 
         AlertDialog alertDialog = alertDialogBuilder.create();
 
         // show it
         alertDialog.show();
+
+        Disponibilite d = new Disponibilite(mail_user, dispo[0], date);
+        
+        //ajouter la disponibilite a la bdd
     }
 }
 
