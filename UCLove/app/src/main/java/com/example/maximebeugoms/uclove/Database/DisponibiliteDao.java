@@ -33,7 +33,7 @@ public class DisponibiliteDao extends DAOBase {
         mDb.delete(TABLE_NAME, KEY + " = ?", new String[] {String.valueOf(id)});
     }
 
-    public void update (Disponibilite d){
+    public void update(Disponibilite d){
         ContentValues values = new ContentValues();
         values.put(KEY, d.getMail_user());
         values.put(DATE, d.getDate());
