@@ -26,6 +26,8 @@ import com.example.maximebeugoms.uclove.Database.DAOBase;
 import com.example.maximebeugoms.uclove.Database.DatabaseHandler;
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
+import com.example.maximebeugoms.uclove.Database.Search_profil;
+import com.example.maximebeugoms.uclove.Database.Search_profilDao;
 import com.example.maximebeugoms.uclove.Database.User;
 import com.example.maximebeugoms.uclove.Database.UserDao;
 
@@ -55,6 +57,8 @@ public class LoginActivity extends MainActivity
             SQLiteDatabase mDb = userDb.open();
             ProfilDao profilDb = new ProfilDao(getApplicationContext());
             SQLiteDatabase pDb = profilDb.open();
+            Search_profilDao searchProfilDb = new Search_profilDao(getApplicationContext());
+            SQLiteDatabase spDb = searchProfilDb.open();
 
             //We create matching user and profile in the database
             /*  attributs possibles - attention a l'orthographe
@@ -83,83 +87,108 @@ public class LoginActivity extends MainActivity
 
                 userDb.add(new User("gano", "gano@yopmail.com", "gano"));
                 profilDb.add(new Profil("Gano", "gano@yopmail.com", "Man", 35, "Brown", "Short", "Brown", "Woman", "Namur", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "gano@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("yves", "yves@yopmail.com", "yves"));
                 profilDb.add(new Profil("Yves", "yves@yopmail.com", "Man", 21, "Blond", "Half-long", "Blue", "Woman", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "yves@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("armand", "armand@yopmail.com", "armand"));
                 profilDb.add(new Profil("Armand", "armand@yopmail.com", "Man", 23, "Blond", "Short", "Green", "Bi", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "armand@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("violette", "violette@yopmail.com", "violette"));
                 profilDb.add(new Profil("Violette", "violette@yopmail.com", "Woman", 36, "Chestnut", "Long", "Blue", "Man", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "violette@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("julie", "julie@yopmail.com", "julie"));
                 profilDb.add(new Profil("Julie", "julie@yopmail.com", "Woman", 27, "Black", "Half-long", "Brown", "Woman", "Namur", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "julie@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
                 profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Woman", 33, "Red", "Long", "Green", "Man", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "fleur@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("etienne", "etienne@yopmail.com", "etienne"));
                 profilDb.add(new Profil("Etienne", "etienne@yopmail.com", "Man", 30, "Brown", "Short", "Brown", "Man", "Louvain", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "etienne@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("benoît", "benoît@yopmail.com", "benoît"));
                 profilDb.add(new Profil("Benoît", "benoît@yopmail.com", "Man", 20, "Blond", "Half-long", "Blue", "Woman", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "benoît@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("georges", "georges@yopmail.com", "georges"));
                 profilDb.add(new Profil("Georges", "georges@yopmail.com", "Man", 25, "Black", "Long", "Green", "Woman", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "georges@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("carole", "carole@yopmail.com", "carole"));
                 profilDb.add(new Profil("Carole", "carole@yopmail.com", "Woman", 30, "Chestnut", "Long", "Blue", "Bi", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "carole@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("angelique", "angelique@yopmail.com", "angelique"));
                 profilDb.add(new Profil("Angelique", "angelique@yopmail.com", "Woman", 40, "Black", "Half-long", "Brown", "Woman", "Louvain", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "angelique@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("pascaline", "pascaline@yopmail.com", "pascaline"));
                 profilDb.add(new Profil("Pascaline", "pascaline@yopmail.com", "Woman", 19, "Red", "Half-long", "Green", "Man", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "pascaline@yopmail.com")); //no filters added yet
 
             } else {
 
                 userDb.add(new User("gano", "gano@yopmail.com", "gano"));
                 profilDb.add(new Profil("Gano", "gano@yopmail.com", "Homme", 35, "Brun", "Court", "Brun", "Femme", "Namur", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "gano@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("yves", "yves@yopmail.com", "yves"));
                 profilDb.add(new Profil("Yves", "yves@yopmail.com", "Homme", 21, "Blond", "Mi-long", "Bleu", "Femme", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "yves@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("armand", "armand@yopmail.com", "armand"));
                 profilDb.add(new Profil("Armand", "armand@yopmail.com", "Homme", 23, "Blond", "Court", "Vert", "Bi", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "armand@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("violette", "violette@yopmail.com", "violette"));
                 profilDb.add(new Profil("Violette", "violette@yopmail.com", "Femme", 36, "Châtain", "Long", "Bleu", "Homme", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "violette@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("julie", "julie@yopmail.com", "julie"));
                 profilDb.add(new Profil("Julie", "julie@yopmail.com", "Femme", 27, "Noir", "Mi-long", "Brun", "Femme", "Namur", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "julie@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
                 profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Femme", 33, "Roux", "Long", "Vert", "Homme", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "fleur@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("etienne", "etienne@yopmail.com", "etienne"));
                 profilDb.add(new Profil("Etienne", "etienne@yopmail.com", "Homme", 30, "Brun", "Court", "Brun", "Homme", "Louvain", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "etienne@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("benoît", "benoît@yopmail.com", "benoît"));
                 profilDb.add(new Profil("Benoît", "benoît@yopmail.com", "Homme", 20, "Blond", "Mi-long", "Bleu", "Femme", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "benoît@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("georges", "georges@yopmail.com", "georges"));
                 profilDb.add(new Profil("Georges", "georges@yopmail.com", "Homme", 25, "Noir", "Long", "Vert", "Femme", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "georges@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("carole", "carole@yopmail.com", "carole"));
                 profilDb.add(new Profil("Carole", "carole@yopmail.com", "Femme", 30, "Châtain", "Long", "Bleu", "Bi", "Wavre", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "carole@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("angelique", "angelique@yopmail.com", "angelique"));
                 profilDb.add(new Profil("Angelique", "angelique@yopmail.com", "Femme", 40, "Noir", "Mi-long", "Brun", "Femme", "Louvain", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "angelique@yopmail.com")); //no filters added yet
 
                 userDb.add(new User("pascaline", "pascaline@yopmail.com", "pascaline"));
                 profilDb.add(new Profil("Pascaline", "pascaline@yopmail.com", "Femme", 19, "Roux", "Mi-long", "Vert", "Homme", "Bruxelles", "NoPhoto"));
+                searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "pascaline@yopmail.com")); //no filters added yet
 
             }
 
             //Close db
             userDb.close();
             profilDb.close();
+            searchProfilDb.close();
 
             // mark first time has runned.
             SharedPreferences.Editor editor = prefs.edit();

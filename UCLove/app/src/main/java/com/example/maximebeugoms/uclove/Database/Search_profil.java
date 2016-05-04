@@ -7,7 +7,7 @@ public class Search_profil {
 
         private int age;
         private String mail_user;
-        private String orientation;
+        //private String orientation;
         private String localisation;
         private String longueur_cheveux;
         private String couleur_cheveux;
@@ -15,12 +15,11 @@ public class Search_profil {
 
 
 
-        public Search_profil(int age, String orientation, String localisation, String longueur_cheveux, String couleur_cheveux, String couleur_yeux, String mail_user) {
+        public Search_profil(int age, String localisation, String longueur_cheveux, String couleur_cheveux, String couleur_yeux, String mail_user) {
             super();
             this.longueur_cheveux = longueur_cheveux;
             this.couleur_cheveux = couleur_cheveux;
             this.age = age;
-            this.orientation = orientation;
             this.localisation = localisation;
             this.couleur_yeux = couleur_yeux;
             this.mail_user = mail_user;
@@ -40,15 +39,6 @@ public class Search_profil {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getOrientation() {
-        return orientation;
-    }
-
-    public void setOrientation(String orientation) {
-
-        this.orientation = orientation;
     }
 
     public void setMail_user(String mail_user) {

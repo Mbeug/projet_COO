@@ -1,6 +1,7 @@
 package com.example.maximebeugoms.uclove;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -50,6 +51,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
+import com.example.maximebeugoms.uclove.Database.Search_profil;
+import com.example.maximebeugoms.uclove.Database.Search_profilDao;
 import com.example.maximebeugoms.uclove.Database.User;
 import com.example.maximebeugoms.uclove.Database.UserDao;
 /*
@@ -134,7 +137,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
 
                 } else {
-                    //If all checks are passed add the information to the database and return to login page (for now) //TODO change page loaded
+                    //If all checks are passed add the information to the database and return to login page
 
                     //Open db
                     UserDao userDb = new UserDao(getApplicationContext());
@@ -154,21 +157,23 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                     else {
 
                         User user = new User(mPseudo, mMail, mMdp);
-
-
                         Profil profil = new Profil(mNom, mMail, mSexe, Integer.parseInt(mDate), mCouleurCheveux, mLongueurCheveux, mCouleurYeux, mOrientation, mLocalisation, mPhotoPath);
-
+                        Search_profil filtreProfil = new Search_profil(0, " ", " ", " ", " ", mMail); //no filters added yet
 
                         //We add user and profile in the database
                         userDb.add(user);
 
                         ProfilDao profilDb = new ProfilDao(getApplicationContext());
                         SQLiteDatabase pDb = profilDb.open();
+                        Search_profilDao searchProfilDb = new Search_profilDao(getApplicationContext());
+                        SQLiteDatabase spDb = searchProfilDb.open();
 
                         profilDb.add(profil);
+                        searchProfilDb.add(filtreProfil);
 
                         //Close db
                         profilDb.close();
+                        searchProfilDb.close();
 
                         toast.makeText(InscriptionActivity.this, R.string.compteCree, toast.LENGTH_SHORT).show();
 
@@ -468,6 +473,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     public static String getPath(final Context context, final Uri uri) {
 
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
@@ -484,7 +490,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
                     return Environment.getExternalStorageDirectory() + "/" + split[1];
                 }
 
-                // TODO handle non-primary volumes
+                //  handle non-primary volumes
             }
             // DownloadsProvider
             else if (isDownloadsDocument(uri)) {

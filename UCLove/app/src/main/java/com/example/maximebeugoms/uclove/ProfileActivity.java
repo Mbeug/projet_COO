@@ -58,30 +58,6 @@ import java.util.List;
  */
 public class ProfileActivity extends MainActivity implements OnItemSelectedListener {
 
-
-
-    /*protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.profil_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        Application application = (Application)Uclove.getContext();
-        Uclove app = (Uclove)application;
-
-        //On get User
-        User currentUser = app.getUser();
-
-        //Open db
-        ProfilDao profilDb = new ProfilDao(getApplicationContext());
-        SQLiteDatabase mDb = profilDb.open();
-        Profil currentProfil = profilDb.selectionner(currentUser.getMail());
-        System.out.println(currentUser.getMail());
-        //TextView nomProfil = (TextView) findViewById(R.id.nomProfil);
-        //System.out.println(currentProfil.getMail());
-       // nomProfil.setText(currentProfil.getNom());
-
-    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
@@ -269,7 +245,7 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
                     mLocalisation = currentProfil.getLocalisation();
                 }
 
-                //If all checks are passed add the information to the database and return to same profile page (for now) //TODO change page loaded
+                //If all checks are passed add the information to the database
 
                 //Open db
                 UserDao userDb = new UserDao(getApplicationContext());

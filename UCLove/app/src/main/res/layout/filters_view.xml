@@ -42,11 +42,11 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginRight="20dp"
         android:id="@+id/longueurCheveuxSpinner"
         android:layout_alignTop="@+id/couleurCheveuxSpinner"
-        android:layout_toEndOf="@+id/textView4"
-        android:layout_toRightOf="@+id/textView4" />
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"

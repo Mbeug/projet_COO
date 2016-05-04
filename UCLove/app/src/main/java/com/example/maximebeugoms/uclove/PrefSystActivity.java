@@ -72,7 +72,7 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
                 getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
                 break;
             default:
-                toast.makeText(PrefSystActivity.this, R.string.langSelected, toast.LENGTH_SHORT).show();
+                //toast.makeText(PrefSystActivity.this, R.string.langSelected, toast.LENGTH_SHORT).show();
         }
     }
 

@@ -76,5 +76,6 @@
     <string name="Yeux" >Eyes: </string>
     <string name="title_activity_filters" >Filters</string>
     <string name="inmessage">Enter a message ...</string>
+    <string name="filtresModifie" >Filters modified</string>
 
 </resources>

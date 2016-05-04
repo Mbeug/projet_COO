@@ -38,9 +38,11 @@
     <string name="inscription">Inscription</string>
     <string name="email">Adresse e-mail</string>
     <string name="datenaissance">Age</string>
+
     <string name="sexe">Sexe</string>
     <string name="homme">Homme</string>
     <string name="femme">Femme</string>
+
     <string name="couleurCheveux">Couleur et longueur de cheveux</string>
     <string name="brun">Brun</string>
     <string name="blond">Blond</string>
@@ -48,13 +50,17 @@
     <string name="roux">Roux</string>
     <string name="chatain">Châtain</string>
     <string name="noir">Noir</string>
+
     <string name="orientation">Orientation</string>
     <string name="couleurYeux">Couleur des yeux</string>
+
     <string name="court">Court</string>
     <string name="milong">Mi-long</string>
     <string name="Long">Long</string>
-    <string name="bleu" >Bleu</string>
+
+    <string name="bleu">Bleu</string>
     <string name="vert" >Vert</string>
+
     <string name="longueurCheveux" >Longueur</string>
     <string name="photo" >Photo</string>
     <string name="email_non_conforme" >Entrez une adresse mail valide</string>
@@ -81,23 +87,7 @@
     <string name="Yeux" >Yeux: </string>
     <string name="title_activity_filters" >Filtres</string>
     <string name="inmessage">Entrez un message ...</string>
+    <string name="filtresModifie">Filtres modifiés</string>
 
-    <string-array name="couleur_cheveux">
-
-        <item>House</item>
-
-        <item>Car</item>
-
-        <item>Cake</item>
-
-        <item>Money</item>
-
-        <item>Food</item>
-
-        <item>Phone</item>
-
-        <item>Laptop</item>
-
-    </string-array>
 
 </resources>

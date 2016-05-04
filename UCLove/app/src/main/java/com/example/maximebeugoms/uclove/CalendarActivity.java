@@ -108,7 +108,7 @@ public class CalendarActivity extends MainActivity {
         // show it
         alertDialog.show();
 
-        Disponibilite d = new Disponibilite(mail_user, dispo[0], date);
+        //Disponibilite d = new Disponibilite(mail_user, dispo[0], date);
         
         //ajouter la disponibilite a la bdd
     }
