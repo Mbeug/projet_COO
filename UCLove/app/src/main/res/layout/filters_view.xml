@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/app_bar_main"/>
+
+
+    <EditText
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/dateNaissance"
+        android:hint="@string/datenaissance"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/couleurCheveux"
+        android:id="@+id/textView15"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/localisation" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/couleurCheveuxSpinner"
+        android:layout_below="@+id/textView15"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+
+        android:layout_toLeftOf="@+id/textView4"
+        android:layout_toStartOf="@+id/textView4" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/longueurCheveuxSpinner"
+        android:layout_alignTop="@+id/couleurCheveuxSpinner"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/couleurYeux"
+        android:id="@+id/couleurYeux"
+        android:layout_below="@+id/couleurCheveuxSpinner"
+        android:layout_alignLeft="@+id/couleurCheveuxSpinner"
+        android:layout_alignStart="@+id/couleurCheveuxSpinner"
+        android:layout_marginTop="30dp"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/couleurYeuxSpinner"
+        android:layout_below="@+id/couleurYeux"
+        android:layout_alignLeft="@+id/couleurYeux"
+        android:layout_alignStart="@+id/couleurYeux"
+        android:layout_alignRight="@+id/couleurCheveuxSpinner"
+        android:layout_alignEnd="@+id/couleurCheveuxSpinner" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:id="@+id/Submit"
+
+
+        android:layout_below="@+id/couleurYeuxSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/localisation"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:hint="@string/localisation"
+        android:layout_below="@+id/dateNaissance"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=" "
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

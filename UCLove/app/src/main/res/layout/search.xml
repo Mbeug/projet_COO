@@ -7,7 +7,7 @@
 
 
     <ListView
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/rechercheProfils"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

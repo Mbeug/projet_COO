@@ -74,5 +74,6 @@
     <string name="cheveuxDec" >Hair: </string>
     <string name="title_activity_main">MainActivity</string>
     <string name="Yeux" >Eyes: </string>
+    <string name="title_activity_filters" >Filters</string>
 
 </resources>

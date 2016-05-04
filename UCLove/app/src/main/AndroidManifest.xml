@@ -31,6 +31,14 @@
 
         </activity>
 
+        <activity
+            android:name=".FiltersActivity"
+            android:label="@string/title_activity_filters"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            >
+
+        </activity>
+
 
 
         <activity

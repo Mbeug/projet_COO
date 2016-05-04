@@ -66,7 +66,7 @@
     <string name="galerie" >Choisir dans la Galerie</string>
     <string name="annuler" >Annuler</string>
     <string name="mauvais_login">Cette combinaison E-mail mot de passe n\'existe pas</string>
-    <string name="connexion">Connection en cours !</string>
+    <string name="connexion">Connexion en cours !</string>
     <string name="deja_utilise">L\'email est déjà utilisé</string>
     <string name="compteCree" >Compte créé</string>
     <string name="localisation" >Ville</string>
@@ -79,5 +79,6 @@
     <string name="id_user">L\'idantifiant utilisateur</string>
     <string name="cheveuxDec" >Cheveux: </string>
     <string name="Yeux" >Yeux: </string>
+    <string name="title_activity_filters" >Filtres</string>
 
 </resources>
