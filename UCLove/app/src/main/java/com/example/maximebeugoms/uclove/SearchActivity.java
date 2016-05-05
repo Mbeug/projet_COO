@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,6 +54,7 @@ public class SearchActivity extends MainActivity{
 
         // Find the ListView resource.
         mainListView = (ListView) findViewById( R.id.rechercheProfils );
+        Log.v("SearchActivity","mainListView null ? " + (mainListView==null));
         list = new ArrayList<HashMap<String,String>>();
 
         //Open profil database and query

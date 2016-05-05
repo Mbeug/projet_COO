@@ -76,12 +76,6 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
         toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
         Locale loc;
         Configuration config = new Configuration();
-        Preference_systDao prefSysDB = new Preference_systDao(getApplicationContext());
-        SQLiteDatabase psDb = prefSysDB.open();
-
-        //update of user's preferences
-        Uclove app = (Uclove) getApplication();
-        Preference_syst preferencesUser = prefSysDB.select(app.getProfil().getMail());
 
         switch (langue) {
 
@@ -90,20 +84,19 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
                 config.locale = loc;
                 Locale.setDefault(loc);
                 getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-                preferencesUser.setLangue("English");
+
                 break;
             case "Français":
                  loc = Locale.FRENCH;
                 config.locale = loc;
                 Locale.setDefault(loc);
                 getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-                preferencesUser.setLangue("Français");
+
                 break;
             default:
                 //toast.makeText(PrefSystActivity.this, R.string.langSelected, toast.LENGTH_SHORT).show();
         }
-        prefSysDB.update(preferencesUser);
-        prefSysDB.close();
+
     }
 
 
