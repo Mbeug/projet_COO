@@ -144,6 +144,7 @@ public class FiltersActivity extends MainActivity implements AdapterView.OnItemS
 
                 Intent intent = new Intent(FiltersActivity.this, SearchActivity.class);
                 startActivity(intent);
+                finish();
 
             }
 

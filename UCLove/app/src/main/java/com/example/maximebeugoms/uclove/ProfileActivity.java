@@ -274,6 +274,7 @@ public class ProfileActivity extends MainActivity implements OnItemSelectedListe
 
                 Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
                 startActivity(intent);
+                finish();
             }
 
 

@@ -249,6 +249,7 @@ public class LoginActivity extends MainActivity
 
                     Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -258,6 +259,7 @@ public class LoginActivity extends MainActivity
             public void onClick(View vue){
                 Intent intent = new Intent(LoginActivity.this,InscriptionActivity.class);
                 startActivity(intent);
+
             }
         });
     }

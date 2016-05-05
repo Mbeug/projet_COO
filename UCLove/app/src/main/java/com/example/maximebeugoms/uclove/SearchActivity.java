@@ -158,6 +158,7 @@ public class SearchActivity extends MainActivity {
 
                 Intent intent = new Intent(SearchActivity.this, ProfileOtherActivity.class);
                 startActivity(intent);
+                //finish();
             }
 
         });

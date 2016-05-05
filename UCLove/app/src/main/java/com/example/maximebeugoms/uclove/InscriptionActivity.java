@@ -179,6 +179,7 @@ public class InscriptionActivity extends MainActivity implements OnItemSelectedL
 
                         Intent intent = new Intent(InscriptionActivity.this, LoginActivity.class);
                         startActivity(intent);
+                        finish();
                     }
 
                     //Close db
