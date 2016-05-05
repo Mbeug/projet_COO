@@ -3,6 +3,7 @@ package com.example.maximebeugoms.uclove.Database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 /**
  * Created by damien on 29/04/16.
@@ -56,7 +57,7 @@ public class UserDao extends DAOBase {
         }
 
         /**
-         * @param Email l'identifiant du métier à récupérer
+         * @param Email l'identifiant de l'utilisateur à récupérer
          */
         public User selectionner(String Email) {
             Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});

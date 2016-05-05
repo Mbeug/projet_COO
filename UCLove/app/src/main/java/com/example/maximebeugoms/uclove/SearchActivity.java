@@ -54,9 +54,9 @@ public class SearchActivity extends MainActivity {
         final User currentUser = app.getUser();
 
         //Open databases and get filters
-        Search_profilDao Search_profilDb = new Search_profilDao(getApplicationContext());
-        SQLiteDatabase spDb = Search_profilDb.open();
-        Search_profil currentUserFilters = Search_profilDb.selectionner(currentUser.getMail());
+        Search_profilDao search_profilDb = new Search_profilDao(getApplicationContext());
+        SQLiteDatabase spDb = search_profilDb.open();
+        Search_profil currentUserFilters = search_profilDb.selectionner(currentUser.getMail());
         ProfilDao profilDb = new ProfilDao(getApplicationContext());
         SQLiteDatabase pDb = profilDb.open();
         Profil currentProfil = profilDb.selectionner(currentUser.getMail());
@@ -131,7 +131,7 @@ public class SearchActivity extends MainActivity {
         mainListView.setAdapter(adapter);
 
         profilDb.close();
-        Search_profilDb.close();
+        search_profilDb.close();
 
         mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -27,7 +27,7 @@ import java.util.Locale;
  */
 public class PrefSystActivity extends MainActivity implements OnItemSelectedListener {
 
-    String langue = "Français";
+    //String langue = "Français";
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
         // attaching data adapter to spinner
         langues.setAdapter(languesDataAdapter);
 
-        langue = langues.getSelectedItem().toString();
+        //langue = langues.getSelectedItem().toString();
 
 
         // Spinner privacy level
@@ -99,32 +99,64 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
 
     }
 
+    public String privacyLevel(String item) {
+        if (item.equals(getString(R.string.spinner_lvl_secret_low))) {
+            return Preference_syst.LOW;
+        }
+        else if (item.equals(getString(R.string.spinner_lvl_secret_high))) {
+            return Preference_syst.HIGH;
+        }
+        return Preference_syst.MEDIUM;
+    }
+
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
+        // open the db
+        Uclove app = (Uclove) getApplication();
+        String mailUser = app.getUser().getMail();
+        Preference_systDao preferencesDb = new Preference_systDao(getApplicationContext());
+        SQLiteDatabase psDb = preferencesDb.open();
+
+        Preference_syst currentUserPrefs = preferencesDb.select(mailUser);
+
         switch (parent.getId()) {
             case R.id.spinnerLang :
+                // Showing selected spinner item
+                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
                 // On selecting a spinner item
+                switchLocaleLanguage(item);
 
-                switchLocaleLanguage(langue);
+                if (currentUserPrefs!=null) {
+                    currentUserPrefs.setLangue(item);
+                    preferencesDb.update(currentUserPrefs);
+                } else {
+                    currentUserPrefs = new Preference_syst(item, "",mailUser);
+                }
                 break;
             case R.id.spinnerPriv :
-                // updating the db with selected item
+
+                // update the db according to the new privacy level
+                // Showing selected spinner item
+                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+                if (currentUserPrefs !=null) {
+                    currentUserPrefs.setNiveau_confidentialite(privacyLevel(item));
+                    preferencesDb.update(currentUserPrefs);
+                }
+                else {
+                    currentUserPrefs = new Preference_syst("",privacyLevel(item),mailUser);
+                    preferencesDb.add(currentUserPrefs);
+                }
 
                 break;
+
             }
 
+        preferencesDb.close();
 
 
 
 
-        /*Intent intent = new Intent(PrefSystActivity.this, PrefSystActivity.class);
-        startActivity(intent);
-        finish();*/
-/*
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-        */
     }
 
     @Override

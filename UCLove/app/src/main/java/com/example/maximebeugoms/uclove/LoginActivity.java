@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.maximebeugoms.uclove.Database.DAOBase;
 import com.example.maximebeugoms.uclove.Database.DatabaseHandler;
+import com.example.maximebeugoms.uclove.Database.Preference_syst;
 import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
@@ -93,6 +94,7 @@ public class LoginActivity extends MainActivity
                 userDb.add(new User("gano", "gano@yopmail.com", "gano"));
                 profilDb.add(new Profil("Gano", "gano@yopmail.com", "Man", 35, "Brown", "Short", "Brown", "Woman", "Namur", "NoPhoto"));
                 searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "gano@yopmail.com")); //no filters added yet
+                preferencesDb.add(new Preference_syst("English",Preference_syst.HIGH,"gano@yopmail.com"));
 
                 userDb.add(new User("yves", "yves@yopmail.com", "yves"));
                 profilDb.add(new Profil("Yves", "yves@yopmail.com", "Man", 21, "Blond", "Half-long", "Blue", "Woman", "Wavre", "NoPhoto"));
@@ -105,10 +107,12 @@ public class LoginActivity extends MainActivity
                 userDb.add(new User("violette", "violette@yopmail.com", "violette"));
                 profilDb.add(new Profil("Violette", "violette@yopmail.com", "Woman", 36, "Chestnut", "Long", "Blue", "Man", "Wavre", "NoPhoto"));
                 searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "violette@yopmail.com")); //no filters added yet
+                preferencesDb.add(new Preference_syst("English",Preference_syst.MEDIUM,"violette@yopmail"));
 
                 userDb.add(new User("julie", "julie@yopmail.com", "julie"));
                 profilDb.add(new Profil("Julie", "julie@yopmail.com", "Woman", 27, "Black", "Half-long", "Brown", "Woman", "Namur", "NoPhoto"));
                 searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "julie@yopmail.com")); //no filters added yet
+                preferencesDb.add(new Preference_syst("English",Preference_syst.HIGH,"julie@yopmail.com"));
 
                 userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
                 profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Woman", 33, "Red", "Long", "Green", "Man", "Bruxelles", "NoPhoto"));
@@ -155,10 +159,12 @@ public class LoginActivity extends MainActivity
                 userDb.add(new User("violette", "violette@yopmail.com", "violette"));
                 profilDb.add(new Profil("Violette", "violette@yopmail.com", "Femme", 36, "Châtain", "Long", "Bleu", "Homme", "Wavre", "NoPhoto"));
                 searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "violette@yopmail.com")); //no filters added yet
+                preferencesDb.add(new Preference_syst("English",Preference_syst.HIGH,"violette@yopmail"));
 
                 userDb.add(new User("julie", "julie@yopmail.com", "julie"));
                 profilDb.add(new Profil("Julie", "julie@yopmail.com", "Femme", 27, "Noir", "Mi-long", "Brun", "Femme", "Namur", "NoPhoto"));
                 searchProfilDb.add(new Search_profil(0, " ", " ", " ", " ", "julie@yopmail.com")); //no filters added yet
+                preferencesDb.add(new Preference_syst("English",Preference_syst.MEDIUM,"julie@yopmail.com"));
 
                 userDb.add(new User("fleur", "fleur@yopmail.com", "fleur"));
                 profilDb.add(new Profil("Fleur", "fleur@yopmail.com", "Femme", 33, "Roux", "Long", "Vert", "Homme", "Bruxelles", "NoPhoto"));

@@ -3,6 +3,7 @@ package com.example.maximebeugoms.uclove.Database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 /**
  * Created by damien on 29/04/16.
@@ -35,6 +36,7 @@ public class Search_profilDao extends DAOBase{
         values.put(LOCALISATION, sp.getLocalisation());
         values.put(COULEUR_YEUX, sp.getCouleur_yeux());
         mDb.insert(TABLE_NAME,null,values);
+        Log.v("Search_profilDAO, add", "table Search remplie !");
     }
 
     public void delete(long id){
@@ -55,6 +57,7 @@ public class Search_profilDao extends DAOBase{
 
    public Search_profil selectionner(String Email){
 		Cursor c = mDb.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
+
             if(c.moveToNext()){
                 int age = c.getInt(0);
                 String couleur_cheveux = c.getString(1);
@@ -66,6 +69,7 @@ public class Search_profilDao extends DAOBase{
                 return new Search_profil(age,localisation,longueur_cheveux, couleur_cheveux, couleur_yeux, mail);
             }
             else{
+                Log.e("Search_profilDAO", "valeur vide dans la table ? :" + c.isAfterLast());
                 c.close();
                 return null;
             }
