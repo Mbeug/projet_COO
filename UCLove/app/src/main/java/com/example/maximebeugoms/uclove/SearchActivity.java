@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
+import com.example.maximebeugoms.uclove.Database.Search_profil;
+import com.example.maximebeugoms.uclove.Database.Search_profilDao;
 import com.example.maximebeugoms.uclove.Database.User;
 
 import java.util.ArrayList;
@@ -32,9 +34,9 @@ import java.util.HashMap;
 /**
  * Created by damien on 22/04/16.
  */
-public class SearchActivity extends MainActivity{
+public class SearchActivity extends MainActivity {
 
-    private ListView mainListView ;
+    private ListView mainListView;
     //private ArrayAdapter<String> listAdapter ;
     private ArrayList<HashMap<String, String>> list;
 
@@ -51,22 +53,61 @@ public class SearchActivity extends MainActivity{
         //On get User
         final User currentUser = app.getUser();
 
-
-        // Find the ListView resource.
-        mainListView = (ListView) findViewById( R.id.rechercheProfils );
-        Log.v("SearchActivity","mainListView null ? " + (mainListView==null));
-        list = new ArrayList<HashMap<String,String>>();
-
-        //Open profil database and query
+        //Open databases and get filters
+        Search_profilDao Search_profilDb = new Search_profilDao(getApplicationContext());
+        SQLiteDatabase spDb = Search_profilDb.open();
+        Search_profil currentUserFilters = Search_profilDb.selectionner(currentUser.getMail());
         ProfilDao profilDb = new ProfilDao(getApplicationContext());
         SQLiteDatabase pDb = profilDb.open();
-        /*Cursor cursor = pDb.rawQuery("select * from Profil "
-                + "where mail != " + currentUser.getMail(), null);*/
-        Cursor cursor = pDb.rawQuery("SELECT " + "*" + " FROM " + "Profil" + " WHERE mail != ?", new String[] {currentUser.getMail()});
+        Profil currentProfil = profilDb.selectionner(currentUser.getMail());
+
+        //get current users filters
+        String orientation = currentProfil.getOrientation();
+        String location = currentUserFilters.getLocalisation();
+        String couleur_cheveux = currentUserFilters.getCouleur_cheveux();
+        String longueur_cheveux = currentUserFilters.getLongueur_cheveux();
+        String couleur_yeux = currentUserFilters.getCouleur_yeux();
+        int age = currentUserFilters.getAge();
+        int maxAge = 0;
+        int minAge = 0;
+        if (age != 0) {
+            maxAge = age + 2;
+            minAge = age - 2;
+        }
+
+        String queryOrientation = "";
+        String queryLocation = "";
+        String queryCouleur_cheveux = "";
+        String queryLongueur_cheveux = "";
+        String queryCouleur_yeux = "";
+        String queryAge = "";
+
+        if(!orientation.equals("Bi")) queryOrientation = " AND sexe = '" + orientation + "' ";
+        if(!location.equals(" ")) queryLocation = " AND localisation = '" + location + "' ";
+        if(!couleur_cheveux.equals(" ")) queryCouleur_cheveux = " AND couleur_cheveux = '" + couleur_cheveux + "' ";
+        if(!longueur_cheveux.equals(" ")) queryLongueur_cheveux = " AND longueur_cheveux = '" + longueur_cheveux + "' ";
+        if(!couleur_yeux.equals(" ")) queryCouleur_yeux = " AND couleur_yeux = '" + couleur_yeux + "' ";
+        if(age != 0) queryAge = " AND age >= " + minAge + " AND age <= " + maxAge;
+
+        // Find the ListView resource.
+        mainListView = (ListView) findViewById(R.id.rechercheProfils);
+        Log.v("SearchActivity", "mainListView null ? " + (mainListView == null));
+        list = new ArrayList<HashMap<String, String>>();
+
+        Cursor cursor = null;
+
+        cursor = pDb.rawQuery("SELECT * FROM Profil WHERE mail != ? "
+                + queryOrientation
+                + queryLocation
+                + queryCouleur_cheveux
+                + queryLongueur_cheveux
+                + queryCouleur_yeux
+                + queryAge
+                , new String[]{currentUser.getMail()});
 
         //ArrayList<String> profilList = new ArrayList<String>();
         //listAdapter = new ArrayAdapter<String>(this, R.layout.column_row, profilList);
-        if (cursor .moveToFirst()) {
+        if (cursor.moveToFirst()) {
 
             while (cursor.isAfterLast() == false) {
                 String mail = cursor.getString(cursor
@@ -74,7 +115,7 @@ public class SearchActivity extends MainActivity{
 
                 Profil cursorProfil = profilDb.selectionner(mail);
 
-                HashMap<String,String> temp=new HashMap<String, String>();
+                HashMap<String, String> temp = new HashMap<String, String>();
                 temp.put(FIRST_COLUMN, cursorProfil.getPhoto_path());
                 temp.put(SECOND_COLUMN, cursorProfil.getNom());
                 temp.put(THIRD_COLUMN, Integer.toString(cursorProfil.getAge()));
@@ -90,16 +131,16 @@ public class SearchActivity extends MainActivity{
         mainListView.setAdapter(adapter);
 
         profilDb.close();
+        Search_profilDb.close();
+        ;
 
-        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id)
-            {
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 //int pos=position+1;
                 //Toast.makeText(SearchActivity.this, Integer.toString(pos)+" Clicked", Toast.LENGTH_SHORT).show();
 
-                HashMap<String,String> profilList = (HashMap<String,String>) adapter.getItem(position);
+                HashMap<String, String> profilList = (HashMap<String, String>) adapter.getItem(position);
                 String mail = profilList.get(FIFTH_COLUMN);
                 System.out.println(mail);
 
@@ -110,8 +151,8 @@ public class SearchActivity extends MainActivity{
                 profilDb.close();
 
                 //On récupère l'application
-                Application application = (Application)Uclove.getContext();
-                Uclove app = (Uclove)application;
+                Application application = (Application) Uclove.getContext();
+                Uclove app = (Uclove) application;
 
                 //On set Profil
                 app.setProfil(profilDecouverte);
@@ -125,7 +166,6 @@ public class SearchActivity extends MainActivity{
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
@@ -135,4 +175,5 @@ public class SearchActivity extends MainActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
 }
