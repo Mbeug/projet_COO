@@ -1,16 +1,17 @@
 package com.example.maximebeugoms.uclove;
 
-import android.app.Activity;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.support.v4.app.*;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,31 +22,32 @@ import com.example.maximebeugoms.uclove.Database.Profil;
 import java.io.IOException;
 
 /**
- * Created by damien on 22/04/16.
+ * Created by Menal_000 on 05-05-16.
  */
+public class ProfilOtherLowFragment extends Fragment {
+    public ProfilOtherLowFragment(){}
 
-public class ProfileOtherActivity extends MainActivity {
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
-        setContentView(R.layout.profil_other_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.pocontainer, new ProfilOtherLowFragment())
-                    .commit();
-        }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // layout pour ce fragment
+        View rootview = inflater.inflate(R.layout.profil_other_low_view, container,false);
 
-        /* //On récupère l'application
+        //On récupère l'application
         Application application = (Application)Uclove.getContext();
         Uclove app = (Uclove)application;
 
         //On get Profil selectionné
         Profil profilDecouverte = app.getProfil();
 
-       //open la db pour avoir les preferences du user selectionne
-        Preference_systDao prefsDB = new Preference_systDao(getApplicationContext());
+        //open la db pour avoir les preferences du user selectionne
+        Preference_systDao prefsDB = new Preference_systDao(getContext());
         SQLiteDatabase pDb = prefsDB.open();
         Preference_syst prefSyst = prefsDB.select(profilDecouverte.getMail());
         prefsDB.close();
@@ -55,47 +57,36 @@ public class ProfileOtherActivity extends MainActivity {
 
         // determiner la vue a charger selon le niveau de confidentialite (a faire)
 
-        ImageView imageDecouverte = (ImageView) findViewById(R.id.imageProfilDec);
+        ImageView imageDecouverte = (ImageView) rootview.findViewById(R.id.imageProfilDec);
         imageDecouverte.setImageBitmap(setImage(profilDecouverte.getPhoto_path()));
 
-        TextView nomDecouverte = (TextView) findViewById(R.id.nomDecouverte);
+        TextView nomDecouverte = (TextView) rootview.findViewById(R.id.nomDecouverte);
         nomDecouverte.setText(profilDecouverte.getNom());
 
-        TextView sexeDecouverte = (TextView) findViewById(R.id.sexeDecouverte);
+        TextView sexeDecouverte = (TextView) rootview.findViewById(R.id.sexeDecouverte);
         sexeDecouverte.setText(profilDecouverte.getSexe());
 
-        TextView ageDecouverte = (TextView) findViewById(R.id.ageDec);
+        TextView ageDecouverte = (TextView) rootview.findViewById(R.id.ageDec);
         ageDecouverte.setText(Integer.toString(profilDecouverte.getAge()));
         System.out.println(Integer.toString(profilDecouverte.getAge()));
 
-        TextView longueurCDecouverte = (TextView) findViewById(R.id.longueur);
+        TextView longueurCDecouverte = (TextView) rootview.findViewById(R.id.longueur);
         longueurCDecouverte.setText(profilDecouverte.getLongueur_cheveux());
 
-        TextView couleurCDecouverte = (TextView) findViewById(R.id.couleur);
+        TextView couleurCDecouverte = (TextView) rootview.findViewById(R.id.couleur);
         couleurCDecouverte.setText(profilDecouverte.getCouleur_cheveux());
 
-        TextView couleurYCDecouverte = (TextView) findViewById(R.id.coulYeuxDecouverte);
+        TextView couleurYCDecouverte = (TextView) rootview.findViewById(R.id.coulYeuxDecouverte);
         couleurYCDecouverte.setText(profilDecouverte.getCouleur_yeux());
 
-        TextView orientationDecouverte = (TextView) findViewById(R.id.orientDec);
+        TextView orientationDecouverte = (TextView) rootview.findViewById(R.id.orientDec);
         orientationDecouverte.setText(profilDecouverte.getOrientation());
 
-        TextView localDecouverte = (TextView) findViewById(R.id.localisation);
+        TextView localDecouverte = (TextView) rootview.findViewById(R.id.localisation);
         localDecouverte.setText(profilDecouverte.getLocalisation());
 
         // TODO ajouter fonctionalité boutons*/
-    }
-
-
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        return rootview;
     }
 
     private Bitmap setImage(String mPhotoPath) {
@@ -149,5 +140,5 @@ public class ProfileOtherActivity extends MainActivity {
         retVal = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
 
         return retVal;
-    }*/
+    }
 }
