@@ -35,15 +35,18 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             intent = new Intent(this,PrefSystActivity.class);
             startActivity(intent);
+            finish();
             return true;
         }
          else if (id == R.id.action_search) {
             intent = new Intent(this,SearchActivity.class);
             startActivity(intent);
+            finish();
             return true;
         } else if (id == R.id.action_calendar) {
             intent = new Intent(this,CalendarActivity.class);
             startActivity(intent);
+            finish();
             return true;
         } else if (id == R.id.action_filter) {
             intent = new Intent(this,FiltersActivity.class);
@@ -52,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_friends) {
             intent = new Intent(this,FriendListActivity.class);
             startActivity(intent);
+            finish();
             return true;
         } else if (id == R.id.action_profile) {
             intent = new Intent(this,ProfileActivity.class);
             startActivity(intent);
+            finish();
             return true;
         } else if (id == R.id.action_meet) {
             //intent = new Intent(this,A_COMPLETER.class);
