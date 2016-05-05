@@ -2,6 +2,7 @@ package com.example.maximebeugoms.uclove;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Toast;
+
+import com.example.maximebeugoms.uclove.Database.Preference_syst;
+import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +36,7 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Spinner
+        //Spinner languages
         final Spinner langues = (Spinner) findViewById(R.id.spinnerLang);
 
         langues.setOnItemSelectedListener(this);
@@ -49,6 +53,21 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
 
         langue = langues.getSelectedItem().toString();
 
+
+        // Spinner privacy level
+        final Spinner privLevels = (Spinner) findViewById(R.id.spinnerPriv);
+        privLevels.setOnItemSelectedListener(this);
+        List<String> pLevelCategories = new ArrayList<String>();
+        pLevelCategories.add(getString(R.string.spinner_lvl_secret_low));
+        pLevelCategories.add(getString(R.string.spinner_lvl_secret_medium));
+        pLevelCategories.add(getString(R.string.spinner_lvl_secret_high));
+
+        // adapter
+        ArrayAdapter<String> pLAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,pLevelCategories);
+        pLAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        privLevels.setAdapter(pLAdapter);
+
+
     }
 
 
@@ -57,6 +76,13 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
         toast.setGravity(Gravity.TOP| Gravity.START, 0, 0);
         Locale loc;
         Configuration config = new Configuration();
+        Preference_systDao prefSysDB = new Preference_systDao(getApplicationContext());
+        SQLiteDatabase psDb = prefSysDB.open();
+
+        //update of user's preferences
+        Uclove app = (Uclove) getApplication();
+        Preference_syst preferencesUser = prefSysDB.select(app.getProfil().getMail());
+
         switch (langue) {
 
             case "English":
@@ -64,24 +90,40 @@ public class PrefSystActivity extends MainActivity implements OnItemSelectedList
                 config.locale = loc;
                 Locale.setDefault(loc);
                 getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+                preferencesUser.setLangue("English");
                 break;
             case "Français":
                  loc = Locale.FRENCH;
                 config.locale = loc;
                 Locale.setDefault(loc);
                 getBaseContext().getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+                preferencesUser.setLangue("Français");
                 break;
             default:
                 //toast.makeText(PrefSystActivity.this, R.string.langSelected, toast.LENGTH_SHORT).show();
         }
+        prefSysDB.update(preferencesUser);
+        prefSysDB.close();
     }
 
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();
+        switch (parent.getId()) {
+            case R.id.spinnerLang :
+                // On selecting a spinner item
 
-        switchLocaleLanguage(langue);
+                switchLocaleLanguage(langue);
+                break;
+            case R.id.spinnerPriv :
+                // updating the db with selected item
+
+                break;
+            }
+
+
+
+
 
         /*Intent intent = new Intent(PrefSystActivity.this, PrefSystActivity.class);
         startActivity(intent);

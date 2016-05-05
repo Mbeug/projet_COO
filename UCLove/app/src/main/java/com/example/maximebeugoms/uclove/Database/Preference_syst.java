@@ -17,12 +17,16 @@ import java.util.Locale;
 /**
  * Created by damien on 29/04/16.
  */
-public class Preference_syst extends MainActivity {
+public class Preference_syst  {
 
     private String langue;
-    private String niveau_confidentialite;
+    private String niveau_confidentialite;  // either LOW, MEDIUM or HIGH
     private String mail_user;
 
+    // privacy levels
+    public static final String LOW = "l";
+    public static final String MEDIUM = "m";
+    public static final String HIGH = "h";
     public Preference_syst(String langue, String niveau_confidentialite, String mail_user)
     {
         super();

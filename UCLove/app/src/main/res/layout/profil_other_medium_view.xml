@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/app_bar_main"
+         />
+
+    <ImageView
+        android:layout_width="174dp"
+        android:layout_height="310dp"
+        android:layout_marginLeft="15dp"
+        android:scaleType = "fitXY"
+        android:id="@+id/imageProfilDec"
+        android:src="@drawable/anonyme_perso"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/textView3"
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_toStartOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="nomDecouverte"
+        android:id="@+id/nomDecouverte"
+        android:layout_alignTop="@+id/imageProfilDec"
+        android:layout_toRightOf="@+id/imageProfilDec"
+        android:layout_toEndOf="@+id/imageProfilDec" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Sexe"
+        android:id="@+id/sexeDecouverte"
+        android:layout_below="@+id/nomDecouverte"
+        android:layout_alignLeft="@+id/nomDecouverte"
+        android:layout_alignStart="@+id/nomDecouverte"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Age"
+        android:id="@+id/ageDec"
+        android:layout_below="@+id/nomDecouverte"
+        android:layout_toRightOf="@+id/sexeDecouverte"
+        android:layout_toEndOf="@+id/sexeDecouverte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/cheveuxDec"
+        android:id="@+id/cheveuxDec"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/sexeDecouverte"
+        android:layout_alignLeft="@+id/sexeDecouverte"
+        android:layout_alignStart="@+id/sexeDecouverte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="couleur"
+        android:id="@+id/couleur"
+        android:layout_below="@+id/cheveuxDec"
+        android:layout_alignLeft="@+id/cheveuxDec"
+        android:layout_alignStart="@+id/cheveuxDec" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="longueur"
+        android:id="@+id/longueur"
+        android:layout_below="@+id/cheveuxDec"
+        android:layout_toRightOf="@+id/couleur"
+        android:layout_toEndOf="@+id/couleur" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Yeux"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/couleur"
+        android:layout_alignLeft="@+id/couleur"
+        android:layout_alignStart="@+id/couleur"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="couleurY"
+        android:id="@+id/coulYeuxDecouverte"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignRight="@+id/longueur"
+        android:layout_alignEnd="@+id/longueur" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Orientation: "
+        android:id="@+id/orientation"
+        android:layout_below="@+id/coulYeuxDecouverte"
+        android:layout_alignLeft="@+id/coulYeuxDecouverte"
+        android:layout_alignStart="@+id/coulYeuxDecouverte"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="orientDec"
+        android:id="@+id/orientDec"
+        android:layout_below="@+id/orientation"
+        android:layout_alignLeft="@+id/orientation"
+        android:layout_alignStart="@+id/orientation" />
+
+    <ImageButton
+        android:foregroundGravity="left"
+        android:scaleType="centerInside"
+        android:background="@color/btn_disco"
+        android:src="@drawable/like_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageButtonLike"
+        android:layout_below="@+id/imageProfilDec"
+        android:layout_alignRight="@+id/imageProfilDec"
+        android:layout_alignEnd="@+id/imageProfilDec"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="55dp"/>
+
+    <ImageButton
+        android:scaleType="centerInside"
+        android:foregroundGravity="right"
+        android:src="@drawable/dislike_button"
+        android:background="@color/btn_disco"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageButtonDislike"
+        android:layout_alignTop="@+id/imageButtonLike"
+        android:layout_toRightOf="@+id/imageProfilDec"
+        android:layout_toEndOf="@+id/imageProfilDec"
+        android:layout_marginLeft="55dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=" "
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

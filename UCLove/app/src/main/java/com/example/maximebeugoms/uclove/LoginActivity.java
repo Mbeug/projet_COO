@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.maximebeugoms.uclove.Database.DAOBase;
 import com.example.maximebeugoms.uclove.Database.DatabaseHandler;
+import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
 import com.example.maximebeugoms.uclove.Database.Search_profil;
@@ -59,6 +60,8 @@ public class LoginActivity extends MainActivity
             SQLiteDatabase pDb = profilDb.open();
             Search_profilDao searchProfilDb = new Search_profilDao(getApplicationContext());
             SQLiteDatabase spDb = searchProfilDb.open();
+            Preference_systDao preferencesDb = new Preference_systDao(getApplicationContext());
+            SQLiteDatabase psDb = preferencesDb.open();
 
             //We create matching user and profile in the database
             /*  attributs possibles - attention a l'orthographe
@@ -80,6 +83,8 @@ public class LoginActivity extends MainActivity
             userDb.add(new User("pseudo", "mail", "mot de passe"));
             profilDb.add(new Profil("Nom", "mail", "sexe", age, "couleur cheveux", "longueur cheveux", "couleur yeux", "orientation", "Localisation", "NoPhoto"));
             */
+
+
 
             System.out.println("Language: " + Locale.getDefault().getLanguage());
 
@@ -189,6 +194,7 @@ public class LoginActivity extends MainActivity
             userDb.close();
             profilDb.close();
             searchProfilDb.close();
+            preferencesDb.close();
 
             // mark first time has runned.
             SharedPreferences.Editor editor = prefs.edit();

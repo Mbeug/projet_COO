@@ -38,19 +38,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <NumberPicker
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
-
-        android:measureWithLargestChild="false"
-        android:orientation="horizontal"
-        android:paddingTop="50dp"
-        android:paddingBottom="50dp"
-        android:layout_marginLeft="12dp"
-        android:layout_below="@+id/spinnerLang"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/spinnerPriv"
+        android:layout_below="@+id/textView6"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,10 +52,10 @@
         android:text="@string/id_user"
         android:textSize="30sp"
         android:id="@+id/textView13"
-        android:layout_marginLeft="12dp"
-        android:layout_below="@+id/numberPicker"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="103dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignLeft="@+id/textView18"
+        android:layout_alignStart="@+id/textView18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,6 +67,8 @@
         android:layout_below="@+id/textView13"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+
 
 
 </RelativeLayout>

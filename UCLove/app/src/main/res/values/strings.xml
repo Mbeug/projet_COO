@@ -89,5 +89,7 @@
     <string name="inmessage">Entrez un message ...</string>
     <string name="filtresModifie">Filtres modifiés</string>
 
-
+    <string name="spinner_lvl_secret_low">Bas</string>
+    <string name="spinner_lvl_secret_medium">Moyen</string>
+    <string name="spinner_lvl_secret_high">Élevé</string>
 </resources>
