@@ -132,7 +132,6 @@ public class SearchActivity extends MainActivity {
 
         profilDb.close();
         Search_profilDb.close();
-        ;
 
         mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
