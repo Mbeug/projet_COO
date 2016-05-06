@@ -29,6 +29,7 @@ public class EvenementDao extends DAOBase {
         values.put(KEY, e.getMail_user());
         values.put(DATE, e.getDate());
         values.put(TYPE, e.getType());
+        mDb.insert(TABLE_NAME,null,values);
     }
 
     public void delete(long id){

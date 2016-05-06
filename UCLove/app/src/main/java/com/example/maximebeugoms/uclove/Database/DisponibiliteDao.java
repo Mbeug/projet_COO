@@ -27,6 +27,7 @@ public class DisponibiliteDao extends DAOBase {
         values.put(KEY, d.getMail_user());
         values.put(DATE, d.getDate());
         values.put(DISPO, d.getDispo());
+        mDb.insert(TABLE_NAME,null,values);
     }
 
     public void delete(long id) {

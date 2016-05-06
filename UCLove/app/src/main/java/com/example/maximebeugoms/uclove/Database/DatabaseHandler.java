@@ -150,7 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
     public static final String DISPONIBILITE_TABLE_CREATE =
             "CREATE TABLE " + DISPONIBILITE_TABLE_NAME + "(" +
-                    DISPONIBILITE_DATE + " TEXT," +
+                    DISPONIBILITE_DATE + " TEXT PRIMARY KEY," +
                     DISPONIBILITE_DISPO +" STRING," +
                     UTILISATEUR_MAIL + " STRING," +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
