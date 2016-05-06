@@ -81,4 +81,7 @@
     <string name="spinner_lvl_secret_low">Low</string>
     <string name="spinner_lvl_secret_medium">Medium</string>
     <string name="spinner_lvl_secret_high">High</string>
+
+    <string name="addfriends_error">That person is already your friend !</string>
+    <string name="withdrfriends_error">You have already disliked that person !</string>
 </resources>

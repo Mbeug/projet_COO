@@ -17,7 +17,7 @@ public class RelationDao extends DAOBase{
     public static final String ID_RELATION = "id_relation";
     public static final String ETAT_ACCEPTATION = "etat_acceptation";
     public static final String SENDER = "expediteur";
-    public static final String RECEIVER = "destinataire";
+    public static final String RECEIVER = "destinateur";
 
 
     public RelationDao(Context pContext) {
@@ -78,5 +78,25 @@ public class RelationDao extends DAOBase{
         c.close();
         d.close();
         return relationArrayList;
+    }
+
+    public Relation select(String expediteur, String destinataire){
+        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE " + SENDER + " = ? AND " + RECEIVER + " = ?", new String[] {expediteur,destinataire});
+
+
+        Relation rel = null;
+        //We get every relation where the user is the sender
+        if (c.moveToNext()){
+            int etat_relation = c.getInt(0);
+            String receiver = c.getString(1);
+            String sender = c.getString(2);
+            int id = c.getInt(3);
+            rel = new Relation(sender,etat_relation,receiver, id);
+
+        }
+
+
+        c.close();
+        return rel;
     }
 }

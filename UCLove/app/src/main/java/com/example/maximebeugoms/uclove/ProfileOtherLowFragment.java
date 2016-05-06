@@ -74,7 +74,9 @@ public class ProfileOtherLowFragment extends FragmentProfileBase {
         TextView localDecouverte = (TextView) rootview.findViewById(R.id.localisation);
         localDecouverte.setText(profilDecouverte.getLocalisation());
 
-        // TODO ajouter fonctionalité boutons*/
+        // les boutons
+        likeButton(rootview);
+        dislikeButton(rootview);
         return rootview;
     }
 

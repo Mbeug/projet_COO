@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,7 +61,12 @@ public class ProfileOtherHighFragment extends FragmentProfileBase {
         orientationDecouverte.setText(profilDecouverte.getOrientation());
 
 
-        // TODO ajouter fonctionalité boutons*/
+        // les boutons
+        likeButton(rootview);
+        dislikeButton(rootview);
+
+
+
         return rootview;
     }
 }

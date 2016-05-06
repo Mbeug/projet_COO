@@ -92,4 +92,7 @@
     <string name="spinner_lvl_secret_low">Bas</string>
     <string name="spinner_lvl_secret_medium">Moyen</string>
     <string name="spinner_lvl_secret_high">Élevé</string>
+
+    <string name="addfriends_error">Cette personne est déjà votre amie !</string>
+    <string name="withdrfriends_error">Vous avez déjà dislike cette personne !</string>
 </resources>
