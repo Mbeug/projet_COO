@@ -9,6 +9,7 @@ import android.media.ExifInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -81,85 +82,5 @@ public class FragmentProfileBase extends Fragment {
         return retVal;
     }
 
-    protected void likeButton(View rootview){
-        ImageButton likeButton = (ImageButton) rootview.findViewById(R.id.imageButtonLike);
-        likeButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View vue){
-                Application application = (Application)Uclove.getContext();
-                Uclove app = (Uclove)application;
 
-                // verifier la relation dans la db
-                String user = app.getUser().getMail();
-                String other = app.getProfil().getMail();
-
-                RelationDao relationDb = new RelationDao(getContext());
-                SQLiteDatabase rDb = relationDb.open();
-
-                Relation rel = relationDb.select(other, user);
-
-                // cas 1 : l'autre n'a pas encore like/dislike l'utilisateur
-                if (rel==null) {
-                    Relation nRel = new Relation(user,1,other);
-                    relationDb.add(nRel);
-                }
-
-                // cas 2 : l'utilisateur et l'autre sont deja amis
-                else if (rel.getEtat_acceptation()==2 || relationDb.select(user,other).getEtat_acceptation()==2) {
-                    Toast.makeText(getContext(),getString(R.string.addfriends_error),Toast.LENGTH_SHORT)
-                            .show();
-                }
-
-                // cas general
-                else {
-
-                    rel.setEtat_acceptation(rel.getEtat_acceptation()+1);
-                    relationDb.update(rel);
-                }
-                relationDb.close();
-
-            }
-        });
-    }
-
-    protected void dislikeButton(View rootview){
-        ImageButton dislikeButton = (ImageButton) rootview.findViewById(R.id.imageButtonDislike);
-        dislikeButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View vue){
-                Application application = (Application)Uclove.getContext();
-                Uclove app = (Uclove)application;
-
-                // verifier la relation dans la db
-                String user = app.getUser().getMail();
-                String other = app.getProfil().getMail();
-
-                RelationDao relationDb = new RelationDao(getContext());
-                SQLiteDatabase rDb = relationDb.open();
-
-                Relation rel = relationDb.select(other, user);
-
-                // cas 1 : l'autre n'a pas encore like/dislike l'utilisateur
-                if (rel==null) {
-                    Relation nRel = new Relation(user,0,other);
-                    relationDb.add(nRel);
-                }
-
-                // cas 2 : l'utilisateur et l'autre ne s'apprecient pas
-                else if (rel.getEtat_acceptation()==0 || relationDb.select(user,other).getEtat_acceptation()==0) {
-                    Toast.makeText(getContext(),getString(R.string.withdrfriends_error),Toast.LENGTH_SHORT)
-                            .show();
-                }
-
-                // cas general
-                else {
-
-                    rel.setEtat_acceptation(rel.getEtat_acceptation()-1);
-                    relationDb.update(rel);
-                }
-                relationDb.close();
-
-            }
-        });
-    }
 }

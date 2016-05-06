@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,8 +92,8 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
 
                 // cas 1 : l'autre n'a pas encore like/dislike l'utilisateur
                 if (rel==null) {
-                    Relation nRel = new Relation(user,1,other);
-                    relationDb.add(nRel);
+
+                    relationDb.add(new Relation(user,1,other));
                 }
 
                 // cas 2 : l'utilisateur et l'autre sont deja amis
@@ -108,7 +109,7 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
                     relationDb.update(rel);
                 }
                 relationDb.close();
-
+                Log.v("Fragment medium", "par le Fragment");
             }
         });
     }
@@ -132,8 +133,8 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
 
                 // cas 1 : l'autre n'a pas encore like/dislike l'utilisateur
                 if (rel==null) {
-                    Relation nRel = new Relation(user,0,other);
-                    relationDb.add(nRel);
+
+                    relationDb.add(new Relation(user,0,other));
                 }
 
                 // cas 2 : l'utilisateur et l'autre ne s'apprecient pas
