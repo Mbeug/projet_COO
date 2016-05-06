@@ -30,10 +30,10 @@ public class HistoryActivity extends MainActivity {
         setContentView(R.layout.history_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-    }
 
-    @Override
-    public View onCreateView(String name, Context context, AttributeSet attrs) {
+
+
+
         EvenementDao eventDb = new EvenementDao(this);
         SQLiteDatabase eDb = eventDb.open();
 
@@ -53,7 +53,7 @@ public class HistoryActivity extends MainActivity {
         // adapter
         ArrayAdapter<Evenement> adapter = new ArrayAdapter<Evenement>(this,R.layout.history_view,R.id.list_item_friend_textview,listevent);
         listView.setAdapter(adapter);
-        return listView;
+
     }
 
     @Override
