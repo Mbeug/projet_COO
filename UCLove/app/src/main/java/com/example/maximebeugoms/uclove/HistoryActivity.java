@@ -1,6 +1,8 @@
 package com.example.maximebeugoms.uclove;
 
+import android.app.Application;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +10,14 @@ import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.example.maximebeugoms.uclove.Database.Evenement;
+import com.example.maximebeugoms.uclove.Database.EvenementDao;
+import com.example.maximebeugoms.uclove.Database.User;
+
+import java.util.ArrayList;
 
 /**
  * Created by Menal_000 on 06-05-16.
@@ -24,7 +34,26 @@ public class HistoryActivity extends MainActivity {
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
-        return super.onCreateView(name, context, attrs);
+        EvenementDao eventDb = new EvenementDao(this);
+        SQLiteDatabase eDb = eventDb.open();
+
+        //On récupère l'application
+        Application application = (Application)Uclove.getContext();
+        Uclove app = (Uclove)application;
+
+        User user = app.getUser();
+
+        ArrayList<Evenement> listevent = eventDb.select(user.getMail());
+        eventDb.close();
+
+
+
+        ListView listView = (ListView) findViewById(R.id.histView);
+
+        // adapter
+        ArrayAdapter<Evenement> adapter = new ArrayAdapter<Evenement>(this,R.layout.history_view,R.id.list_item_friend_textview,listevent);
+        listView.setAdapter(adapter);
+        return listView;
     }
 
     @Override

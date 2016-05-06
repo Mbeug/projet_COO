@@ -40,4 +40,6 @@ public class Evenement {
         this.type = type;
     }
 
+    public String toString() {return (type + " | " + date);}
+
 }
