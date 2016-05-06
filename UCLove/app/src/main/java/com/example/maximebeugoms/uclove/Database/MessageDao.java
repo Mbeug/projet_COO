@@ -11,10 +11,12 @@ import java.util.ArrayList;
  */
 public class MessageDao extends DAOBase {
 
+
     public static final String TABLE_NAME = "Message";
-    public static final String KEY = "mail";
+    public static final String KEY = "id_message";
     public static final String DATE = "Date";
     public static final String TEXTE = "Texte";
+    public static final String ID_RELATION = "id_relation";
 
 
     public MessageDao(Context pContext) {
@@ -27,9 +29,11 @@ public class MessageDao extends DAOBase {
 
     public void add(Message m){
         ContentValues values = new ContentValues();
-        values.put(KEY, m.getMail_user());
+        values.put(KEY, m.getId());
         values.put(DATE, m.getDate());
         values.put(TEXTE, m.getTexte());
+        values.put(ID_RELATION, m.getId_relation());
+        mDb.insert(TABLE_NAME,null,values);
     }
 
     public void delete(long id){
@@ -38,23 +42,25 @@ public class MessageDao extends DAOBase {
 
     public void update(Message m){
         ContentValues values = new ContentValues();
-        values.put(KEY, m.getMail_user());
+        values.put(KEY, m.getId());
         values.put(DATE, m.getDate());
         values.put(TEXTE, m.getTexte());
-
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(m.getMail_user())});
+        values.put(ID_RELATION, m.getId_relation());
+        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(m.getId())});
     }
 
-    public ArrayList<Message> select (String Email){
-        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
+    public ArrayList<Message> select (int id_relation){
+        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE id_relation = ? ORDER BY " + DATE, new String[] {String.valueOf(id_relation)});
         ArrayList<Message> messageArrayList = new ArrayList<Message>();
         while(c.moveToNext()){
 
             String texte = c.getString(0);
             String date = c.getString(1);
-            String mail_user = c.getString(2);
+            String mail = c.getString(2);
+            int id = c.getInt(3);
+            int relation = c.getInt(4);
 
-            Message newmess = new Message(mail_user, date, texte);
+            Message newmess = new Message(mail, texte,date,relation,id);
             messageArrayList.add(newmess);
         }
         c.close();

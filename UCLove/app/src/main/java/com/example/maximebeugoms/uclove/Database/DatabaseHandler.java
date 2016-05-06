@@ -128,6 +128,9 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     MESSAGE_TEXTE + " TEXT, " +
                     MESSAGE_DATE + " DATE, " +
                     UTILISATEUR_MAIL + " STRING," +
+                    MESSAGE_ID_MESSAGE + " INTEGER, " +
+                    RELATION_ID_RELATION + " INTEGER, " +
+                    "FOREIGN KEY (" + RELATION_ID_RELATION + ") REFERENCES " + RELATION_TABLE_NAME + " (" + RELATION_ID_RELATION + ")," +
                     "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 
     public static final String PREFERENCE_TABLE_CREATE =
