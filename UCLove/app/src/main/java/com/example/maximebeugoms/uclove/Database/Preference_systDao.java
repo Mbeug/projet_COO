@@ -10,10 +10,10 @@ import android.database.Cursor;
 public class Preference_systDao extends DAOBase
 {
 
-        public static final String TABLE_NAME = "preference système";
+        public static final String TABLE_NAME = "preference";
         public static final String KEY = "mail";
         public static final String LANGUE = "langue";
-        public static final String NIVEAU_CONFIDENTIALITE = "niveau confidentialite";
+        public static final String NIVEAU_CONFIDENTIALITE = "niveau_confidentialite";
 
     public Preference_systDao(Context pContext) {
         super(pContext);
