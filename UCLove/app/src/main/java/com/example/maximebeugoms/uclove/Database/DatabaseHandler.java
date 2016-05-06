@@ -119,8 +119,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
                     RELATION_ETAT_ACCEPTATION + " INTEGER, " +
                     RELATION_RECEIVER + " STRING, " +
                     RELATION_SENDER + " STRING, " +
-                    UTILISATEUR_MAIL + " STRING, " +
-                    "FOREIGN KEY (" + UTILISATEUR_MAIL + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + ")," +
+                    RELATION_ID_RELATION + " INTEGER PRIMARY KEY, " +
                     "FOREIGN KEY (" + RELATION_RECEIVER + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + ")," +
                     "FOREIGN KEY (" + RELATION_SENDER + ") REFERENCES " + UTILISATEUR_TABLE_NAME + " (" + UTILISATEUR_MAIL + "));";
 

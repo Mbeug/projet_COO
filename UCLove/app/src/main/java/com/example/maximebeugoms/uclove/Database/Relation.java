@@ -5,25 +5,36 @@ package com.example.maximebeugoms.uclove.Database;
  */
 public class Relation {
 
+    private static int autoincrement=0;
     private int etat_acceptation;
     private String sender;
     private String receiver;
-    private String mail_user;
+    private int id;
 
-    public Relation(String sender, int etat_acceptation, String receiver, String mail_user){
+    public Relation(String sender, int etat_acceptation, String receiver){
         super();
         this.receiver = receiver;
         this.sender = sender;
         this.etat_acceptation = etat_acceptation;
-        this.mail_user = mail_user;
+        id=++autoincrement;
     }
 
-    public void setMail_user(String mail_user) {
-        this.mail_user = mail_user;
+    /**
+     * Constructeur utilise uniquement pour generer des instances de Relations
+     * depuis la db.
+     */
+    public Relation(String sender, int etat_acceptation, String receiver, int id){
+        super();
+        this.receiver = receiver;
+        this.sender = sender;
+        this.etat_acceptation = etat_acceptation;
+        this.id=id;
     }
 
-    public String getMail_user() {
-        return mail_user;
+
+
+    public int getId() {
+        return id;
     }
 
     public int getEtat_acceptation() {

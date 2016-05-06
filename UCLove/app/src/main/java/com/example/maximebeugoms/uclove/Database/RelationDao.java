@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class RelationDao extends DAOBase{
 
     public static final String TABLE_NAME = "Relation";
-    public static final String KEY = "mail";
+    public static final String ID_RELATION = "id_relation";
     public static final String ETAT_ACCEPTATION = "etat_acceptation";
     public static final String SENDER = "expediteur";
     public static final String RECEIVER = "destinataire";
@@ -24,7 +24,7 @@ public class RelationDao extends DAOBase{
         super(pContext);
     }
 
-    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER,"
+    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + ID_RELATION + " INTEGER,"
             +  ETAT_ACCEPTATION + " INTEGER,"  + RECEIVER + " TEXT," + SENDER + " TEXT);";
     public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
@@ -33,11 +33,12 @@ public class RelationDao extends DAOBase{
         values.put(ETAT_ACCEPTATION, r.getEtat_acceptation());
         values.put(SENDER, r.getSender());
         values.put(RECEIVER, r.getReceiver());
+        values.put(ID_RELATION, r.getId());
         mDb.insert(TABLE_NAME,null,values);
     }
 
     public void delete(long id){
-        mDb.delete(TABLE_NAME, KEY + " = ?", new String[] {String.valueOf(id)});
+        mDb.delete(TABLE_NAME, ID_RELATION + " = ?", new String[] {String.valueOf(id)});
     }
 
     public void update(Relation r){
@@ -45,8 +46,8 @@ public class RelationDao extends DAOBase{
         values.put(ETAT_ACCEPTATION, r.getEtat_acceptation());
         values.put(SENDER, r.getSender());
         values.put(RECEIVER, r.getReceiver());
-
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {String.valueOf(r.getMail_user())});
+        values.put(ID_RELATION, r.getId());
+        mDb.update(TABLE_NAME, values, ID_RELATION  + " = ?", new String[] {String.valueOf(r.getId())});
     }
 
     public ArrayList<Relation> select(String Email){
@@ -59,8 +60,8 @@ public class RelationDao extends DAOBase{
             int etat_relation = c.getInt(0);
             String receiver = c.getString(1);
             String sender = c.getString(2);
-            String mail_user = c.getString(3);
-            Relation rel = new Relation(sender,etat_relation,receiver,mail_user);
+            int id = c.getInt(3);
+            Relation rel = new Relation(sender,etat_relation,receiver, id);
             relationArrayList.add(rel);
         }
 
@@ -69,8 +70,8 @@ public class RelationDao extends DAOBase{
             int etat_relation = c.getInt(0);
             String receiver = c.getString(1);
             String sender = c.getString(2);
-            String mail_user = c.getString(3);
-            Relation rel = new Relation(sender,etat_relation,receiver,mail_user);
+            int id = c.getInt(3);
+            Relation rel = new Relation(sender,etat_relation,receiver,id);
             relationArrayList.add(rel);
         }
 
