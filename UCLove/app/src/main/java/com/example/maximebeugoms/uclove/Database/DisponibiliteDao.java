@@ -14,8 +14,8 @@ public class DisponibiliteDao extends DAOBase {
     private static final String DATE = "date";
     private static final String DISPO = "dispo";
 
-    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " STRING PRIMARY KEY, "
-            + DATE + " TEXT, " + DISPO + " TEXT, " + ");";
+    public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + DATE + " TEXT PRIMARY KEY, "
+            + DISPO + " TEXT, " + KEY + " STRING, " + ");";
     public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
     public DisponibiliteDao(Context pContext) {
@@ -39,16 +39,17 @@ public class DisponibiliteDao extends DAOBase {
         values.put(KEY, d.getMail_user());
         values.put(DATE, d.getDate());
         values.put(DISPO, d.getDispo());
-        mDb.update(TABLE_NAME, values, KEY  + " = ?", new String[] {d.getMail_user()});
+        mDb.update(TABLE_NAME, values, DATE  + " = ?", new String[] {d.getDate()});
     }
 
-    public Disponibilite selectionner(String Email){
-        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});
+    public Disponibilite selectionner(String date){
+        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE date = ?", new String[] {date});
         if(c.moveToNext()){
-            String mail_user = c.getString(0);
+            String mDate = c.getString(0);
             String dispo = c.getString(1);
-            String date = c.getString(2);
-            return new Disponibilite(mail_user, dispo, date);
+            String mail_user = c.getString(2);
+            c.close();
+            return new Disponibilite(mail_user, dispo, mDate);
         }
         else{
             c.close();

@@ -135,9 +135,19 @@ public class CalendarActivity extends MainActivity {
 
         DisponibiliteDao disponibiliteDao = new DisponibiliteDao(CalendarActivity.this);
         disponibiliteDao.open();
-        disponibiliteDao.add(d);
 
-        disponibiliteDao.close();
+        Disponibilite disp = disponibiliteDao.selectionner(date);
+
+        if(disp == null) {
+            disponibiliteDao.add(d);
+
+            disponibiliteDao.close();
+        }
+        else{
+            disponibiliteDao.update(d);
+
+            disponibiliteDao.close();
+        }
 
     }
 
