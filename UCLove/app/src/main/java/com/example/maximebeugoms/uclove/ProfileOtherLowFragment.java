@@ -173,7 +173,7 @@ public class ProfileOtherLowFragment extends FragmentProfileBase {
                     relationDb.update(invRel);
                 }
                 relationDb.close();
-                Log.v("ProfileBase", "passe par la classe mère");
+                Log.v("Fragment Low", "check");
             }
         });
     }

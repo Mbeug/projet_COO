@@ -2,10 +2,15 @@ package com.example.maximebeugoms.uclove;
 
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.maximebeugoms.uclove.Database.Relation;
 import com.example.maximebeugoms.uclove.Database.RelationDao;
@@ -24,6 +29,13 @@ public class FriendListActivity extends MainActivity {
         setSupportActionBar(toolbar);
 
 
+
+
+
+    }
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
         RelationDao relDb = new RelationDao(FriendListActivity.this);
         relDb.open();
 
@@ -33,8 +45,32 @@ public class FriendListActivity extends MainActivity {
 
         User user = app.getUser();
 
-        ArrayList<Relation> arrayList = relDb.select(user.getMail());
+        ArrayList<Relation> list = relDb.select(user.getMail());
+        relDb.close();
 
+        // creer la liste pour peupler l'adapter
+        ArrayList<SubRelation> listFriends = getSubRelationList(list, user.getMail());
+
+
+
+        ListView listView = (ListView) findViewById(R.id.friendslistView);
+
+        // adapter
+        ArrayAdapter<SubRelation> adapter = new ArrayAdapter<SubRelation>(this,R.layout.friendlist_view,R.id.list_item_friend_textview,listFriends);
+        listView.setAdapter(adapter);
+        return listView;
+    }
+
+    public ArrayList<SubRelation> getSubRelationList(ArrayList<Relation> list, String mail) {
+        ArrayList<SubRelation> listFriends = new ArrayList<SubRelation>();
+        for (int i=0; i<list.size(); i++) {
+            Relation rel = list.get(i);
+            if (rel.getReceiver().equals(mail)){
+                listFriends.add(new SubRelation(rel.getSender(),rel.getEtat_acceptation()));
+            }
+            listFriends.add(new SubRelation(rel.getReceiver(),rel.getEtat_acceptation()));
+        }
+        return listFriends;
     }
 
     @Override
@@ -46,5 +82,7 @@ public class FriendListActivity extends MainActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
+
 }
 

@@ -95,4 +95,10 @@
 
     <string name="addfriends_error">Cette personne est déjà votre amie !</string>
     <string name="withdrfriends_error">Vous avez déjà dislike cette personne !</string>
+    <string name="relation_toString_ami">(ami)</string>
+    <string name="relation_toString_fav" translatable="false">(fav)</string>
+    
+    <string name="event_type_profil">Profil visité</string>
+    <string name="event_type_like">Nouvelle amitiée</string>
+    <string name="historique">Historique</string>
 </resources>

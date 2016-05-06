@@ -97,7 +97,7 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
                 }
 
                 // cas 2 : l'utilisateur et l'autre sont deja amis
-                else if (rel.getEtat_acceptation()==2 || relationDb.select(user,other).getEtat_acceptation()==2) {
+                else if (rel.getEtat_acceptation()==2 || relationDb.select(user,other)!=null) {
                     Toast.makeText(getContext(),getString(R.string.addfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }

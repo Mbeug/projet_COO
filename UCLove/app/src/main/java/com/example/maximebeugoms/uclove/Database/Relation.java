@@ -1,5 +1,10 @@
 package com.example.maximebeugoms.uclove.Database;
 
+import android.app.Application;
+
+import com.example.maximebeugoms.uclove.R;
+import com.example.maximebeugoms.uclove.Uclove;
+
 /**
  * Created by damien on 25/04/16.
  */
@@ -29,6 +34,7 @@ public class Relation {
         this.sender = sender;
         this.etat_acceptation = etat_acceptation;
         this.id=id;
+        autoincrement=id;
     }
 
 
@@ -58,6 +64,7 @@ public class Relation {
     public void setSender(String sender) {
         this.sender = sender;
     }
+
 }
 
 

@@ -38,5 +38,10 @@
         android:orderInCategory="2"
         android:title="@string/rencontre"
         compat:showAsAction="never" />
+    <item
+    android:id="@+id/action_hist"
+    android:orderInCategory="99"
+    android:title="@string/historique"
+    compat:showAsAction="never" />
 
 </menu>

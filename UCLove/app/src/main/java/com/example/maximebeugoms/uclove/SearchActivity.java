@@ -21,6 +21,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.maximebeugoms.uclove.Database.Evenement;
+import com.example.maximebeugoms.uclove.Database.EvenementDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.ProfilDao;
 import com.example.maximebeugoms.uclove.Database.Search_profil;
@@ -29,6 +31,7 @@ import com.example.maximebeugoms.uclove.Database.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Date;
 
 
 /**
@@ -152,6 +155,13 @@ public class SearchActivity extends MainActivity {
                 //On récupère l'application
                 Application application = (Application) Uclove.getContext();
                 Uclove app = (Uclove) application;
+
+                // On ajoute la visite de profil a l'historique
+                EvenementDao eventDb = new EvenementDao(getApplicationContext());
+                SQLiteDatabase eDb = eventDb.open();
+                Evenement event = new Evenement(app.getUser().getMail(), new Date().toString(),getString(R.string.event_type_profil) + " " + app.getProfil().getMail());
+                eventDb.add(event);
+                eventDb.close();
 
                 //On set Profil
                 app.setProfil(profilDecouverte);

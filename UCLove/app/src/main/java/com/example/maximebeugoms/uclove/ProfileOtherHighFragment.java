@@ -14,11 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.maximebeugoms.uclove.Database.Evenement;
+import com.example.maximebeugoms.uclove.Database.EvenementDao;
 import com.example.maximebeugoms.uclove.Database.Preference_syst;
 import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.Relation;
 import com.example.maximebeugoms.uclove.Database.RelationDao;
+
+import java.util.Date;
 
 /**
  * Created by Menal_000 on 05-05-16.
@@ -111,9 +115,11 @@ public class ProfileOtherHighFragment extends FragmentProfileBase {
                 else {
 
                     invRel.setEtat_acceptation(invRel.getEtat_acceptation()+1);
+
                     relationDb.update(invRel);
                 }
                 relationDb.close();
+                Log.v("Fragment High", "check");
 
             }
         });
@@ -159,9 +165,15 @@ public class ProfileOtherHighFragment extends FragmentProfileBase {
 
                     invRel.setEtat_acceptation(invRel.getEtat_acceptation()-1);
                     relationDb.update(invRel);
+                    // On ajoute la nouvelle amitie au profil
+                    EvenementDao eventDb = new EvenementDao(getContext());
+                    SQLiteDatabase eDb = eventDb.open();
+                    Evenement event = new Evenement(app.getUser().getMail(), new Date().toString(),getString(R.string.event_type_like) + " " + app.getProfil().getMail());
+                    eventDb.add(event);
+                    eventDb.close();
                 }
                 relationDb.close();
-                Log.v("ProfileBase", "passe par la classe mère");
+                Log.v("Fragment High", "check");
             }
         });
     }

@@ -62,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
             return true;
-        } else if (id == R.id.action_meet) {
-            //intent = new Intent(this,A_COMPLETER.class);
-            //startActivity(intent);
+        } else if (id == R.id.action_hist) {
+            intent = new Intent(this,HistoryActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

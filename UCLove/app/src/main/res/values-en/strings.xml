@@ -84,4 +84,9 @@
 
     <string name="addfriends_error">That person is already your friend !</string>
     <string name="withdrfriends_error">You have already disliked that person !</string>
+    <string name="relation_toString_ami">(friends)</string>
+
+    <string name="event_type_profil">Browsed profile</string>
+    <string name="event_type_like">New friendship</string>
+    <string name="historique">Archive</string>
 </resources>

@@ -51,8 +51,8 @@ public class RelationDao extends DAOBase{
     }
 
     public ArrayList<Relation> select(String Email){
-        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE expediteur = ?", new String[] {Email});
-        Cursor d = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE destinateur = ?", new String[] {Email});
+        Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE " + SENDER+ " = ? AND " + ETAT_ACCEPTATION + " = 2", new String[] {Email});
+        Cursor d = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE " + RECEIVER + " = ? AND " + ETAT_ACCEPTATION + " = 2", new String[] {Email});
         ArrayList<Relation> relationArrayList = new ArrayList<Relation>();
 
         //We get every relation where the user is the sender
@@ -80,6 +80,7 @@ public class RelationDao extends DAOBase{
         return relationArrayList;
     }
 
+
     public Relation select(String expediteur, String destinataire){
         Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE " + SENDER + " = ? AND " + RECEIVER + " = ?", new String[] {expediteur,destinataire});
 
@@ -99,4 +100,7 @@ public class RelationDao extends DAOBase{
         c.close();
         return rel;
     }
+
+
+
 }
