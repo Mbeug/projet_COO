@@ -106,7 +106,7 @@ public class ProfileOtherHighFragment extends FragmentProfileBase {
                 }
 
                 // cas 2 : l'utilisateur et l'autre sont deja amis
-                else if (invRel.getEtat_acceptation()==2 || rel.getEtat_acceptation()==2) {
+                else if (invRel.getEtat_acceptation()==2 || rel!=null) {
                     Toast.makeText(getContext(),getString(R.string.addfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -155,7 +155,7 @@ public class ProfileOtherHighFragment extends FragmentProfileBase {
                 }
 
                 // cas 2 : l'utilisateur et l'autre ne s'apprecient pas
-                else if (invRel.getEtat_acceptation()==0 || rel.getEtat_acceptation()==0) {
+                else if (invRel.getEtat_acceptation()==0 || rel!=null) {
                     Toast.makeText(getContext(),getString(R.string.withdrfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }

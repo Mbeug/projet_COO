@@ -14,11 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.maximebeugoms.uclove.Database.Evenement;
+import com.example.maximebeugoms.uclove.Database.EvenementDao;
 import com.example.maximebeugoms.uclove.Database.Preference_syst;
 import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
 import com.example.maximebeugoms.uclove.Database.Relation;
 import com.example.maximebeugoms.uclove.Database.RelationDao;
+
+import java.util.Date;
 
 /**
  * Created by Menal_000 on 05-05-16.
@@ -88,16 +92,21 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
                 RelationDao relationDb = new RelationDao(getContext());
                 SQLiteDatabase rDb = relationDb.open();
 
-                Relation rel = relationDb.select(other, user);
-
+                Relation invRel = relationDb.select(other, user);
+                Relation rel = relationDb.select(user,other);
                 // cas 1 : l'autre n'a pas encore like/dislike l'utilisateur
-                if (rel==null) {
-
-                    relationDb.add(new Relation(user,1,other));
+                if (invRel==null) {
+                    if (rel==null) {
+                        Relation nRel = new Relation(user,1,other);
+                        relationDb.add(nRel);
+                    } else {
+                        Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 }
 
                 // cas 2 : l'utilisateur et l'autre sont deja amis
-                else if (rel.getEtat_acceptation()==2 || relationDb.select(user,other)!=null) {
+                else if (invRel.getEtat_acceptation()==2 || rel!=null) {
                     Toast.makeText(getContext(),getString(R.string.addfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -105,11 +114,13 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
                 // cas general
                 else {
 
-                    rel.setEtat_acceptation(rel.getEtat_acceptation()+1);
-                    relationDb.update(rel);
+                    invRel.setEtat_acceptation(invRel.getEtat_acceptation()+1);
+
+                    relationDb.update(invRel);
                 }
                 relationDb.close();
-                Log.v("Fragment medium", "par le Fragment");
+                Log.v("Fragment Medium", "check");
+
             }
         });
     }
@@ -129,16 +140,22 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
                 RelationDao relationDb = new RelationDao(getContext());
                 SQLiteDatabase rDb = relationDb.open();
 
-                Relation rel = relationDb.select(other, user);
+                Relation invRel = relationDb.select(other, user);
+                Relation rel = relationDb.select(user,other);
 
                 // cas 1 : l'autre n'a pas encore like/dislike l'utilisateur
-                if (rel==null) {
-
-                    relationDb.add(new Relation(user,0,other));
+                if (invRel==null) {
+                    if (rel==null) {
+                        Relation nRel = new Relation(user,0,other);
+                        relationDb.add(nRel);
+                    } else {
+                        Toast.makeText(getContext(),"dislike",Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 }
 
                 // cas 2 : l'utilisateur et l'autre ne s'apprecient pas
-                else if (rel.getEtat_acceptation()==0 || relationDb.select(user,other).getEtat_acceptation()==0) {
+                else if (invRel.getEtat_acceptation()==0 || rel!=null) {
                     Toast.makeText(getContext(),getString(R.string.withdrfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -146,11 +163,17 @@ public class ProfileOtherMediumFragment extends FragmentProfileBase {
                 // cas general
                 else {
 
-                    rel.setEtat_acceptation(rel.getEtat_acceptation()-1);
-                    relationDb.update(rel);
+                    invRel.setEtat_acceptation(invRel.getEtat_acceptation()-1);
+                    relationDb.update(invRel);
+                    // On ajoute la nouvelle amitie au profil
+                    EvenementDao eventDb = new EvenementDao(getContext());
+                    SQLiteDatabase eDb = eventDb.open();
+                    Evenement event = new Evenement(app.getUser().getMail(), new Date().toString(),getString(R.string.event_type_like) + " " + app.getProfil().getMail());
+                    eventDb.add(event);
+                    eventDb.close();
                 }
                 relationDb.close();
-
+                Log.v("Fragment Medium", "check");
             }
         });
     }

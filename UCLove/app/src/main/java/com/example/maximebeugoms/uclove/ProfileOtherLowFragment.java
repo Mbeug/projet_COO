@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.maximebeugoms.uclove.Database.Evenement;
+import com.example.maximebeugoms.uclove.Database.EvenementDao;
 import com.example.maximebeugoms.uclove.Database.Preference_syst;
 import com.example.maximebeugoms.uclove.Database.Preference_systDao;
 import com.example.maximebeugoms.uclove.Database.Profil;
@@ -25,6 +27,7 @@ import com.example.maximebeugoms.uclove.Database.Relation;
 import com.example.maximebeugoms.uclove.Database.RelationDao;
 
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by Menal_000 on 05-05-16.
@@ -114,7 +117,7 @@ public class ProfileOtherLowFragment extends FragmentProfileBase {
                 }
 
                 // cas 2 : l'utilisateur et l'autre sont deja amis
-                else if (invRel.getEtat_acceptation()==2 || rel.getEtat_acceptation()==2) {
+                else if (invRel.getEtat_acceptation()==2 || rel!=null) {
                     Toast.makeText(getContext(),getString(R.string.addfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -123,9 +126,11 @@ public class ProfileOtherLowFragment extends FragmentProfileBase {
                 else {
 
                     invRel.setEtat_acceptation(invRel.getEtat_acceptation()+1);
+
                     relationDb.update(invRel);
                 }
                 relationDb.close();
+                Log.v("Fragment Low", "check");
 
             }
         });
@@ -161,7 +166,7 @@ public class ProfileOtherLowFragment extends FragmentProfileBase {
                 }
 
                 // cas 2 : l'utilisateur et l'autre ne s'apprecient pas
-                else if (invRel.getEtat_acceptation()==0 || rel.getEtat_acceptation()==0) {
+                else if (invRel.getEtat_acceptation()==0 || rel!=null) {
                     Toast.makeText(getContext(),getString(R.string.withdrfriends_error),Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -171,6 +176,12 @@ public class ProfileOtherLowFragment extends FragmentProfileBase {
 
                     invRel.setEtat_acceptation(invRel.getEtat_acceptation()-1);
                     relationDb.update(invRel);
+                    // On ajoute la nouvelle amitie au profil
+                    EvenementDao eventDb = new EvenementDao(getContext());
+                    SQLiteDatabase eDb = eventDb.open();
+                    Evenement event = new Evenement(app.getUser().getMail(), new Date().toString(),getString(R.string.event_type_like) + " " + app.getProfil().getMail());
+                    eventDb.add(event);
+                    eventDb.close();
                 }
                 relationDb.close();
                 Log.v("Fragment Low", "check");

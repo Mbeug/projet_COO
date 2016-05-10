@@ -156,6 +156,9 @@ public class SearchActivity extends MainActivity {
                 Application application = (Application) Uclove.getContext();
                 Uclove app = (Uclove) application;
 
+                //On set Profil
+                app.setProfil(profilDecouverte);
+
                 // On ajoute la visite de profil a l'historique
                 EvenementDao eventDb = new EvenementDao(getApplicationContext());
                 SQLiteDatabase eDb = eventDb.open();
@@ -163,8 +166,7 @@ public class SearchActivity extends MainActivity {
                 eventDb.add(event);
                 eventDb.close();
 
-                //On set Profil
-                app.setProfil(profilDecouverte);
+
 
                 Intent intent = new Intent(SearchActivity.this, ProfileOtherActivity.class);
                 startActivity(intent);
