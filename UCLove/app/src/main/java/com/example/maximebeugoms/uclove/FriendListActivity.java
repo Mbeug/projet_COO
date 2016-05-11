@@ -63,7 +63,9 @@ public class FriendListActivity extends MainActivity {
             if (rel.getReceiver().equals(mail)){
                 listFriends.add(new SubRelation(rel.getSender(),rel.getEtat_acceptation()));
             }
-            listFriends.add(new SubRelation(rel.getReceiver(),rel.getEtat_acceptation()));
+            else {
+                listFriends.add(new SubRelation(rel.getReceiver(),rel.getEtat_acceptation()));
+            }
         }
         return listFriends;
     }
