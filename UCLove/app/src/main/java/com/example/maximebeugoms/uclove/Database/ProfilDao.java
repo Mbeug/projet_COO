@@ -78,7 +78,7 @@ public class ProfilDao extends DAOBase {
         }
 
         /**
-         * @param Email l'identifiant du métier à récupérer
+         * @param Email l'identifiant du user récupérer
          */
         public Profil selectionner(String Email) {
             Cursor c = mDb.rawQuery("SELECT " + "*" + " FROM " + TABLE_NAME + " WHERE mail = ?", new String[] {Email});

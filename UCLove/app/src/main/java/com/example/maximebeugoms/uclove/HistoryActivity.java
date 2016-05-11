@@ -51,7 +51,7 @@ public class HistoryActivity extends MainActivity {
         ListView listView = (ListView) findViewById(R.id.histView);
 
         // adapter
-        ArrayAdapter<Evenement> adapter = new ArrayAdapter<Evenement>(this,R.layout.history_view,R.id.list_item_friend_textview,listevent);
+        ArrayAdapter<Evenement> adapter = new ArrayAdapter<Evenement>(this,android.R.layout.simple_list_item_2,listevent);
         listView.setAdapter(adapter);
 
     }

@@ -29,13 +29,6 @@ public class FriendListActivity extends MainActivity {
         setSupportActionBar(toolbar);
 
 
-
-
-
-    }
-
-    @Override
-    public View onCreateView(String name, Context context, AttributeSet attrs) {
         RelationDao relDb = new RelationDao(FriendListActivity.this);
         relDb.open();
 
@@ -53,13 +46,15 @@ public class FriendListActivity extends MainActivity {
 
 
 
-        ListView listView = (ListView) findViewById(R.id.friendslistView);
+        final ListView listView = (ListView) findViewById(R.id.friendslistView);
 
         // adapter
-        ArrayAdapter<SubRelation> adapter = new ArrayAdapter<SubRelation>(this,R.layout.friendlist_view,R.id.list_item_friend_textview,listFriends);
+        ArrayAdapter<SubRelation> adapter = new ArrayAdapter<SubRelation>(this,android.R.layout.simple_list_item_1,listFriends);
         listView.setAdapter(adapter);
-        return listView;
+
+
     }
+
 
     public ArrayList<SubRelation> getSubRelationList(ArrayList<Relation> list, String mail) {
         ArrayList<SubRelation> listFriends = new ArrayList<SubRelation>();

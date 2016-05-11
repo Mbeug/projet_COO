@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<TextView
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="Nom"
     android:minHeight="48dp"
     android:id="@+id/list_item_friend_textview"
-    android:gravity="center_vertical"/>
-</RelativeLayout>
+    android:gravity="center_vertical"
+     />
+
