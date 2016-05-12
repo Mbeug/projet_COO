@@ -25,8 +25,8 @@ import java.util.ArrayList;
 public class HistoryActivity extends MainActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.history_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,7 +51,7 @@ public class HistoryActivity extends MainActivity {
         ListView listView = (ListView) findViewById(R.id.histView);
 
         // adapter
-        ArrayAdapter<Evenement> adapter = new ArrayAdapter<Evenement>(this,android.R.layout.simple_list_item_2,listevent);
+        ArrayAdapter<Evenement> adapter = new ArrayAdapter<Evenement>(this,android.R.layout.simple_list_item_1,listevent);
         listView.setAdapter(adapter);
 
     }
